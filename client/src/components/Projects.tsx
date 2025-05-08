@@ -19,10 +19,10 @@ const Projects: React.FC = () => {
   const projects: ProjectType[] = [
     {
       id: 1,
-      title: "개인 AI 어시스턴트",
-      description: "GPT 모델을 활용한 맞춤형 대화형 어시스턴트. 일정 관리, 정보 검색, 학습 지원 등 다양한 기능을 제공합니다.",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      technologies: ["Python", "OpenAI API", "Flask", "React"],
+      title: "AI 뉴스 크롤러 & 블로그 생성기",
+      description: "인공지능 뉴스를 자동으로 크롤링하여 수집하고, 해당 뉴스를 기반으로 최신 트렌드를 반영한 블로그 글을 자동 생성하는 시스템입니다.",
+      image: "./images/projects/news-crawler-blog-generator.svg",
+      technologies: ["Python", "OpenAI API", "BeautifulSoup", "FastAPI", "React"],
       linkUrl: "#",
       githubUrl: "#"
     },
