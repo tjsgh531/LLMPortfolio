@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
       image: "./images/projects/news-crawler.png",
       technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
       linkUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"
     },
     {
       id: 2,
