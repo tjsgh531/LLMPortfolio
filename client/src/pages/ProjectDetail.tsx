@@ -163,22 +163,14 @@ const ProjectDetail: React.FC = () => {
                   <pre>
                     <span className="code-keyword">def</span> <span className="code-function">generate_blog_post</span>(<span className="code-variable">article_data</span>):
                     <br />    <span className="code-comment"># 시스템 메시지로 AI의 페르소나 설정</span>
-                    <br />    <span className="code-variable">system_message</span> = <span className="code-string">"""
-                    당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다.
-                    기술적 정확성을 유지하면서도 비전문가도 이해할 수 있는 명확한 글을 작성해야 합니다.
-                    항상 객관적이고 균형 잡힌 관점에서 분석하며, 기술의 실제 영향과 적용 사례를 포함하세요.
-                    """</span>
+                    <br />    <span className="code-variable">system_message</span> = <span className="code-string">"당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다."</span>
                     <br />    
-                    <br />    <span className="code-comment"># 사용자 프롬프트 설계</span>
-                    <br />    <span className="code-variable">title</span> = <span className="code-variable">article_data</span>[<span className="code-string">"title"</span>]
-                    <br />    <span className="code-variable">content</span> = <span className="code-variable">article_data</span>[<span className="code-string">"content"</span>]
-                    <br />    <span className="code-variable">companies</span> = <span className="code-variable">article_data</span>[<span className="code-string">"companies"</span>]
-                    <br />    
-                    <br />    <span className="code-variable">prompt</span> = <span className="code-string">f"""
+                    <br />    <span className="code-comment"># 프롬프트 기본 구조</span>
+                    <br />    <span className="code-variable">prompt_template</span> = <span className="code-string">"""
                     다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:
-                    제목: {title}
-                    내용: {content}
-                    관련 기업: {companies}
+                    제목: [기사 제목]
+                    내용: [기사 내용]
+                    관련 기업: [관련 기업들]
                     
                     다음 지침을 따라주세요:
                     1. 전문 용어를 소개할 때마다 간략한 설명을 덧붙이세요.
@@ -190,12 +182,22 @@ const ProjectDetail: React.FC = () => {
                        - 결론: 기술 전망과 의의 (1문단)
                     """</span>
                     <br />    
+                    <br />    <span className="code-comment"># 실제 데이터로 프롬프트 생성</span>
+                    <br />    <span className="code-variable">article_title</span> = <span className="code-variable">article_data</span>[<span className="code-string">"title"</span>]
+                    <br />    <span className="code-variable">article_content</span> = <span className="code-variable">article_data</span>[<span className="code-string">"content"</span>]
+                    <br />    <span className="code-variable">related_companies</span> = <span className="code-variable">article_data</span>[<span className="code-string">"companies"</span>]
+                    <br />    
+                    <br />    <span className="code-variable">prompt</span> = <span className="code-variable">prompt_template</span>.<span className="code-function">format</span>(
+                    <br />        <span className="code-property">article_title</span>=<span className="code-variable">article_title</span>,
+                    <br />        <span className="code-property">article_content</span>=<span className="code-variable">article_content</span>,
+                    <br />        <span className="code-property">related_companies</span>=<span className="code-variable">related_companies</span>
+                    <br />    )
+                    <br />    
                     <br />    <span className="code-comment"># OpenAI API 호출</span>
                     <br />    <span className="code-variable">response</span> = <span className="code-variable">openai</span>.<span className="code-class">ChatCompletion</span>.<span className="code-function">create</span>(
                     <br />        <span className="code-property">model</span>=<span className="code-string">"gpt-4"</span>,
                     <br />        <span className="code-property">messages</span>=[
-                    <br />            {'{'}.<span className="code-string">"role"</span>: <span className="code-string">"system"</span>, <span className="code-string">"content"</span>: <span className="code-variable">system_message</span>{'}'},
-                    <br />            {'{'}.<span className="code-string">"role"</span>: <span className="code-string">"user"</span>, <span className="code-string">"content"</span>: <span className="code-variable">prompt</span>{'}'}
+                    <br />            <span className="code-comment"># 메시지 배열</span>
                     <br />        ],
                     <br />        <span className="code-property">temperature</span>=<span className="code-number">0.7</span>,
                     <br />        <span className="code-property">max_tokens</span>=<span className="code-number">1800</span>
