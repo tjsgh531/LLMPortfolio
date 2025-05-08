@@ -120,10 +120,10 @@ const ProjectDetail: React.FC = () => {
               <div className="bg-primary-50 p-5 rounded-lg border border-primary-100">
                 <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">데이터 수집 파이프라인</h3>
                 <p className="text-gray-700 mb-3">
-                  Selenium과 BeautifulSoup을 결합하여 여러 AI 뉴스 사이트에서 데이터를 수집합니다. 크롬 드라이버를 통해 동적 콘텐츠도 처리할 수 있도록 구현했습니다.
+                  Selenium과 BeautifulSoup을 결합하여 AI 타임즈 같은 AI 뉴스 사이트에서 데이터를 수집합니다. 헤드리스 모드 크롬 드라이버를 통해 동적 콘텐츠도 처리할 수 있으며, 주요 AI 기업 관련 뉴스를 필터링하도록 구현했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'async def crawl_news():\n    driver = webdriver.Chrome()\n    urls = [\'https://aisite1.com\', \'https://aisite2.com\']\n    for url in urls:\n        driver.get(url)\n        soup = BeautifulSoup(driver.page_source, \'html.parser\')\n        articles = soup.find_all(\'article\', class_=\'news-item\')'}</pre>
+                  <pre>{'class AITimesCrawler:\n    def __init__(self):\n        self.results = []\n        options = Options()\n        options.add_argument("--headless")\n        options.add_argument("--no-sandbox")\n        self.driver = webdriver.Chrome(options=options)\n        \n    def crawl(self, max_pages=3):\n        for page in range(1, max_pages + 1):\n            url = f"https://www.aitimes.com/news/articleList.html?page={page}"\n            self.driver.get(url)\n            time.sleep(2)\n            \n            try:\n                ul = self.driver.find_element(By.CSS_SELECTOR, "ul.type2")\n                li_list = ul.find_elements(By.TAG_NAME, "li")\n                \n                for li in li_list:\n                    title_tag = li.find_element(By.CSS_SELECTOR, "h4.titles > a")\n                    title = title_tag.text.strip()\n                    link = title_tag.get_attribute("href")\n                    # ... 기사 메타데이터 추출 로직 ...\n            except Exception as e:\n                print("❌ 기사 목록 수집 실패:", e)\n        \n        return pd.DataFrame(self.results)\n        \n    def extract_articles_with_known_companies(self, df):\n        # 주요 AI 기업 필터링 로직\n        # AI_COMPANY_ALIASES 딕셔너리를 통해 기업명 매핑\n        # ...'}</pre>
                 </div>
               </div>
               
@@ -140,20 +140,63 @@ const ProjectDetail: React.FC = () => {
               <div className="bg-primary-50 p-5 rounded-lg border border-primary-100">
                 <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">OpenAI API 활용 및 프롬프트 설계</h3>
                 <p className="text-gray-700 mb-3">
-                  GPT 모델이 고품질 블로그 포스트를 생성하도록 세심하게 프롬프트를 설계했습니다. 컨텍스트 제공, 스타일 가이드, 출력 형식을 포함한 정교한 프롬프트 엔지니어링을 적용했습니다.
+                  GPT-4 모델이 고품질 블로그 포스트를 생성하도록 세심하게 프롬프트를 설계했습니다. 특히 AI 기술 트렌드를 다루는 전문성과 함께 일반 독자도 이해할 수 있는 설명력을 균형있게 갖추도록 했습니다. 또한 체계적인 구조와 전문 용어 해설을 포함한 정교한 프롬프트 엔지니어링을 적용했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'def generate_blog_post(article):\n    prompt = f"""\n    다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:\n    제목: {article.title}\n    내용: {article.content}\n    \n    다음 지침을 따라주세요:\n    1. 전문 용어를 설명하며 진행하세요.\n    2. 기술의 잠재적 영향을 분석하세요.\n    3. 실제 적용 사례를 포함하세요.\n    4. 3개의 소제목으로 구성하세요.\n    """\n    \n    response = openai.ChatCompletion.create(\n        model="gpt-4",\n        messages=[{"role": "system", "content": "당신은 AI 기술 전문 작가입니다."},\n                 {"role": "user", "content": prompt}],\n        temperature=0.7,\n        max_tokens=1500\n    )\n    \n    return response.choices[0].message["content"]'}</pre>
+                  <pre>{'def generate_blog_post(article):\n    # 시스템 메시지로 AI의 페르소나 설정\n    system_message = """\n    당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다.\n    기술적 정확성을 유지하면서도 비전문가도 이해할 수 있는 명확한 글을 작성해야 합니다.\n    항상 객관적이고 균형 잡힌 관점에서 분석하며, 기술의 실제 영향과 적용 사례를 포함하세요.\n    """\n    \n    # 사용자 프롬프트 설계\n    prompt = f"""\n    다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:\n    제목: {article.title}\n    내용: {article.content}\n    관련 기업: {article.companies}\n    \n    다음 지침을 따라주세요:\n    1. 전문 용어를 소개할 때마다 간략한 설명을 덧붙이세요.\n    2. 기술의 잠재적 영향과 산업 적용 가능성을 분석하세요.\n    3. 실제 사용 사례나 미래 활용 방안을 포함하세요.\n    4. 다음 구조로 글을 작성하세요:\n       - 도입부: 핵심 내용 요약 (1-2문단)\n       - 본문: 3개의 소제목으로 구성된 상세 내용\n       - 결론: 기술 전망과 의의 (1문단)\n    """\n    \n    # OpenAI API 호출\n    response = openai.ChatCompletion.create(\n        model="gpt-4",\n        messages=[\n            {"role": "system", "content": system_message},\n            {"role": "user", "content": prompt}\n        ],\n        temperature=0.7,\n        max_tokens=1800\n    )\n    \n    return response.choices[0].message["content"]'}</pre>
                 </div>
               </div>
               
               <div className="bg-primary-50 p-5 rounded-lg border border-primary-100">
                 <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">객체지향 설계 및 자동화</h3>
                 <p className="text-gray-700 mb-3">
-                  유지보수와 확장이 용이하도록 모듈화된 객체지향 구조로 시스템을 설계했습니다. 스케줄러를 통한 자동화로 정기적인 뉴스 수집 및 블로그 생성이 가능합니다.
+                  유지보수와 확장이 용이하도록 모듈화된 객체지향 구조로 시스템을 설계했습니다. 특히 AITimesCrawler, NewsFilter, BlogGenerator 등 역할에 따라 명확히 분리된 클래스들과 각 클래스 간의 효율적인 상호작용을 중점적으로 구현했습니다. 또한 APScheduler 라이브러리를 활용한 자동화 시스템으로 정기적인 뉴스 수집 및 블로그 생성이 가능합니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'class NewsCrawler:\n    def __init__(self, config):\n        self.sources = config["sources"]\n        self.db_manager = DatabaseManager(config["database"])\n        self.content_analyzer = ContentAnalyzer()\n    \n    def run(self):\n        for source in self.sources:\n            articles = self._crawl_source(source)\n            filtered_articles = self.content_analyzer.filter_relevant(articles)\n            self.db_manager.save_articles(filtered_articles)\n\nclass BlogGenerator:\n    def __init__(self, config):\n        self.db_manager = DatabaseManager(config["database"])\n        self.ai_client = OpenAIClient(config["api_key"])\n    \n    def generate_from_latest(self, count=5):\n        articles = self.db_manager.get_latest_articles(count)\n        for article in articles:\n            blog_content = self.ai_client.generate_blog(article)\n            self.db_manager.save_blog(article.id, blog_content)\n\n# 자동화 스케줄러 설정\ndef schedule_jobs():\n    scheduler = BlockingScheduler()\n    crawler = NewsCrawler(config)\n    generator = BlogGenerator(config)\n    \n    scheduler.add_job(crawler.run, "interval", hours=6)\n    scheduler.add_job(generator.generate_from_latest, "interval", hours=8)\n    scheduler.start()'}</pre>
+                  <pre>
+                    {`# 기업 이름 매핑 및 별칭 정의
+AI_COMPANY_ALIASES = {
+    "OpenAI": ["OpenAI", "오픈AI"],
+    "Google": ["Google", "구글"],
+    "DeepMind": ["DeepMind", "딥마인드"]
+}
+
+# 크롤러 구현 클래스
+class AITimesCrawler:
+    def __init__(self):
+        self.results = []
+        options = Options()
+        options.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=options)
+        
+    def crawl(self, max_pages=3):
+        # 뉴스 페이지별 수집 구현
+        pass
+        
+    def extract_articles_with_known_companies(self, df):
+        # 주요 AI 기업 필터링 로직
+        pass
+        
+    def add_article_content(self, df):
+        # 상세 기사 내용 수집
+        pass
+
+# 자동화 스케줄러 설정
+def schedule_jobs():
+    scheduler = BlockingScheduler()
+    crawler = AITimesCrawler()
+    processor = ArticleProcessor(db_manager)
+    generator = BlogGenerator(config["openai_key"])
+    
+    # 6시간마다 뉴스 수집 실행
+    scheduler.add_job(crawler_job, "interval", hours=6)
+    
+    # 8시간마다 블로그 생성 실행
+    scheduler.add_job(generator_job, "interval", hours=8)
+    
+    print("✅ 자동화 스케줄러가 시작되었습니다")
+    scheduler.start()`}
+                  </pre>
                 </div>
               </div>
             </div>
