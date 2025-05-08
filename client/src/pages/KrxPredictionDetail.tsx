@@ -9,24 +9,25 @@ export default function KrxPredictionDetail() {
     title: "KRX 금융 언어 모델 대회",
     duration: "25.03.15 ~ 25.04.10",
     fullDescription: 
-      "본 프로젝트는 국내 주식시장(KRX)에서 다양한 기계학습 모델들의 주가 예측 성능을 비교 분석한 연구입니다. " +
-      "기업의 규모와 산업군에 따라 서로 다른 모델이 어떤 예측 성능을 보이는지 체계적으로 분석했으며, " +
-      "특히 v4_mi 모델이 대부분의 카테고리에서 가장 높은 예측 정확도를 보였습니다.",
+      "본 대회는 한국거래소(KRX)와 금융 특화 언어 모델 전문 기업 원라인AI가 공동 개발한 'KRX-Bench'를 통해 금융 특화 언어 모델의 성능을 평가하는 대회입니다. " +
+      "참가자들은 금융 시장의 효율성을 높이고 투자자들에게 더욱 정확하고 유용한 정보를 제공하는 언어 모델을 개발하는 것이 목표입니다. " +
+      "우리 팀은 SFT(Supervised Fine-Tuning), DAPT(Domain-Adaptive Pre-Training), Adapting LLM, QLoRA 기술을 활용해 Qwen2-7B-Instruct 모델을 금융 도메인에 최적화했고, 예선 2위와 본선 13위의 성적을 달성했습니다.",
     features: [
-      "5가지 다른 예측 모델 비교 (qwenz-7B-Instruct, v1, v2, v3, v4_mi)",
-      "6개 카테고리별 성능 분석 (전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)",
-      "모델별 성능 시각화 및 통계적 분석",
-      "산업군에 따른 최적 모델 제안",
-      "시계열 데이터의 패턴 인식 능력 비교"
+      "금융 도메인 특화 언어 모델 개발 (Qwen2-7B-Instruct 기반)",
+      "SFT(Supervised Fine-Tuning)를 통한 금융 지식 학습",
+      "DAPT(Domain-Adaptive Pre-Training)로 금융 데이터 이해력 강화",
+      "QLoRA 활용한 경량화 및 효율적 학습 최적화",
+      "KRX-Bench를 통한 정량적 성능 평가 및 분석",
+      "예선 2위, 본선 13위 달성"
     ],
     challenges: [
-      "비정형 금융 데이터의 효과적 전처리",
-      "시계열 특성을 고려한 모델 평가 방법론 설계",
-      "모델 간 공정한 비교를 위한 실험 설계",
-      "산업별 특성을 반영한 모델 최적화"
+      "금융 전문 용어 및 복잡한 시장 개념 이해 학습",
+      "제한된 컴퓨팅 리소스에서 효율적인 학습 방법론 설계",
+      "금융 데이터의 특수성을 고려한 모델 최적화",
+      "다양한 금융 카테고리에 대한 균형 있는 성능 조정"
     ],
     image: "/images/projects/model-performance.png",
-    technologies: ["Python", "Pandas", "Scikit-learn", "PyTorch", "Matplotlib"],
+    technologies: ["Qwen2-7B-Instruct", "SFT", "DAPT", "QLoRA", "Adapting LLM", "PyTorch", "HuggingFace"],
     githubUrl: "https://github.com/username/krx-prediction-models"
   };
 
@@ -50,9 +51,12 @@ export default function KrxPredictionDetail() {
             <div className="mb-8">
               <img 
                 src={project.image} 
-                alt={`${project.title} 스크린샷`}
+                alt={`${project.title} 결과 분석 그래프`}
                 className="w-full h-auto rounded-lg"
               />
+              <p className="text-sm text-gray-500 mt-2 text-center">
+                KRX-Bench 평가에서 우리 팀 모델의 예선 성적 결과 그래프 (예선 2위, 본선 13위 달성)
+              </p>
             </div>
             
             <p className="text-gray-700 mb-8 text-lg leading-relaxed">
@@ -79,26 +83,26 @@ export default function KrxPredictionDetail() {
               ))}
             </ul>
             
-            <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">연구 결과 상세</h2>
+            <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">대회 결과 및 모델 개발 과정</h2>
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <p className="text-gray-700 mb-4">
-                연구 결과, v4_mi 모델이 대부분의 카테고리에서 가장 높은 예측 정확도를 보였습니다. 특히 국가기업과 금융에이전트 카테고리에서 각각 0.92와 0.77의 높은 점수를 기록했습니다. 반면, 기존 모델(qwenz-7B-Instruct)은 대부분의 카테고리에서 저조한 성능을 보였습니다.
+                우리 팀은 KRX-Bench 평가 기준에서 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 높은 성능을 보이는 모델을 개발했습니다. 예선에서 2위, 본선에서 13위를 달성한 이 모델은 Qwen2-7B-Instruct를 기반으로 했습니다.
               </p>
               
               <div className="space-y-6">
                 <div className="bg-gray-50 p-3 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-1">성능 결과 요약</h4>
-                  <p className="text-sm text-gray-600">전체 평균 기준으로 v4_mi(0.61), v3(0.59), v2(0.50), qwenz-7B-Instruct(0.44), v1(0.39) 순으로 높은 성능을 보였습니다.</p>
+                  <h4 className="font-semibold text-primary-700 mb-1">모델 개발 과정</h4>
+                  <p className="text-sm text-gray-600">1) 금융 도메인 데이터로 DAPT 적용 → 2) 금융 전문가 답변 데이터셋으로 SFT 적용 → 3) QLoRA로 효율적 파라미터 최적화 → 4) KRX-Bench로 성능 평가 및 개선</p>
                 </div>
                 
                 <div className="bg-gray-50 p-3 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-1">카테고리별 최고 성능 모델</h4>
-                  <p className="text-sm text-gray-600">국가기업: v4_mi(0.92), 금융에이전트: v4_mi(0.77), 주가예측: v4_mi(0.55), 금융시장: v3(0.44)</p>
+                  <h4 className="font-semibold text-primary-700 mb-1">카테고리별 성능 개선</h4>
+                  <p className="text-sm text-gray-600">다양한 금융 카테고리에서 균형 잡힌 성능을 위해 카테고리별 특화 데이터 추가 학습을 진행했으며, 특히 국가기업과 금융에이전트 카테고리에서 큰 성능 향상을 이루었습니다.</p>
                 </div>
                 
                 <div className="bg-gray-50 p-3 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-1">모델 성능 개선 요인</h4>
-                  <p className="text-sm text-gray-600">v4_mi 모델의 우수한 성능은 금융 도메인 데이터에 특화된 학습과 시계열 패턴 인식 능력 향상에서 기인합니다.</p>
+                  <h4 className="font-semibold text-primary-700 mb-1">대회 성적</h4>
+                  <p className="text-sm text-gray-600">예선에서 약 100팀 중 2위를 차지했으며, 본선에서는 13위를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.</p>
                 </div>
               </div>
             </div>

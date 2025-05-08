@@ -31,9 +31,9 @@ const Projects: React.FC = () => {
     {
       id: 2,
       title: "KRX 금융 언어 모델 대회",
-      description: "다양한 버전의 예측 모델을 통해 국내 주식 시장의 예측 성능을 비교 분석한 프로젝트입니다. 기업 규모와 산업군에 따른 성능 차이를 시각화했습니다.",
+      description: "KRX와 원라인AI가 공동 개발한 'KRX-Bench'로 평가받는 금융 특화 언어 모델 개발 대회에 참가했습니다. SFT, DAPT, QLoRA 기술을 활용해 Qwen2-7B-it 모델을 향상시켜 예선 2위, 본선 13위를 달성했습니다.",
       image: "/images/projects/model-performance.png",
-      technologies: ["Python", "Pandas", "Scikit-learn", "PyTorch", "Matplotlib"],
+      technologies: ["Qwen2-7B-Instruct", "SFT", "DAPT", "QLoRA", "Adapting LLM", "PyTorch"],
       linkUrl: "/project/krx-prediction",
       githubUrl: "https://github.com/username/krx-prediction-models"
     },
