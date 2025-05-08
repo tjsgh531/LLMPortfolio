@@ -121,45 +121,43 @@ const ProjectDetail: React.FC = () => {
                 본 시스템은 뉴스 크롤링부터 블로그 생성까지 파이프라인 형태로 이어지는 데이터 흐름을 갖고 있습니다. 각 단계는 독립적인 모듈로 분리되어 있어 유지보수와 확장이 용이하며, 전체 프로세스는 자동화되어 있습니다.
               </p>
               
-              <div className="flex justify-center my-6">
-                <img 
-                  src="/images/architecture/news-crawler-architecture.svg" 
-                  alt="AI 뉴스 크롤러 시스템 아키텍처" 
-                  className="max-w-md w-full"
-                />
+              <div className="flex flex-col md:flex-row gap-6 my-6 items-center">
+                <div className="md:w-2/5">
+                  <img 
+                    src="/images/architecture/news-crawler-architecture.svg" 
+                    alt="AI 뉴스 크롤러 시스템 아키텍처" 
+                    className="max-w-xs mx-auto w-full"
+                  />
+                </div>
+                <div className="md:w-3/5 space-y-3">
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">1. 뉴스 크롤러</h4>
+                    <p className="text-sm text-gray-600">Selenium과 BeautifulSoup을 활용해 AI 관련 뉴스 사이트에서 최신 기사를 수집합니다.</p>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">2. 뉴스 전처리 시스템</h4>
+                    <p className="text-sm text-gray-600">수집된 기사에서 주요 AI 기업 관련 내용을 추출하고 정제합니다.</p>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">3. PostgreSQL 데이터베이스</h4>
+                    <p className="text-sm text-gray-600">기업별로 정리된 뉴스 기사를 저장하고 중복을 관리합니다.</p>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">4. 블로그 글 생성기 (OpenAI API)</h4>
+                    <p className="text-sm text-gray-600">GPT-4 모델을 활용해 저장된 뉴스를 분석하고 통합적인 블로그 콘텐츠를 생성합니다.</p>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">5. 블로그 스타일 포매터</h4>
+                    <p className="text-sm text-gray-600">생성된 콘텐츠에 마크다운 형식과 일관된 스타일을 적용합니다.</p>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded border border-gray-200">
+                    <h4 className="font-semibold text-primary-700 mb-1">6. 저장 또는 업로드</h4>
+                    <p className="text-sm text-gray-600">최종 블로그를 로컬 저장소에 저장하거나 웹 플랫폼에 자동 업로드합니다.</p>
+                  </div>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">1. 뉴스 크롤러</h4>
-                  <p className="text-sm text-gray-600">Selenium과 BeautifulSoup을 활용해 AI 관련 뉴스 사이트에서 최신 기사를 수집합니다.</p>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">2. 뉴스 전처리 시스템</h4>
-                  <p className="text-sm text-gray-600">수집된 기사에서 주요 AI 기업 관련 내용을 추출하고 정제합니다.</p>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">3. PostgreSQL 데이터베이스</h4>
-                  <p className="text-sm text-gray-600">기업별로 정리된 뉴스 기사를 저장하고 중복을 관리합니다.</p>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">4. 블로그 글 생성기 (OpenAI API)</h4>
-                  <p className="text-sm text-gray-600">GPT-4 모델을 활용해 저장된 뉴스를 분석하고 통합적인 블로그 콘텐츠를 생성합니다.</p>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">5. 블로그 스타일 포매터</h4>
-                  <p className="text-sm text-gray-600">생성된 콘텐츠에 마크다운 형식과 일관된 스타일을 적용합니다.</p>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <h4 className="font-semibold text-primary-700 mb-2">6. 저장 또는 업로드</h4>
-                  <p className="text-sm text-gray-600">최종 블로그를 로컬 저장소에 저장하거나 웹 플랫폼에 자동 업로드합니다.</p>
-                </div>
-              </div>
+
             </div>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">구현 방법</h2>
