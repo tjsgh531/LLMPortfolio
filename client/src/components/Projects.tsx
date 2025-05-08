@@ -30,12 +30,12 @@ const Projects: React.FC = () => {
     },
     {
       id: 2,
-      title: "소셜 미디어 감성 분석",
-      description: "BERT 모델을 활용한 소셜 미디어 포스트의 감성 분석 도구. 브랜드 모니터링과 여론 트렌드 분석이 가능합니다.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      technologies: ["Python", "Hugging Face", "Django", "D3.js"],
-      linkUrl: "#",
-      githubUrl: "#"
+      title: "KRX 주가 예측 모델 성능 비교",
+      description: "다양한 버전의 예측 모델을 통해 국내 주식 시장의 예측 성능을 비교 분석한 프로젝트입니다. 기업 규모와 산업군에 따른 성능 차이를 시각화했습니다.",
+      image: "/images/projects/model-performance.png",
+      technologies: ["Python", "Pandas", "Scikit-learn", "PyTorch", "Matplotlib"],
+      linkUrl: "/project/krx-prediction",
+      githubUrl: "https://github.com/username/krx-prediction-models"
     },
     {
       id: 3,
