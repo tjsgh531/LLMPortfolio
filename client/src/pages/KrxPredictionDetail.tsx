@@ -112,13 +112,41 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: DAPT 적용 기본 모델</h4>
-                    <div className="flex flex-wrap gap-2 mb-2">
+                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: 금융 도메인 특화 기본 모델</h4>
+                    
+                    <div className="flex flex-wrap gap-2 mb-3">
                       <span className="bg-primary-200 text-primary-800 px-2 py-1 rounded-full text-xs">성능 지표: 기준점 설정</span>
                       <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
                     </div>
-                    <p className="text-gray-700 text-sm">금융 도메인 데이터를 활용한 DAPT(Domain-Adaptive Pre-Training)를 진행하여 기본 지식을 강화했습니다.</p>
-                    <p className="text-xs text-gray-600 mt-2 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
+                      <div className="flex items-center mb-2">
+                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                      </div>
+                      <p className="text-gray-700 text-sm">금융 용어 관련 대규모 데이터셋을 Qwen2-7B-Instruct 모델에 SFT 학습 및 DAPT/QLoRA 적용</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="bg-slate-50 p-2 rounded-md">
+                        <div className="text-xs font-medium text-primary-700 mb-1">📍 데이터셋</div>
+                        <p className="text-gray-700 text-xs">AI Hub 금융 용어 합성 데이터셋 (14.44GB)</p>
+                      </div>
+                      <div className="bg-slate-50 p-2 rounded-md">
+                        <div className="text-xs font-medium text-primary-700 mb-1">📍 학습 시간</div>
+                        <p className="text-gray-700 text-xs">4시간 48분 12초</p>
+                      </div>
+                      <div className="bg-slate-50 p-2 rounded-md col-span-2">
+                        <div className="text-xs font-medium text-primary-700 mb-1">📍 하드웨어</div>
+                        <p className="text-gray-700 text-xs">AMD 3960X RTX3090</p>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-3 border-t border-gray-200 pt-3">
+                      <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
+                      <p className="text-gray-700 text-sm">다양한 금융 문서와 기사에서 용어를 추출한 뒤, 전문가의 설명을 결합하여 질의응답 형태로 데이터셋을 구축했습니다. 총 85,000개 이상의 금융 용어와 개념에 대한 학습 데이터를 생성하여 모델의 금융 기초 지식을 강화했습니다.</p>
+                    </div>
+                    
+                    <p className="text-xs text-gray-600 mt-3 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
                   </div>
                 </div>
                 
