@@ -124,7 +124,7 @@ const ProjectDetail: React.FC = () => {
               <div className="flex flex-col md:flex-row gap-6 my-6 items-center">
                 <div className="md:w-2/5">
                   <img 
-                    src="/images/architecture/news-crawler-architecture.svg" 
+                    src="/images/architecture/news-crawler-architecture.png" 
                     alt="AI 뉴스 크롤러 시스템 아키텍처" 
                     className="max-w-xs mx-auto w-full"
                   />
