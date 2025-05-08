@@ -1,18 +1,6 @@
-import { users, type User, type InsertUser } from "@shared/schema";
-import { z } from "zod";
-
-// Contact message schema
-export const contactMessageSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  subject: z.string(),
-  message: z.string(),
-  createdAt: z.date(),
-});
-
-export type ContactMessage = z.infer<typeof contactMessageSchema>;
-export type InsertContactMessage = Omit<ContactMessage, "id" | "createdAt">;
+import { users, contactMessages, type User, type InsertUser, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { db } from "./db";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -25,55 +13,36 @@ export interface IStorage {
   getContactMessageById(id: number): Promise<ContactMessage | undefined>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contactMessages: Map<number, ContactMessage>;
-  private userId: number;
-  private messageId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contactMessages = new Map();
-    this.userId = 1;
-    this.messageId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const result = await db.select().from(users).where(eq(users.id, id));
+    return result[0];
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const result = await db.select().from(users).where(eq(users.username, username));
+    return result[0];
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
   }
 
   async saveContactMessage(message: InsertContactMessage): Promise<ContactMessage> {
-    const id = this.messageId++;
-    const contactMessage: ContactMessage = {
-      ...message,
-      id,
-      createdAt: new Date(),
-    };
-    this.contactMessages.set(id, contactMessage);
-    return contactMessage;
+    const result = await db.insert(contactMessages).values(message).returning();
+    return result[0];
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values())
-      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    return db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt));
   }
 
   async getContactMessageById(id: number): Promise<ContactMessage | undefined> {
-    return this.contactMessages.get(id);
+    const result = await db.select().from(contactMessages).where(eq(contactMessages.id, id));
+    return result[0];
   }
 }
 
-export const storage = new MemStorage();
+// 메모리 스토리지 대신 데이터베이스 스토리지를 사용합니다
+export const storage = new DatabaseStorage();
