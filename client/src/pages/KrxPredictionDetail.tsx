@@ -102,7 +102,7 @@ export default function KrxPredictionDetail() {
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">모델 개발 과정</h2>
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div className="p-6 mb-8">
               <p className="text-gray-700 mb-4">
                 우리 팀은 KRX-Bench 평가 기준에서 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 높은 성능을 보이는 모델을 개발했습니다. 예선에서 3위, 본선에서 12위를 달성한 이 모델은 Qwen2-7B-Instruct를 기반으로 했습니다.
               </p>
