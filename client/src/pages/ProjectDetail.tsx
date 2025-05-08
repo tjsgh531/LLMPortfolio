@@ -34,10 +34,10 @@ const projectsData: Record<string, ProjectData> = {
       "정기적인 스케줄링을 통한 자동 실행"
     ],
     challenges: [
-      "다양한 뉴스 사이트의 구조에 맞는 크롤링 로직 구현",
-      "고품질 콘텐츠 생성을 위한 프롬프트 엔지니어링",
-      "대용량 데이터 처리 및 성능 최적화",
-      "중복 콘텐츠 감지 및 필터링 알고리즘 개발"
+      "수많은 인공지능 관련 기사 중에서 유의미하고 핵심적인 정보를 추출하는 알고리즘 구현",
+      "PostgreSQL을 활용한 효율적인 기사 데이터 관리 및 중복 방지 시스템 구축",
+      "사용자에게 도움이 되는 고품질 콘텐츠 생성을 위한 정교한 프롬프트 엔지니어링 기법 적용",
+      "지속적인 유지보수와 확장이 용이한 객체지향 설계를 통한 자동화 시스템 구현"
     ],
     image: "/images/projects/news-crawler.png",
     technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
