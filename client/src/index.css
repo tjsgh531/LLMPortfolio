@@ -40,6 +40,16 @@
   --sidebar-accent-foreground: 207 90% 34%;
   --sidebar-border: 207 90% 44%;
   --sidebar-ring: 211 100% 99%;
+  
+  /* 코드 하이라이팅 색상 */
+  --code-keyword: 340 83% 66%;     /* 키워드: 짙은 분홍색 */
+  --code-function: 39 100% 71%;    /* 함수: 주황색 */
+  --code-string: 126 43% 64%;      /* 문자열: 녹색 */
+  --code-number: 39 100% 71%;      /* 숫자: 주황색 */
+  --code-comment: 221 12% 56%;     /* 주석: 회색 */
+  --code-class: 217 71% 80%;       /* 클래스명: 파란색 */
+  --code-variable: 187 100% 85%;   /* 변수: 밝은 파란색 */
+  --code-property: 355 100% 80%;   /* 속성: 빨간색 */
 }
 
 .dark {
@@ -96,6 +106,39 @@
   }
   .project-card:hover {
     @apply transform -translate-y-1 shadow-xl;
+  }
+  
+  /* 코드 하이라이팅 */
+  .code-keyword {
+    color: hsl(var(--code-keyword));
+  }
+  
+  .code-function {
+    color: hsl(var(--code-function));
+  }
+  
+  .code-string {
+    color: hsl(var(--code-string));
+  }
+  
+  .code-number {
+    color: hsl(var(--code-number));
+  }
+  
+  .code-comment {
+    color: hsl(var(--code-comment));
+  }
+  
+  .code-class {
+    color: hsl(var(--code-class));
+  }
+  
+  .code-variable {
+    color: hsl(var(--code-variable));
+  }
+  
+  .code-property {
+    color: hsl(var(--code-property));
   }
 }
 

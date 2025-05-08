@@ -133,7 +133,24 @@ const ProjectDetail: React.FC = () => {
                   PostgreSQL에 효율적인 데이터 저장을 위해 정규화된 스키마를 설계했습니다. 뉴스 컨텐츠, 메타데이터, 생성된 블로그 사이의 관계를 명확히 정의했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'CREATE TABLE articles (\n    id SERIAL PRIMARY KEY,\n    title VARCHAR(255) NOT NULL,\n    content TEXT NOT NULL,\n    url VARCHAR(255) UNIQUE NOT NULL,\n    published_date TIMESTAMP NOT NULL,\n    source_id INTEGER REFERENCES sources(id)\n);\n\nCREATE TABLE generated_blogs (\n    id SERIAL PRIMARY KEY,\n    title VARCHAR(255) NOT NULL,\n    content TEXT NOT NULL,\n    created_at TIMESTAMP DEFAULT NOW(),\n    article_id INTEGER REFERENCES articles(id)\n);'}</pre>
+                  <pre>
+                    <span className="code-keyword">CREATE TABLE</span> <span className="code-class">articles</span> (
+                    <br />    <span className="code-variable">id</span> <span className="code-keyword">SERIAL PRIMARY KEY</span>,
+                    <br />    <span className="code-variable">title</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">NOT NULL</span>,
+                    <br />    <span className="code-variable">content</span> <span className="code-keyword">TEXT</span> <span className="code-keyword">NOT NULL</span>,
+                    <br />    <span className="code-variable">url</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">UNIQUE NOT NULL</span>,
+                    <br />    <span className="code-variable">published_date</span> <span className="code-keyword">TIMESTAMP</span> <span className="code-keyword">NOT NULL</span>,
+                    <br />    <span className="code-variable">source_id</span> <span className="code-keyword">INTEGER</span> <span className="code-keyword">REFERENCES</span> <span className="code-class">sources</span>(<span className="code-variable">id</span>)
+                    <br />);
+                    <br />
+                    <br /><span className="code-keyword">CREATE TABLE</span> <span className="code-class">generated_blogs</span> (
+                    <br />    <span className="code-variable">id</span> <span className="code-keyword">SERIAL PRIMARY KEY</span>,
+                    <br />    <span className="code-variable">title</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">NOT NULL</span>,
+                    <br />    <span className="code-variable">content</span> <span className="code-keyword">TEXT</span> <span className="code-keyword">NOT NULL</span>,
+                    <br />    <span className="code-variable">created_at</span> <span className="code-keyword">TIMESTAMP</span> <span className="code-keyword">DEFAULT NOW</span>(),
+                    <br />    <span className="code-variable">article_id</span> <span className="code-keyword">INTEGER</span> <span className="code-keyword">REFERENCES</span> <span className="code-class">articles</span>(<span className="code-variable">id</span>)
+                    <br />);
+                  </pre>
                 </div>
               </div>
               
@@ -143,7 +160,49 @@ const ProjectDetail: React.FC = () => {
                   GPT-4 모델이 고품질 블로그 포스트를 생성하도록 세심하게 프롬프트를 설계했습니다. 특히 AI 기술 트렌드를 다루는 전문성과 함께 일반 독자도 이해할 수 있는 설명력을 균형있게 갖추도록 했습니다. 또한 체계적인 구조와 전문 용어 해설을 포함한 정교한 프롬프트 엔지니어링을 적용했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'def generate_blog_post(article):\n    # 시스템 메시지로 AI의 페르소나 설정\n    system_message = """\n    당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다.\n    기술적 정확성을 유지하면서도 비전문가도 이해할 수 있는 명확한 글을 작성해야 합니다.\n    항상 객관적이고 균형 잡힌 관점에서 분석하며, 기술의 실제 영향과 적용 사례를 포함하세요.\n    """\n    \n    # 사용자 프롬프트 설계\n    prompt = f"""\n    다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:\n    제목: {article.title}\n    내용: {article.content}\n    관련 기업: {article.companies}\n    \n    다음 지침을 따라주세요:\n    1. 전문 용어를 소개할 때마다 간략한 설명을 덧붙이세요.\n    2. 기술의 잠재적 영향과 산업 적용 가능성을 분석하세요.\n    3. 실제 사용 사례나 미래 활용 방안을 포함하세요.\n    4. 다음 구조로 글을 작성하세요:\n       - 도입부: 핵심 내용 요약 (1-2문단)\n       - 본문: 3개의 소제목으로 구성된 상세 내용\n       - 결론: 기술 전망과 의의 (1문단)\n    """\n    \n    # OpenAI API 호출\n    response = openai.ChatCompletion.create(\n        model="gpt-4",\n        messages=[\n            {"role": "system", "content": system_message},\n            {"role": "user", "content": prompt}\n        ],\n        temperature=0.7,\n        max_tokens=1800\n    )\n    \n    return response.choices[0].message["content"]'}</pre>
+                  <pre>
+                    <span className="code-keyword">def</span> <span className="code-function">generate_blog_post</span>(<span className="code-variable">article_data</span>):
+                    <br />    <span className="code-comment"># 시스템 메시지로 AI의 페르소나 설정</span>
+                    <br />    <span className="code-variable">system_message</span> = <span className="code-string">"""
+                    당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다.
+                    기술적 정확성을 유지하면서도 비전문가도 이해할 수 있는 명확한 글을 작성해야 합니다.
+                    항상 객관적이고 균형 잡힌 관점에서 분석하며, 기술의 실제 영향과 적용 사례를 포함하세요.
+                    """</span>
+                    <br />    
+                    <br />    <span className="code-comment"># 사용자 프롬프트 설계</span>
+                    <br />    <span className="code-variable">title</span> = <span className="code-variable">article_data</span>[<span className="code-string">"title"</span>]
+                    <br />    <span className="code-variable">content</span> = <span className="code-variable">article_data</span>[<span className="code-string">"content"</span>]
+                    <br />    <span className="code-variable">companies</span> = <span className="code-variable">article_data</span>[<span className="code-string">"companies"</span>]
+                    <br />    
+                    <br />    <span className="code-variable">prompt</span> = <span className="code-string">f"""
+                    다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:
+                    제목: {title}
+                    내용: {content}
+                    관련 기업: {companies}
+                    
+                    다음 지침을 따라주세요:
+                    1. 전문 용어를 소개할 때마다 간략한 설명을 덧붙이세요.
+                    2. 기술의 잠재적 영향과 산업 적용 가능성을 분석하세요.
+                    3. 실제 사용 사례나 미래 활용 방안을 포함하세요.
+                    4. 다음 구조로 글을 작성하세요:
+                       - 도입부: 핵심 내용 요약 (1-2문단)
+                       - 본문: 3개의 소제목으로 구성된 상세 내용
+                       - 결론: 기술 전망과 의의 (1문단)
+                    """</span>
+                    <br />    
+                    <br />    <span className="code-comment"># OpenAI API 호출</span>
+                    <br />    <span className="code-variable">response</span> = <span className="code-variable">openai</span>.<span className="code-class">ChatCompletion</span>.<span className="code-function">create</span>(
+                    <br />        <span className="code-property">model</span>=<span className="code-string">"gpt-4"</span>,
+                    <br />        <span className="code-property">messages</span>=[
+                    <br />            {'{'}.<span className="code-string">"role"</span>: <span className="code-string">"system"</span>, <span className="code-string">"content"</span>: <span className="code-variable">system_message</span>{'}'},
+                    <br />            {'{'}.<span className="code-string">"role"</span>: <span className="code-string">"user"</span>, <span className="code-string">"content"</span>: <span className="code-variable">prompt</span>{'}'}
+                    <br />        ],
+                    <br />        <span className="code-property">temperature</span>=<span className="code-number">0.7</span>,
+                    <br />        <span className="code-property">max_tokens</span>=<span className="code-number">1800</span>
+                    <br />    )
+                    <br />    
+                    <br />    <span className="code-keyword">return</span> <span className="code-variable">response</span>.<span className="code-property">choices</span>[<span className="code-number">0</span>].<span className="code-property">message</span>[<span className="code-string">"content"</span>]
+                  </pre>
                 </div>
               </div>
               
@@ -154,48 +213,47 @@ const ProjectDetail: React.FC = () => {
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
                   <pre>
-                    {`# 기업 이름 매핑 및 별칭 정의
-AI_COMPANY_ALIASES = {
-    "OpenAI": ["OpenAI", "오픈AI"],
-    "Google": ["Google", "구글"],
-    "DeepMind": ["DeepMind", "딥마인드"]
-}
-
-# 크롤러 구현 클래스
-class AITimesCrawler:
-    def __init__(self):
-        self.results = []
-        options = Options()
-        options.add_argument("--headless")
-        self.driver = webdriver.Chrome(options=options)
-        
-    def crawl(self, max_pages=3):
-        # 뉴스 페이지별 수집 구현
-        pass
-        
-    def extract_articles_with_known_companies(self, df):
-        # 주요 AI 기업 필터링 로직
-        pass
-        
-    def add_article_content(self, df):
-        # 상세 기사 내용 수집
-        pass
-
-# 자동화 스케줄러 설정
-def schedule_jobs():
-    scheduler = BlockingScheduler()
-    crawler = AITimesCrawler()
-    processor = ArticleProcessor(db_manager)
-    generator = BlogGenerator(config["openai_key"])
-    
-    # 6시간마다 뉴스 수집 실행
-    scheduler.add_job(crawler_job, "interval", hours=6)
-    
-    # 8시간마다 블로그 생성 실행
-    scheduler.add_job(generator_job, "interval", hours=8)
-    
-    print("✅ 자동화 스케줄러가 시작되었습니다")
-    scheduler.start()`}
+                    <span className="code-comment"># 기업 이름 매핑 및 별칭 정의</span>
+                    <br /><span className="code-variable">AI_COMPANY_ALIASES</span> = {'{'}
+                    <br />    <span className="code-string">"OpenAI"</span>: [<span className="code-string">"OpenAI"</span>, <span className="code-string">"오픈AI"</span>],
+                    <br />    <span className="code-string">"Google"</span>: [<span className="code-string">"Google"</span>, <span className="code-string">"구글"</span>],
+                    <br />    <span className="code-string">"DeepMind"</span>: [<span className="code-string">"DeepMind"</span>, <span className="code-string">"딥마인드"</span>]
+                    <br />{'}'}<br />
+                    <br /><span className="code-comment"># 크롤러 구현 클래스</span>
+                    <br /><span className="code-keyword">class</span> <span className="code-class">AITimesCrawler</span>:
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">__init__</span>(<span className="code-variable">self</span>):
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">results</span> = []
+                    <br />        <span className="code-variable">options</span> = <span className="code-class">Options</span>()
+                    <br />        <span className="code-variable">options</span>.<span className="code-function">add_argument</span>(<span className="code-string">"--headless"</span>)
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">driver</span> = <span className="code-variable">webdriver</span>.<span className="code-class">Chrome</span>(<span className="code-property">options</span>=<span className="code-variable">options</span>)
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">crawl</span>(<span className="code-variable">self</span>, <span className="code-variable">max_pages</span>=<span className="code-number">3</span>):
+                    <br />        <span className="code-comment"># 뉴스 페이지별 수집 구현</span>
+                    <br />        <span className="code-keyword">pass</span>
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">extract_articles_with_known_companies</span>(<span className="code-variable">self</span>, <span className="code-variable">df</span>):
+                    <br />        <span className="code-comment"># 주요 AI 기업 필터링 로직</span>
+                    <br />        <span className="code-keyword">pass</span>
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">add_article_content</span>(<span className="code-variable">self</span>, <span className="code-variable">df</span>):
+                    <br />        <span className="code-comment"># 상세 기사 내용 수집</span>
+                    <br />        <span className="code-keyword">pass</span>
+                    <br />
+                    <br /><span className="code-comment"># 자동화 스케줄러 설정</span>
+                    <br /><span className="code-keyword">def</span> <span className="code-function">schedule_jobs</span>():
+                    <br />    <span className="code-variable">scheduler</span> = <span className="code-class">BlockingScheduler</span>()
+                    <br />    <span className="code-variable">crawler</span> = <span className="code-class">AITimesCrawler</span>()
+                    <br />    <span className="code-variable">processor</span> = <span className="code-class">ArticleProcessor</span>(<span className="code-variable">db_manager</span>)
+                    <br />    <span className="code-variable">generator</span> = <span className="code-class">BlogGenerator</span>(<span className="code-variable">config</span>[<span className="code-string">"openai_key"</span>])
+                    <br />    
+                    <br />    <span className="code-comment"># 6시간마다 뉴스 수집 실행</span>
+                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">add_job</span>(<span className="code-variable">crawler_job</span>, <span className="code-string">"interval"</span>, <span className="code-property">hours</span>=<span className="code-number">6</span>)
+                    <br />    
+                    <br />    <span className="code-comment"># 8시간마다 블로그 생성 실행</span>
+                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">add_job</span>(<span className="code-variable">generator_job</span>, <span className="code-string">"interval"</span>, <span className="code-property">hours</span>=<span className="code-number">8</span>)
+                    <br />    
+                    <br />    <span className="code-function">print</span>(<span className="code-string">"✅ 자동화 스케줄러가 시작되었습니다"</span>)
+                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">start</span>()
                   </pre>
                 </div>
               </div>
