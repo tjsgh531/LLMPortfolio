@@ -104,7 +104,7 @@ export default function KrxPredictionDetail() {
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">대회 결과 및 모델 개발 과정</h2>
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <p className="text-gray-700 mb-4">
-                우리 팀은 KRX-Bench 평가 기준에서 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 높은 성능을 보이는 모델을 개발했습니다. 예선에서 2위, 본선에서 13위를 달성한 이 모델은 Qwen2-7B-Instruct를 기반으로 했습니다.
+                우리 팀은 KRX-Bench 평가 기준에서 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 높은 성능을 보이는 모델을 개발했습니다. 예선에서 3위, 본선에서 12위를 달성한 이 모델은 Qwen2-7B-Instruct를 기반으로 했습니다.
               </p>
               
               <div className="space-y-6">
@@ -120,7 +120,7 @@ export default function KrxPredictionDetail() {
                 
                 <div className="bg-gray-50 p-3 rounded border border-gray-200">
                   <h4 className="font-semibold text-primary-700 mb-1">대회 성적</h4>
-                  <p className="text-sm text-gray-600">예선에서 약 100팀 중 2위를 차지했으며, 본선에서는 13위를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.</p>
+                  <p className="text-sm text-gray-600">예선에서 약 100팀 중 3위를 차지했으며, 본선에서는 12위를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.</p>
                 </div>
               </div>
             </div>
