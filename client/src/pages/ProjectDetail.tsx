@@ -123,7 +123,40 @@ const ProjectDetail: React.FC = () => {
                   Selenium과 BeautifulSoup을 결합하여 AI 타임즈 같은 AI 뉴스 사이트에서 데이터를 수집합니다. 헤드리스 모드 크롬 드라이버를 통해 동적 콘텐츠도 처리할 수 있으며, 주요 AI 기업 관련 뉴스를 필터링하도록 구현했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
-                  <pre>{'class AITimesCrawler:\n    def __init__(self):\n        self.results = []\n        options = Options()\n        options.add_argument("--headless")\n        options.add_argument("--no-sandbox")\n        self.driver = webdriver.Chrome(options=options)\n        \n    def crawl(self, max_pages=3):\n        for page in range(1, max_pages + 1):\n            url = f"https://www.aitimes.com/news/articleList.html?page={page}"\n            self.driver.get(url)\n            time.sleep(2)\n            \n            try:\n                ul = self.driver.find_element(By.CSS_SELECTOR, "ul.type2")\n                li_list = ul.find_elements(By.TAG_NAME, "li")\n                \n                for li in li_list:\n                    title_tag = li.find_element(By.CSS_SELECTOR, "h4.titles > a")\n                    title = title_tag.text.strip()\n                    link = title_tag.get_attribute("href")\n                    # ... 기사 메타데이터 추출 로직 ...\n            except Exception as e:\n                print("❌ 기사 목록 수집 실패:", e)\n        \n        return pd.DataFrame(self.results)\n        \n    def extract_articles_with_known_companies(self, df):\n        # 주요 AI 기업 필터링 로직\n        # AI_COMPANY_ALIASES 딕셔너리를 통해 기업명 매핑\n        # ...'}</pre>
+                  <pre>
+                    <span className="code-keyword">class</span> <span className="code-class">AITimesCrawler</span>:
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">__init__</span>(<span className="code-variable">self</span>):
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">results</span> = []
+                    <br />        <span className="code-variable">options</span> = <span className="code-class">Options</span>()
+                    <br />        <span className="code-variable">options</span>.<span className="code-function">add_argument</span>(<span className="code-string">"--headless"</span>)
+                    <br />        <span className="code-variable">options</span>.<span className="code-function">add_argument</span>(<span className="code-string">"--no-sandbox"</span>)
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">driver</span> = <span className="code-variable">webdriver</span>.<span className="code-class">Chrome</span>(<span className="code-property">options</span>=<span className="code-variable">options</span>)
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">crawl</span>(<span className="code-variable">self</span>, <span className="code-variable">max_pages</span>=<span className="code-number">3</span>):
+                    <br />        <span className="code-keyword">for</span> <span className="code-variable">page_num</span> <span className="code-keyword">in</span> <span className="code-function">range</span>(<span className="code-number">1</span>, <span className="code-variable">max_pages</span> + <span className="code-number">1</span>):
+                    <br />            <span className="code-variable">url</span> = <span className="code-string">"https://www.aitimes.com/news/articleList.html?page="</span> + <span className="code-function">str</span>(<span className="code-variable">page_num</span>)
+                    <br />            <span className="code-variable">self</span>.<span className="code-property">driver</span>.<span className="code-function">get</span>(<span className="code-variable">url</span>)
+                    <br />            <span className="code-variable">time</span>.<span className="code-function">sleep</span>(<span className="code-number">2</span>)
+                    <br />            
+                    <br />            <span className="code-keyword">try</span>:
+                    <br />                <span className="code-variable">ul</span> = <span className="code-variable">self</span>.<span className="code-property">driver</span>.<span className="code-function">find_element</span>(<span className="code-class">By</span>.<span className="code-property">CSS_SELECTOR</span>, <span className="code-string">"ul.type2"</span>)
+                    <br />                <span className="code-variable">li_list</span> = <span className="code-variable">ul</span>.<span className="code-function">find_elements</span>(<span className="code-class">By</span>.<span className="code-property">TAG_NAME</span>, <span className="code-string">"li"</span>)
+                    <br />                
+                    <br />                <span className="code-keyword">for</span> <span className="code-variable">li</span> <span className="code-keyword">in</span> <span className="code-variable">li_list</span>:
+                    <br />                    <span className="code-variable">title_tag</span> = <span className="code-variable">li</span>.<span className="code-function">find_element</span>(<span className="code-class">By</span>.<span className="code-property">CSS_SELECTOR</span>, <span className="code-string">"h4.titles a"</span>)
+                    <br />                    <span className="code-variable">title</span> = <span className="code-variable">title_tag</span>.<span className="code-property">text</span>.<span className="code-function">strip</span>()
+                    <br />                    <span className="code-variable">link</span> = <span className="code-variable">title_tag</span>.<span className="code-function">get_attribute</span>(<span className="code-string">"href"</span>)
+                    <br />                    <span className="code-comment"># ... 기사 메타데이터 추출 로직 ...</span>
+                    <br />            <span className="code-keyword">except</span> <span className="code-class">Exception</span> <span className="code-keyword">as</span> <span className="code-variable">e</span>:
+                    <br />                <span className="code-function">print</span>(<span className="code-string">"❌ 기사 목록 수집 실패:"</span>, <span className="code-variable">e</span>)
+                    <br />        
+                    <br />        <span className="code-keyword">return</span> <span className="code-variable">pd</span>.<span className="code-class">DataFrame</span>(<span className="code-variable">self</span>.<span className="code-property">results</span>)
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">extract_articles_with_known_companies</span>(<span className="code-variable">self</span>, <span className="code-variable">df</span>):
+                    <br />        <span className="code-comment"># 주요 AI 기업 필터링 로직</span>
+                    <br />        <span className="code-comment"># AI_COMPANY_ALIASES 딕셔너리를 통해 기업명 매핑</span>
+                    <br />        <span className="code-comment"># ...</span>
+                  </pre>
                 </div>
               </div>
               
@@ -187,17 +220,13 @@ const ProjectDetail: React.FC = () => {
                     <br />    <span className="code-variable">article_content</span> = <span className="code-variable">article_data</span>[<span className="code-string">"content"</span>]
                     <br />    <span className="code-variable">related_companies</span> = <span className="code-variable">article_data</span>[<span className="code-string">"companies"</span>]
                     <br />    
-                    <br />    <span className="code-variable">prompt</span> = <span className="code-variable">prompt_template</span>.<span className="code-function">format</span>(
-                    <br />        <span className="code-property">article_title</span>=<span className="code-variable">article_title</span>,
-                    <br />        <span className="code-property">article_content</span>=<span className="code-variable">article_content</span>,
-                    <br />        <span className="code-property">related_companies</span>=<span className="code-variable">related_companies</span>
-                    <br />    )
+                    <br />    <span className="code-variable">prompt</span> = <span className="code-string">"AI 기사를 블로그로 변환"</span>
                     <br />    
                     <br />    <span className="code-comment"># OpenAI API 호출</span>
                     <br />    <span className="code-variable">response</span> = <span className="code-variable">openai</span>.<span className="code-class">ChatCompletion</span>.<span className="code-function">create</span>(
                     <br />        <span className="code-property">model</span>=<span className="code-string">"gpt-4"</span>,
                     <br />        <span className="code-property">messages</span>=[
-                    <br />            <span className="code-comment"># 메시지 배열</span>
+                    <br />            <span className="code-comment"># 시스템 및 사용자 메시지</span>
                     <br />        ],
                     <br />        <span className="code-property">temperature</span>=<span className="code-number">0.7</span>,
                     <br />        <span className="code-property">max_tokens</span>=<span className="code-number">1800</span>
