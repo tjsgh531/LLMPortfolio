@@ -15,11 +15,11 @@ const Hero: React.FC = () => {
           >
             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary-900 mb-6">
               <span className="block">안녕하세요,</span>
-              <span className="block text-primary-500">LLM 개발자입니다</span>
+              <span className="block text-primary-500">LLM 개발자 '이선호'입니다</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              인공지능과 대화형 AI 애플리케이션에 관심이 많은 신입 개발자입니다.
-              AI의 잠재력을 활용한 혁신적인 솔루션을 만들고 싶습니다.
+              LLM 전반에 관심이 많으며, 특히 RAG, Post-training, AI-Agent 분야에 깊이 몰두하고 있습니다.
+              인공지능을 실생활에 더 가까이 들여오는 개발자가 되어 사람들의 일상을 변화시키고 싶습니다.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
