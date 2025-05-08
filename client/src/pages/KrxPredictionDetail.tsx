@@ -63,6 +63,34 @@ export default function KrxPredictionDetail() {
               {project.fullDescription}
             </p>
             
+            <div className="mb-8 space-y-4">
+              <p className="flex items-center">
+                <span className="text-xl mr-2">👬</span>
+                <span className="font-semibold">팀명 & 팀원 수 :</span>
+                <span className="ml-2">KR-X-AI / 4명</span>
+              </p>
+              <p className="flex items-center">
+                <span className="text-xl mr-2">🏆</span>
+                <span className="font-semibold">수상 내역 :</span>
+                <span className="ml-2">예선 3위, 본선 12위</span>
+              </p>
+              <p className="flex items-center">
+                <span className="text-xl mr-2">🙋🏻</span>
+                <span className="font-semibold">맡은 역할 :</span>
+                <span className="ml-2">MCQA 데이터 제작, SFT학습 : V3, V4_m 모델 학습</span>
+              </p>
+              <p className="flex items-center">
+                <span className="text-xl mr-2">💻</span>
+                <span className="font-semibold">기술 스택 :</span>
+                <span className="ml-2">SFT, DAPT, Adapting LLM, QLoRA</span>
+              </p>
+              <p className="flex items-center">
+                <span className="text-xl mr-2">🛠</span>
+                <span className="font-semibold">사용 도구 :</span>
+                <span className="ml-2">Unsloth, Bedrock, GPT API</span>
+              </p>
+            </div>
+            
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">주요 기능</h2>
             <ul className="mb-8 space-y-2">
               {project.features?.map((feature, index) => (
