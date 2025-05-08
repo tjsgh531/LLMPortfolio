@@ -15,7 +15,8 @@ const Hero: React.FC = () => {
           >
             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary-900 mb-6">
               <span className="block">안녕하세요,</span>
-              <span className="block text-primary-500">LLM 개발자 '이선호'입니다</span>
+              <span className="block">LLM 개발자</span>
+              <span className="block text-gradient bg-gradient-to-r from-primary-600 to-pink-500">'이선호'입니다</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8">
               LLM 전반에 관심이 많으며, 특히 RAG, Post-training, AI-Agent 분야에 깊이 몰두하고 있습니다.
