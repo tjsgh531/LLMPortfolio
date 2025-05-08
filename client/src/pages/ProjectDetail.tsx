@@ -99,12 +99,35 @@ const ProjectDetail: React.FC = () => {
             </p>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">주요 기능</h2>
-            <ul className="list-disc pl-6 mb-8 space-y-2">
-              {project.features?.map((feature, index) => (
-                <li key={index} className="text-gray-700">
-                  {feature}
-                </li>
-              ))}
+            <ul className="mb-8 space-y-2">
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>AI Times 기반 뉴스 크롤링</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>회사 이름을 기준으로 필터링</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>PostgreSQL에 회사별로 뉴스 저장</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>같은 뉴스 중복 저장 방지 (url 기준)</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>블로그 스타일의 글 자동 생성 (OpenAI GPT-4)</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>뉴스 사용 여부 관리 (used 필드)</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>기업별 마크다운 폴더 정리 및 저장</span>
+              </li>
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">기술적 도전과제</h2>
