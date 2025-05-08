@@ -11,14 +11,14 @@ export default function KrxPredictionDetail() {
     fullDescription: 
       "본 대회는 한국거래소(KRX)와 금융 특화 언어 모델 전문 기업 원라인AI가 공동 개발한 'KRX-Bench'를 통해 금융 특화 언어 모델의 성능을 평가하는 대회입니다. " +
       "참가자들은 금융 시장의 효율성을 높이고 투자자들에게 더욱 정확하고 유용한 정보를 제공하는 언어 모델을 개발하는 것이 목표입니다. " +
-      "우리 팀은 SFT(Supervised Fine-Tuning), DAPT(Domain-Adaptive Pre-Training), Adapting LLM, QLoRA 기술을 활용해 Qwen2-7B-Instruct 모델을 금융 도메인에 최적화했고, 예선 2위와 본선 13위의 성적을 달성했습니다.",
+      "우리 팀은 SFT(Supervised Fine-Tuning), DAPT(Domain-Adaptive Pre-Training), Adapting LLM, QLoRA 기술을 활용해 Qwen2-7B-Instruct 모델을 금융 도메인에 최적화했고, 예선 3위와 본선 12위의 성적을 달성했습니다.",
     features: [
       "금융 도메인 특화 언어 모델 개발 (Qwen2-7B-Instruct 기반)",
       "SFT(Supervised Fine-Tuning)를 통한 금융 지식 학습",
       "DAPT(Domain-Adaptive Pre-Training)로 금융 데이터 이해력 강화",
       "QLoRA 활용한 경량화 및 효율적 학습 최적화",
       "KRX-Bench를 통한 정량적 성능 평가 및 분석",
-      "예선 2위, 본선 13위 달성"
+      "예선 3위, 본선 12위 달성"
     ],
     challenges: [
       "금융 전문 용어 및 복잡한 시장 개념 이해 학습",
@@ -55,7 +55,7 @@ export default function KrxPredictionDetail() {
                 className="w-full h-auto rounded-lg"
               />
               <p className="text-sm text-gray-500 mt-2 text-center">
-                KRX-Bench 평가에서 우리 팀 모델의 예선 성적 결과 그래프 (예선 2위, 본선 13위 달성)
+                KRX-Bench 평가에서 우리 팀 모델의 예선 성적 결과 그래프 (예선 3위, 본선 12위 달성)
               </p>
             </div>
             
