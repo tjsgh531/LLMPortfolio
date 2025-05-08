@@ -163,26 +163,60 @@ const ProjectDetail: React.FC = () => {
               <div className="bg-primary-50 p-5 rounded-lg border border-primary-100">
                 <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">데이터베이스 모델링</h3>
                 <p className="text-gray-700 mb-3">
-                  PostgreSQL에 효율적인 데이터 저장을 위해 정규화된 스키마를 설계했습니다. 뉴스 컨텐츠, 메타데이터, 생성된 블로그 사이의 관계를 명확히 정의했습니다.
+                  PostgreSQL을 활용하여 기업별로 동적으로 테이블을 생성하는 유연한 데이터베이스 구조를 설계했습니다. 환경변수를 통한 안전한 데이터베이스 연결과 함께 테이블 정규화, 중복 방지를 위한 제약 조건, 그리고 자동화된 에러 처리 시스템을 구현했습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
                   <pre>
-                    <span className="code-keyword">CREATE TABLE</span> <span className="code-class">articles</span> (
-                    <br />    <span className="code-variable">id</span> <span className="code-keyword">SERIAL PRIMARY KEY</span>,
-                    <br />    <span className="code-variable">title</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">NOT NULL</span>,
-                    <br />    <span className="code-variable">content</span> <span className="code-keyword">TEXT</span> <span className="code-keyword">NOT NULL</span>,
-                    <br />    <span className="code-variable">url</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">UNIQUE NOT NULL</span>,
-                    <br />    <span className="code-variable">published_date</span> <span className="code-keyword">TIMESTAMP</span> <span className="code-keyword">NOT NULL</span>,
-                    <br />    <span className="code-variable">source_id</span> <span className="code-keyword">INTEGER</span> <span className="code-keyword">REFERENCES</span> <span className="code-class">sources</span>(<span className="code-variable">id</span>)
-                    <br />);
+                    <span className="code-keyword">import</span> <span className="code-variable">os</span>
+                    <br /><span className="code-keyword">import</span> <span className="code-variable">psycopg2</span>
+                    <br /><span className="code-keyword">from</span> <span className="code-variable">dotenv</span> <span className="code-keyword">import</span> <span className="code-variable">load_dotenv</span>
                     <br />
-                    <br /><span className="code-keyword">CREATE TABLE</span> <span className="code-class">generated_blogs</span> (
-                    <br />    <span className="code-variable">id</span> <span className="code-keyword">SERIAL PRIMARY KEY</span>,
-                    <br />    <span className="code-variable">title</span> <span className="code-keyword">VARCHAR</span>(<span className="code-number">255</span>) <span className="code-keyword">NOT NULL</span>,
-                    <br />    <span className="code-variable">content</span> <span className="code-keyword">TEXT</span> <span className="code-keyword">NOT NULL</span>,
-                    <br />    <span className="code-variable">created_at</span> <span className="code-keyword">TIMESTAMP</span> <span className="code-keyword">DEFAULT NOW</span>(),
-                    <br />    <span className="code-variable">article_id</span> <span className="code-keyword">INTEGER</span> <span className="code-keyword">REFERENCES</span> <span className="code-class">articles</span>(<span className="code-variable">id</span>)
-                    <br />);
+                    <br /><span className="code-keyword">class</span> <span className="code-class">PostgresDBManager</span>:
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">__init__</span>(<span className="code-variable">self</span>):
+                    <br />        <span className="code-variable">load_dotenv</span>()
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">conn</span> = <span className="code-variable">psycopg2</span>.<span className="code-function">connect</span>(
+                    <br />            <span className="code-property">host</span>=<span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"DB_HOST"</span>),
+                    <br />            <span className="code-property">port</span>=<span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"DB_PORT"</span>),
+                    <br />            <span className="code-property">dbname</span>=<span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"DB_NAME"</span>),
+                    <br />            <span className="code-property">user</span>=<span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"DB_USER"</span>),
+                    <br />            <span className="code-property">password</span>=<span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"DB_PASSWORD"</span>)
+                    <br />        )
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">cur</span> = <span className="code-variable">self</span>.<span className="code-property">conn</span>.<span className="code-function">cursor</span>()
+                    <br />        <span className="code-function">print</span>(<span className="code-string">"✅ PostgreSQL 연결 성공"</span>)
+                    <br />
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">_normalize_name</span>(<span className="code-variable">self</span>, <span className="code-variable">name</span>):
+                    <br />        <span className="code-keyword">return</span> <span className="code-variable">name</span>.<span className="code-function">lower</span>().<span className="code-function">replace</span>(<span className="code-string">" "</span>, <span className="code-string">"_"</span>).<span className="code-function">replace</span>(<span className="code-string">"-"</span>, <span className="code-string">"_"</span>)
+                    <br />
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">create_company_table</span>(<span className="code-variable">self</span>, <span className="code-variable">company_name</span>):
+                    <br />        <span className="code-variable">table_name</span> = <span className="code-variable">self</span>.<span className="code-function">_normalize_name</span>(<span className="code-variable">company_name</span>) + <span className="code-string">"_articles"</span>
+                    <br />        <span className="code-variable">query</span> = <span className="code-string">"CREATE TABLE IF NOT EXISTS "</span> + <span className="code-variable">table_name</span> + <span className="code-string">" (id SERIAL PRIMARY KEY, title TEXT, url TEXT UNIQUE, content TEXT, published_at DATE, used BOOLEAN DEFAULT FALSE);"</span>
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">cur</span>.<span className="code-function">execute</span>(<span className="code-variable">query</span>)
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">conn</span>.<span className="code-function">commit</span>()
+                    <br />        <span className="code-keyword">return</span> <span className="code-variable">table_name</span>
+                    <br />
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">insert_article_to_company_table</span>(<span className="code-variable">self</span>, <span className="code-variable">company_name</span>, <span className="code-variable">title</span>, <span className="code-variable">url</span>, <span className="code-variable">content</span>, <span className="code-variable">published_at</span>):
+                    <br />        <span className="code-variable">table_name</span> = <span className="code-variable">self</span>.<span className="code-function">create_company_table</span>(<span className="code-variable">company_name</span>)
+                    <br />        <span className="code-keyword">try</span>:
+                    <br />            <span className="code-variable">query</span> = <span className="code-string">"INSERT INTO "</span> + <span className="code-variable">table_name</span> + <span className="code-string">" (title, url, content, published_at) VALUES (%s, %s, %s, %s) ON CONFLICT (url) DO NOTHING;"</span>
+                    <br />            <span className="code-variable">self</span>.<span className="code-property">cur</span>.<span className="code-function">execute</span>(<span className="code-variable">query</span>, (<span className="code-variable">title</span>, <span className="code-variable">url</span>, <span className="code-variable">content</span>, <span className="code-variable">published_at</span>))
+                    <br />            <span className="code-variable">self</span>.<span className="code-property">conn</span>.<span className="code-function">commit</span>()
+                    <br />            
+                    <br />            <span className="code-keyword">if</span> <span className="code-variable">self</span>.<span className="code-property">cur</span>.<span className="code-property">rowcount</span> <span className="code-comment">/*is greater than*/</span> <span className="code-number">0</span>:
+                    <br />                <span className="code-function">print</span>(<span className="code-string">"✅ 새 기사가 저장되었습니다"</span>)
+                    <br />                <span className="code-keyword">return</span> <span className="code-boolean">True</span>
+                    <br />            <span className="code-keyword">else</span>:
+                    <br />                <span className="code-function">print</span>(<span className="code-string">"⚠️ 이미 존재하는 기사입니다"</span>)
+                    <br />                <span className="code-keyword">return</span> <span className="code-boolean">False</span>
+                    <br />                
+                    <br />        <span className="code-keyword">except</span> <span className="code-class">Exception</span> <span className="code-keyword">as</span> <span className="code-variable">e</span>:
+                    <br />            <span className="code-function">print</span>(<span className="code-string">"❌ DB 오류:"</span>, <span className="code-variable">str</span>(<span className="code-variable">e</span>))
+                    <br />            <span className="code-variable">self</span>.<span className="code-property">conn</span>.<span className="code-function">rollback</span>()
+                    <br />            <span className="code-keyword">return</span> <span className="code-boolean">False</span>
+                    <br />            
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">close</span>(<span className="code-variable">self</span>):
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">cur</span>.<span className="code-function">close</span>()
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">conn</span>.<span className="code-function">close</span>()
+                    <br />        <span className="code-function">print</span>(<span className="code-string">"🔒 PostgreSQL 연결 종료"</span>)
                   </pre>
                 </div>
               </div>
