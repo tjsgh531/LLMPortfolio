@@ -7,7 +7,7 @@ export default function KrxPredictionDetail() {
   const project = {
     id: 2,
     title: "KRX 금융 언어 모델 대회",
-    duration: "25.03.15 ~ 25.04.10",
+    duration: "24.10.14 ~ 24.12.6",
     fullDescription: 
       "본 대회는 한국거래소(KRX)와 금융 특화 언어 모델 전문 기업 원라인AI가 공동 개발한 'KRX-Bench'를 통해 금융 특화 언어 모델의 성능을 평가하는 대회입니다. " +
       "참가자들은 금융 시장의 효율성을 높이고 투자자들에게 더욱 정확하고 유용한 정보를 제공하는 언어 모델을 개발하는 것이 목표입니다. " +
