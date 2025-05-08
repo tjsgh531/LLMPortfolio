@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       image: "/images/projects/model-performance.png",
       technologies: ["Qwen2-7B-Instruct", "SFT", "DAPT", "QLoRA", "Adapting LLM", "PyTorch"],
       linkUrl: "/project/krx-prediction",
-      githubUrl: "https://github.com/username/krx-prediction-models"
+      githubUrl: "https://github.com/tjsgh531/finance_llm_with_krx?tab=readme-ov-file"
     },
     {
       id: 3,
