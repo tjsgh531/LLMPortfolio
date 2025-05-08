@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
       id: 1,
       title: "AI 뉴스 크롤러 & 블로그 생성기",
       description: "인공지능 뉴스를 자동으로 크롤링하여 수집하고, 해당 뉴스를 기반으로 최신 트렌드를 반영한 블로그 글을 자동 생성하는 시스템입니다.",
-      image: "/images/projects/news-crawler.png",
+      image: "/images/projects/ai-news-crawler.png",
       technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
       linkUrl: "/project/news-crawler",
       githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"

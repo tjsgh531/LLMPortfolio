@@ -39,7 +39,7 @@ const projectsData: Record<string, ProjectData> = {
       "사용자에게 도움이 되는 고품질 콘텐츠 생성을 위한 정교한 프롬프트 엔지니어링 기법 적용",
       "지속적인 유지보수와 확장이 용이한 객체지향 설계를 통한 자동화 시스템 구현"
     ],
-    image: "/images/projects/news-crawler.png",
+    image: "/images/projects/ai-news-crawler.png",
     technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
     githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"
   }
