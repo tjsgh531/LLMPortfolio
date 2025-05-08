@@ -39,7 +39,7 @@ const projectsData: Record<string, ProjectData> = {
       "대용량 데이터 처리 및 성능 최적화",
       "중복 콘텐츠 감지 및 필터링 알고리즘 개발"
     ],
-    image: "./images/projects/news-crawler.png",
+    image: "/images/projects/news-crawler.png",
     technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
     githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"
   }
