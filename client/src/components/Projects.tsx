@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading font-bold text-3xl text-primary-900 text-center mb-6">프로젝트</h2>
         <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-          LLM과 AI를 활용한 1개의 개인 프로젝트와 2개의 협업 프로젝트입니다. 다양한 팀 환경에서 기술을 적용하고 함께 문제를 해결한 경험을 보여드립니다.
+          LLM과 AI를 활용한 개인 및 협업 프로젝트들입니다. 혼자서 개발한 경험과 팀 환경에서 함께 문제를 해결한 경험을 모두 보여드립니다.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
