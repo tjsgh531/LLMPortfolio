@@ -228,45 +228,39 @@ const ProjectDetail: React.FC = () => {
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
                   <pre>
-                    <span className="code-keyword">def</span> <span className="code-function">generate_blog_post</span>(<span className="code-variable">article_data</span>):
-                    <br />    <span className="code-comment"># 시스템 메시지로 AI의 페르소나 설정</span>
-                    <br />    <span className="code-variable">system_message</span> = <span className="code-string">"당신은 최신 AI 기술 트렌드를 분석하고 설명하는 전문 기술 작가입니다."</span>
-                    <br />    
-                    <br />    <span className="code-comment"># 프롬프트 기본 구조</span>
-                    <br />    <span className="code-variable">prompt_template</span> = <span className="code-string">"""
-                    다음 AI 뉴스 기사를 바탕으로 전문적이면서도 이해하기 쉬운 블로그 글을 작성해주세요:
-                    제목: [기사 제목]
-                    내용: [기사 내용]
-                    관련 기업: [관련 기업들]
-                    
-                    다음 지침을 따라주세요:
-                    1. 전문 용어를 소개할 때마다 간략한 설명을 덧붙이세요.
-                    2. 기술의 잠재적 영향과 산업 적용 가능성을 분석하세요.
-                    3. 실제 사용 사례나 미래 활용 방안을 포함하세요.
-                    4. 다음 구조로 글을 작성하세요:
-                       - 도입부: 핵심 내용 요약 (1-2문단)
-                       - 본문: 3개의 소제목으로 구성된 상세 내용
-                       - 결론: 기술 전망과 의의 (1문단)
+                    <span className="code-keyword">import</span> <span className="code-variable">openai</span>
+                    <br /><span className="code-keyword">import</span> <span className="code-variable">os</span>
+                    <br />
+                    <br /><span className="code-keyword">class</span> <span className="code-class">BlogWriter</span>:
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">__init__</span>(<span className="code-variable">self</span>):
+                    <br />        <span className="code-comment"># API 키 및 클라이언트 초기화</span>
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">api_key</span> = <span className="code-variable">os</span>.<span className="code-function">getenv</span>(<span className="code-string">"OPENAI_API_KEY"</span>)
+                    <br />        <span className="code-variable">self</span>.<span className="code-property">client</span> = <span className="code-variable">openai</span>.<span className="code-class">OpenAI</span>(<span className="code-property">api_key</span>=<span className="code-variable">self</span>.<span className="code-property">api_key</span>)
+                    <br />        
+                    <br />    <span className="code-keyword">def</span> <span className="code-function">generate_blog_post</span>(<span className="code-variable">self</span>, <span className="code-variable">company</span>, <span className="code-variable">articles</span>):
+                    <br />        <span className="code-comment"># 뉴스 기사 텍스트 준비</span>
+                    <br />        <span className="code-variable">article_text</span> = <span className="code-string">"AI 뉴스 데이터..."</span>
+                    <br />        
+                    <br />        <span className="code-comment"># 프롬프트 구성</span>
+                    <br />        <span className="code-variable">prompt</span> = <span className="code-string">"""
+                    다음은 최근 AI 뉴스 기사입니다. 이를 바탕으로, 블로그 글을 작성해주세요.
+
+                    스타일 가이드라인:
+                    - 시선을 끌 수 있는 제목
+                    - 친근하고 유쾌한 말투
+                    - 소제목 사용
+                    - 독자 호기심 자극
                     """</span>
-                    <br />    
-                    <br />    <span className="code-comment"># 실제 데이터로 프롬프트 생성</span>
-                    <br />    <span className="code-variable">article_title</span> = <span className="code-variable">article_data</span>[<span className="code-string">"title"</span>]
-                    <br />    <span className="code-variable">article_content</span> = <span className="code-variable">article_data</span>[<span className="code-string">"content"</span>]
-                    <br />    <span className="code-variable">related_companies</span> = <span className="code-variable">article_data</span>[<span className="code-string">"companies"</span>]
-                    <br />    
-                    <br />    <span className="code-variable">prompt</span> = <span className="code-string">"AI 기사를 블로그로 변환"</span>
-                    <br />    
-                    <br />    <span className="code-comment"># OpenAI API 호출</span>
-                    <br />    <span className="code-variable">response</span> = <span className="code-variable">openai</span>.<span className="code-class">ChatCompletion</span>.<span className="code-function">create</span>(
-                    <br />        <span className="code-property">model</span>=<span className="code-string">"gpt-4"</span>,
-                    <br />        <span className="code-property">messages</span>=[
-                    <br />            <span className="code-comment"># 시스템 및 사용자 메시지</span>
-                    <br />        ],
-                    <br />        <span className="code-property">temperature</span>=<span className="code-number">0.7</span>,
-                    <br />        <span className="code-property">max_tokens</span>=<span className="code-number">1800</span>
-                    <br />    )
-                    <br />    
-                    <br />    <span className="code-keyword">return</span> <span className="code-variable">response</span>.<span className="code-property">choices</span>[<span className="code-number">0</span>].<span className="code-property">message</span>[<span className="code-string">"content"</span>]
+                    <br />
+                    <br />        <span className="code-comment"># OpenAI API 호출</span>
+                    <br />        <span className="code-variable">response</span> = <span className="code-variable">self</span>.<span className="code-property">client</span>.<span className="code-property">chat</span>.<span className="code-property">completions</span>.<span className="code-function">create</span>(
+                    <br />            <span className="code-property">model</span>=<span className="code-string">"gpt-4"</span>,
+                    <br />            <span className="code-property">messages</span>=[<span className="code-comment">/* 메시지 배열 */</span>],
+                    <br />            <span className="code-property">temperature</span>=<span className="code-number">0.7</span>
+                    <br />        )
+                    <br />        
+                    <br />        <span className="code-comment"># 생성된 블로그 포스트 반환</span>
+                    <br />        <span className="code-keyword">return</span> <span className="code-variable">response</span>.<span className="code-property">choices</span>[<span className="code-number">0</span>].<span className="code-property">message</span>.<span className="code-property">content</span>
                   </pre>
                 </div>
               </div>
