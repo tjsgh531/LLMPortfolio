@@ -24,16 +24,18 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 asChild 
-                className="bg-primary-500 hover:bg-primary-700 text-white py-3 px-6 shadow-md hover:shadow-lg"
+                size="lg"
+                className="bg-primary-500 hover:bg-primary-700 text-white shadow-md hover:shadow-lg"
               >
-                <a href="#projects">프로젝트 보기</a>
+                <a href="#projects" className="text-white">프로젝트 보기</a>
               </Button>
               <Button 
                 asChild 
                 variant="outline" 
-                className="bg-white hover:bg-gray-100 text-primary-500 border-primary-500 py-3 px-6 shadow-sm hover:shadow-md"
+                size="lg"
+                className="bg-white hover:bg-gray-100 border-primary-500 shadow-sm hover:shadow-md"
               >
-                <a href="#contact">연락하기</a>
+                <a href="#contact" className="text-primary-500">연락하기</a>
               </Button>
             </div>
           </motion.div>
@@ -44,11 +46,14 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
-              alt="LLM 개발자 프로필 사진" 
-              className="rounded-full w-72 h-72 object-cover mx-auto shadow-2xl border-4 border-white"
-            />
+            <div className="relative w-72 h-72 mx-auto">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-300 to-primary-600 animate-pulse"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1565372595018-6d3e047ffa3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                alt="LLM 개발자 프로필 사진" 
+                className="relative rounded-full w-72 h-72 object-cover mx-auto shadow-2xl border-4 border-white"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
