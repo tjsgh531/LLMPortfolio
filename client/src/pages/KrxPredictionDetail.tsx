@@ -35,7 +35,7 @@ export default function KrxPredictionDetail() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <Link href="/#projects" className="inline-flex items-center text-primary-600 hover:text-primary-800 mb-8">
         <ArrowLeft className="mr-2 h-4 w-4" />
-        <span>프로젝트 목록으로 돌아가기</span>
+        <span>돌아가기</span>
       </Link>
       
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
