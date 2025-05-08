@@ -131,12 +131,23 @@ const ProjectDetail: React.FC = () => {
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">기술적 도전과제</h2>
-            <ul className="list-disc pl-6 mb-8 space-y-2">
-              {project.challenges?.map((challenge, index) => (
-                <li key={index} className="text-gray-700">
-                  {challenge}
-                </li>
-              ))}
+            <ul className="mb-8 space-y-2">
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>뉴스 본문 추출 알고리즘</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>DB 데이터 효율적 관리 및 중복 처리</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>프롬프트 엔지니어링 최적화</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>객체지향적 코드 관리</span>
+              </li>
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">시스템 아키텍처</h2>
