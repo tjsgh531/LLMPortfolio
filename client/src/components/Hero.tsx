@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
             <div className="relative w-72 h-72 mx-auto">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-300 to-primary-600 animate-pulse"></div>
               <img
-                src="/images/profile.jpeg"
+                src="./images/profile.jpeg"
                 alt="이선호 프로필 사진"
                 className="relative rounded-full w-72 h-72 object-cover mx-auto shadow-2xl border-4 border-white"
               />
