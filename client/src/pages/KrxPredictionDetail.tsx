@@ -102,7 +102,7 @@ export default function KrxPredictionDetail() {
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">모델 개발 과정</h2>
-            <div className="p-6 mb-8">
+            <div className="mb-8">
               <p className="text-gray-700 mb-4">
                 우리 팀은 KRX-Bench 평가 기준의 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 균형 잡힌 고성능을 보이는 모델을 개발하기 위해 단계적인 모델 고도화를 진행했습니다. Qwen2-7B-Instruct 기반 모델을 시작점으로, V1부터 V4까지 총 4단계의 발전 과정을 거치며 각 카테고리별 성능을 지속적으로 향상시켰습니다. 이러한 체계적인 접근 방식으로 예선에서 약 100팀 중 3위, 본선에서 12위라는 성과를 달성했습니다.
               </p>
