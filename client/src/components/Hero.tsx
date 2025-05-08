@@ -48,21 +48,11 @@ const Hero: React.FC = () => {
           >
             <div className="relative w-72 h-72 mx-auto">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-300 to-primary-600 animate-pulse"></div>
-              <svg
-                className="relative w-72 h-72 rounded-full bg-white shadow-2xl border-4 border-white"
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="100%" height="100%" fill="#f8fafc" />
-                <path
-                  fill="#4f46e5"
-                  d="M37,-65.1C47,-56.9,53.4,-44.5,59.8,-32.3C66.2,-20.1,72.6,-8,72.5,4C72.5,16,66,27.8,57.8,37.8C49.6,47.7,39.6,55.7,28.4,60.9C17.2,66.1,4.7,68.5,-8.3,69.6C-21.3,70.7,-35,70.5,-45.2,64.2C-55.4,58,-62.2,45.6,-68.2,32.6C-74.2,19.6,-79.3,5.9,-79.1,-7.9C-78.9,-21.8,-73.4,-35.7,-64.1,-45.2C-54.9,-54.7,-41.8,-59.8,-29.7,-66.9C-17.6,-73.9,-6.6,-82.8,3.8,-89.3C14.1,-95.7,27,-73.3,37,-65.1Z"
-                  transform="translate(100 100)"
-                />
-                <circle cx="76" cy="76" r="4" fill="#f8fafc" />
-                <circle cx="124" cy="76" r="4" fill="#f8fafc" />
-                <path d="M85,106 Q100,120 115,106" stroke="#f8fafc" strokeWidth="3" fill="none" />
-              </svg>
+              <img
+                src="/images/profile.jpeg"
+                alt="이선호 프로필 사진"
+                className="relative rounded-full w-72 h-72 object-cover mx-auto shadow-2xl border-4 border-white"
+              />
             </div>
           </motion.div>
         </div>
