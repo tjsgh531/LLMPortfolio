@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function KrxPredictionDetail() {
   const project = {
     id: 2,
-    title: "KRX 주가 예측 모델 성능 비교",
+    title: "KRX 금융 언어 모델 대회",
     duration: "25.03.15 ~ 25.04.10",
     fullDescription: 
       "본 프로젝트는 국내 주식시장(KRX)에서 다양한 기계학습 모델들의 주가 예측 성능을 비교 분석한 연구입니다. " +

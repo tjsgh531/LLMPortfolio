@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
     },
     {
       id: 2,
-      title: "KRX 주가 예측 모델 성능 비교",
+      title: "KRX 금융 언어 모델 대회",
       description: "다양한 버전의 예측 모델을 통해 국내 주식 시장의 예측 성능을 비교 분석한 프로젝트입니다. 기업 규모와 산업군에 따른 성능 차이를 시각화했습니다.",
       image: "/images/projects/model-performance.png",
       technologies: ["Python", "Pandas", "Scikit-learn", "PyTorch", "Matplotlib"],
