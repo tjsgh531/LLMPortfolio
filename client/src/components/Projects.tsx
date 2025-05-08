@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </a>
-                  <a href={project.githubUrl} className="text-gray-600 hover:text-gray-800">
+                  <a href={project.githubUrl} className="text-gray-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">
                     <SiGithub className="h-5 w-5" />
                   </a>
                 </CardFooter>
