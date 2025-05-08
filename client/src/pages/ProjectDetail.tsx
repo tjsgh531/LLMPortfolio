@@ -266,53 +266,41 @@ const ProjectDetail: React.FC = () => {
               </div>
               
               <div className="bg-primary-50 p-5 rounded-lg border border-primary-100">
-                <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">객체지향 설계 및 자동화</h3>
+                <h3 className="font-heading text-xl font-semibold text-primary-800 mb-3">객체지향 설계 및 CLI 자동화</h3>
                 <p className="text-gray-700 mb-3">
-                  유지보수와 확장이 용이하도록 모듈화된 객체지향 구조로 시스템을 설계했습니다. 특히 AITimesCrawler, NewsFilter, BlogGenerator 등 역할에 따라 명확히 분리된 클래스들과 각 클래스 간의 효율적인 상호작용을 중점적으로 구현했습니다. 또한 APScheduler 라이브러리를 활용한 자동화 시스템으로 정기적인 뉴스 수집 및 블로그 생성이 가능합니다.
+                  각 기능을 객체로 모듈화하여 main.py에서 유기적으로 작동하도록 설계했습니다. 주요 기능은 명령줄 인터페이스(CLI)로 제공되어 사용자가 간편하게 활용할 수 있습니다. 'python main.py crawl' 명령어로 최신 AI 뉴스를 크롤링하여 DB에 저장하고, 'python main.py blog 기업명'으로 특정 기업 관련 기사들을 활용하여 블로그를 생성합니다. 'python main.py blog all' 명령어를 통해 모든 기업에 대한 블로그를 일괄 생성할 수도 있습니다.
                 </p>
                 <div className="bg-gray-800 rounded-md p-3 text-gray-100 text-sm font-mono overflow-x-auto">
                   <pre>
-                    <span className="code-comment"># 기업 이름 매핑 및 별칭 정의</span>
-                    <br /><span className="code-variable">AI_COMPANY_ALIASES</span> = {'{'}
-                    <br />    <span className="code-string">"OpenAI"</span>: [<span className="code-string">"OpenAI"</span>, <span className="code-string">"오픈AI"</span>],
-                    <br />    <span className="code-string">"Google"</span>: [<span className="code-string">"Google"</span>, <span className="code-string">"구글"</span>],
-                    <br />    <span className="code-string">"DeepMind"</span>: [<span className="code-string">"DeepMind"</span>, <span className="code-string">"딥마인드"</span>]
-                    <br />{'}'}<br />
-                    <br /><span className="code-comment"># 크롤러 구현 클래스</span>
-                    <br /><span className="code-keyword">class</span> <span className="code-class">AITimesCrawler</span>:
-                    <br />    <span className="code-keyword">def</span> <span className="code-function">__init__</span>(<span className="code-variable">self</span>):
-                    <br />        <span className="code-variable">self</span>.<span className="code-property">results</span> = []
-                    <br />        <span className="code-variable">options</span> = <span className="code-class">Options</span>()
-                    <br />        <span className="code-variable">options</span>.<span className="code-function">add_argument</span>(<span className="code-string">"--headless"</span>)
-                    <br />        <span className="code-variable">self</span>.<span className="code-property">driver</span> = <span className="code-variable">webdriver</span>.<span className="code-class">Chrome</span>(<span className="code-property">options</span>=<span className="code-variable">options</span>)
-                    <br />        
-                    <br />    <span className="code-keyword">def</span> <span className="code-function">crawl</span>(<span className="code-variable">self</span>, <span className="code-variable">max_pages</span>=<span className="code-number">3</span>):
-                    <br />        <span className="code-comment"># 뉴스 페이지별 수집 구현</span>
-                    <br />        <span className="code-keyword">pass</span>
-                    <br />        
-                    <br />    <span className="code-keyword">def</span> <span className="code-function">extract_articles_with_known_companies</span>(<span className="code-variable">self</span>, <span className="code-variable">df</span>):
-                    <br />        <span className="code-comment"># 주요 AI 기업 필터링 로직</span>
-                    <br />        <span className="code-keyword">pass</span>
-                    <br />        
-                    <br />    <span className="code-keyword">def</span> <span className="code-function">add_article_content</span>(<span className="code-variable">self</span>, <span className="code-variable">df</span>):
-                    <br />        <span className="code-comment"># 상세 기사 내용 수집</span>
-                    <br />        <span className="code-keyword">pass</span>
+                    <span className="code-keyword">import</span> <span className="code-variable">sys</span>
+                    <br /><span className="code-keyword">from</span> <span className="code-variable">crawler</span> <span className="code-keyword">import</span> <span className="code-class">AITimesCrawler</span>
+                    <br /><span className="code-keyword">from</span> <span className="code-variable">db_manager</span> <span className="code-keyword">import</span> <span className="code-class">PostgresDBManager</span>
+                    <br /><span className="code-keyword">from</span> <span className="code-variable">blog_writer</span> <span className="code-keyword">import</span> <span className="code-class">BlogWriter</span>
                     <br />
-                    <br /><span className="code-comment"># 자동화 스케줄러 설정</span>
-                    <br /><span className="code-keyword">def</span> <span className="code-function">schedule_jobs</span>():
-                    <br />    <span className="code-variable">scheduler</span> = <span className="code-class">BlockingScheduler</span>()
-                    <br />    <span className="code-variable">crawler</span> = <span className="code-class">AITimesCrawler</span>()
-                    <br />    <span className="code-variable">processor</span> = <span className="code-class">ArticleProcessor</span>(<span className="code-variable">db_manager</span>)
-                    <br />    <span className="code-variable">generator</span> = <span className="code-class">BlogGenerator</span>(<span className="code-variable">config</span>[<span className="code-string">"openai_key"</span>])
-                    <br />    
-                    <br />    <span className="code-comment"># 6시간마다 뉴스 수집 실행</span>
-                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">add_job</span>(<span className="code-variable">crawler_job</span>, <span className="code-string">"interval"</span>, <span className="code-property">hours</span>=<span className="code-number">6</span>)
-                    <br />    
-                    <br />    <span className="code-comment"># 8시간마다 블로그 생성 실행</span>
-                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">add_job</span>(<span className="code-variable">generator_job</span>, <span className="code-string">"interval"</span>, <span className="code-property">hours</span>=<span className="code-number">8</span>)
-                    <br />    
-                    <br />    <span className="code-function">print</span>(<span className="code-string">"✅ 자동화 스케줄러가 시작되었습니다"</span>)
-                    <br />    <span className="code-variable">scheduler</span>.<span className="code-function">start</span>()
+                    <br /><span className="code-keyword">if</span> <span className="code-variable">__name__</span> == <span className="code-string">"__main__"</span>:
+                    <br />    <span className="code-variable">mode</span> = <span className="code-variable">sys</span>.<span className="code-property">argv</span>[1]
+                    <br />
+                    <br />    <span className="code-keyword">if</span> <span className="code-variable">mode</span> == <span className="code-string">"crawl"</span>:
+                    <br />        <span className="code-comment"># 크롤링 모드: AI 뉴스 수집 및 DB 저장</span>
+                    <br />        <span className="code-variable">crawler</span> = <span className="code-class">AITimesCrawler</span>()
+                    <br />        <span className="code-variable">db</span> = <span className="code-class">PostgresDBManager</span>()
+                    <br />        <span className="code-variable">df_final</span> = <span className="code-variable">crawler</span>.<span className="code-function">crawl</span>()
+                    <br />        <span className="code-comment"># 기업별 기사 저장 로직 (중략)</span>
+                    <br />
+                    <br />    <span className="code-keyword">elif</span> <span className="code-variable">mode</span> == <span className="code-string">"blog"</span>:
+                    <br />        <span className="code-keyword">if</span> <span className="code-variable">sys</span>.<span className="code-property">argv</span>[2] == <span className="code-string">"all"</span>:
+                    <br />            <span className="code-comment"># 모든 기업 블로그 생성</span>
+                    <br />            <span className="code-variable">companies</span> = <span className="code-function">get_all_companies_from_db</span>()
+                    <br />        <span className="code-keyword">else</span>:
+                    <br />            <span className="code-comment"># 선택된 기업 블로그 생성</span>
+                    <br />            <span className="code-variable">companies</span> = <span className="code-variable">sys</span>.<span className="code-property">argv</span>[2:]
+                    <br />
+                    <br />        <span className="code-variable">writer</span> = <span className="code-class">BlogWriter</span>()
+                    <br />
+                    <br />        <span className="code-keyword">for</span> <span className="code-variable">company</span> <span className="code-keyword">in</span> <span className="code-variable">companies</span>:
+                    <br />            <span className="code-variable">articles</span> = <span className="code-variable">writer</span>.<span className="code-function">fetch_recent_articles</span>(<span className="code-variable">company</span>)
+                    <br />            <span className="code-variable">blog_text</span> = <span className="code-variable">writer</span>.<span className="code-function">generate_blog_post</span>(<span className="code-variable">company</span>, <span className="code-variable">articles</span>)
+                    <br />            <span className="code-variable">writer</span>.<span className="code-function">save_to_markdown</span>(<span className="code-variable">company</span>, <span className="code-variable">blog_text</span>)
                   </pre>
                 </div>
               </div>
