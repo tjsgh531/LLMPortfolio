@@ -83,7 +83,7 @@ const ProjectDetail: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-heading text-4xl font-bold text-primary-900 mb-2">{project.title}</h1>
-            <p className="text-gray-500 text-sm mb-6">기간: 25.05.04~25.05.06</p>
+            <p className="text-gray-500 text-sm mb-6">프로젝트 기간: 25.05.04~25.05.06</p>
             
             <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
               <img
