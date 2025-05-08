@@ -26,9 +26,9 @@ const Hero: React.FC = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-primary-500 hover:bg-primary-700 text-white shadow-md hover:shadow-lg"
+                className="bg-primary-500 hover:bg-primary-700 shadow-md hover:shadow-lg"
               >
-                <a href="#projects" className="text-white">프로젝트 보기</a>
+                <a href="#projects" className="text-white font-medium">프로젝트 보기</a>
               </Button>
               <Button 
                 asChild 
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
                 size="lg"
                 className="bg-white hover:bg-gray-100 border-primary-500 shadow-sm hover:shadow-md"
               >
-                <a href="#contact" className="text-primary-500">연락하기</a>
+                <a href="#contact" className="text-primary-500 font-medium">연락하기</a>
               </Button>
             </div>
           </motion.div>
