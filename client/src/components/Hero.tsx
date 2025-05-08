@@ -26,9 +26,10 @@ const Hero: React.FC = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-primary-500 hover:bg-primary-700 shadow-md hover:shadow-lg"
+                variant="default"
+                className="shadow-md hover:shadow-lg"
               >
-                <a href="#projects" className="text-white font-medium">프로젝트 보기</a>
+                <a href="#projects" style={{ color: 'white' }} className="font-medium">프로젝트 보기</a>
               </Button>
               <Button 
                 asChild 
