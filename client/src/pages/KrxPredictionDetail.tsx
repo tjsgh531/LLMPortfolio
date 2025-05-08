@@ -46,7 +46,7 @@ export default function KrxPredictionDetail() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-heading text-3xl font-bold text-primary-900 mb-2">{project.title}</h1>
-            <p className="text-gray-500 mb-6">{project.duration}</p>
+            <p className="text-gray-500 mb-6">프로젝트 기간 : {project.duration}</p>
             
             <div className="mb-8">
               <img 
