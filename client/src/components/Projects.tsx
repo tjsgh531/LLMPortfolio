@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -17,6 +17,7 @@ type ProjectType = {
 };
 
 const Projects: React.FC = () => {
+  const [, setLocation] = useLocation();
   const projects: ProjectType[] = [
     {
       id: 1,
@@ -64,7 +65,12 @@ const Projects: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="project-card overflow-hidden h-full flex flex-col">
+              <Card 
+                className="project-card overflow-hidden h-full flex flex-col cursor-pointer transition-all hover:shadow-lg"
+                onClick={() => {
+                  setLocation(`/project/${project.id}`);
+                }}
+              >
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -86,11 +92,21 @@ const Projects: React.FC = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
-                  <Link href={project.linkUrl} className="text-primary-500 hover:text-primary-700 font-medium flex items-center">
+                  <Link 
+                    href={`/project/${project.id}`}
+                    className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
+                    onClick={(e) => e.stopPropagation()} // 이벤트 버블링 방지
+                  >
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
-                  <a href={project.githubUrl} className="text-gray-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href={project.githubUrl} 
+                    className="text-gray-600 hover:text-gray-800" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()} // 이벤트 버블링 방지
+                  >
                     <SiGithub className="h-5 w-5" />
                   </a>
                 </CardFooter>
