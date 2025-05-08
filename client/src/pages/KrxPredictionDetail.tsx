@@ -107,7 +107,7 @@ export default function KrxPredictionDetail() {
                 우리 팀은 KRX-Bench 평가 기준에서 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 높은 성능을 보이는 모델을 개발했습니다. 예선에서 3위, 본선에서 12위를 달성한 이 모델은 Qwen2-7B-Instruct를 기반으로 했습니다.
               </p>
               
-              <div className="relative pl-6 ml-2 my-8 space-y-8">
+              <div className="relative my-8 space-y-8">
                 {/* 모델 1: 기본 모델 */}
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
