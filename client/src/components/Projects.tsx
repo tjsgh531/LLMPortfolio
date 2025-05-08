@@ -68,7 +68,9 @@ const Projects: React.FC = () => {
               <Card 
                 className="project-card overflow-hidden h-full flex flex-col cursor-pointer transition-all hover:shadow-lg"
                 onClick={() => {
-                  setLocation(`/project/${project.id}`);
+                  // linkUrl에서 마지막 경로 부분만 추출 (예: "/project/news-crawler"에서 "news-crawler")
+                  const projectKey = project.linkUrl.split('/').pop();
+                  setLocation(`/project/${projectKey}`);
                 }}
               >
                 <div className="h-48 overflow-hidden">
@@ -93,7 +95,7 @@ const Projects: React.FC = () => {
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
                   <Link 
-                    href={`/project/${project.id}`}
+                    href={project.linkUrl}
                     className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
                     onClick={(e) => e.stopPropagation()} // 이벤트 버블링 방지
                   >
