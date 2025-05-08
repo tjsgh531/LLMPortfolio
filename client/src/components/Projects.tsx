@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "wouter";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -23,7 +24,7 @@ const Projects: React.FC = () => {
       description: "인공지능 뉴스를 자동으로 크롤링하여 수집하고, 해당 뉴스를 기반으로 최신 트렌드를 반영한 블로그 글을 자동 생성하는 시스템입니다.",
       image: "./images/projects/news-crawler.png",
       technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
-      linkUrl: "#",
+      linkUrl: "/project/news-crawler",
       githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"
     },
     {
@@ -85,10 +86,10 @@ const Projects: React.FC = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
-                  <a href={project.linkUrl} className="text-primary-500 hover:text-primary-700 font-medium flex items-center">
+                  <Link href={project.linkUrl} className="text-primary-500 hover:text-primary-700 font-medium flex items-center">
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  </Link>
                   <a href={project.githubUrl} className="text-gray-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">
                     <SiGithub className="h-5 w-5" />
                   </a>
