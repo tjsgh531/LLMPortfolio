@@ -34,7 +34,7 @@ export default function DocumentSummarizer() {
       "한국어 문맥 이해도 향상으로 더 자연스러운 요약 생성"
     ],
     technologies: ["Python", "PyTorch", "Hugging Face Transformers", "FastAPI", "Vue.js"],
-    image: "https://images.pixabay.com/photo/2017/10/17/16/10/books-2861751_1280.jpg",
+    image: "/images/projects/document-summarizer.png",
     githubUrl: "https://github.com/tjsgh531"
   };
 
