@@ -144,10 +144,10 @@ export default function KrxPredictionDetail() {
                     <div className="mt-3 border-t border-gray-200 pt-3">
                       <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
                       <p className="text-gray-700 text-sm">
-                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 다양한 금융 문서에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
+                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
                       </p>
                       <p className="text-gray-700 text-sm mt-2">
-                        이렇게 생성된 데이터로 Continual Pre-training을 진행하여 모델이 금융 도메인의 용어와 개념을 자연스럽게 이해하고 설명할 수 있도록 했습니다. 특히 금융 상품, 투자 전략, 시장 분석 등 다양한 금융 하위 분야를 균형있게 포함시켜 모델의 전반적인 금융 지식을 강화했습니다.
+                        이렇게 생성된 데이터로 Continual Pre-training을 진행하여 모델이 금융 도메인의 용어와 개념을 자연스럽게 이해하고 설명할 수 있도록 했습니다. 실제로 대량의 Raw Data를 continual pretraining 했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시켰을 때 더 높은 성능을 얻을 수 있었습니다.
                       </p>
                     </div>
                     
