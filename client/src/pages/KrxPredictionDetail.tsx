@@ -327,6 +327,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
+                      <span className="bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-xs">베이스: krx-qwen2-7b-instruct-v2</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
