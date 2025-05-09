@@ -327,7 +327,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">BASE: V2</span>
-                      <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">METHOD: SFT</span>
+                      <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
@@ -425,7 +425,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">BASE: V2</span>
-                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">METHOD: MCQA + 주가예측</span>
+                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">기법: MCQA + 주가예측</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
