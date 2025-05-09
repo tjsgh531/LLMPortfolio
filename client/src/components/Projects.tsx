@@ -66,11 +66,7 @@ const Projects: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card 
-                className="project-card overflow-hidden h-full flex flex-col cursor-pointer transition-all hover:shadow-lg"
-                onClick={() => {
-                  // 전체 링크 URL을 사용
-                  setLocation(project.linkUrl);
-                }}
+                className="project-card overflow-hidden h-full flex flex-col transition-all hover:shadow-lg"
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -96,7 +92,6 @@ const Projects: React.FC = () => {
                   <Link 
                     href={project.linkUrl}
                     className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
-                    onClick={(e) => e.stopPropagation()} // 이벤트 버블링 방지
                   >
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
