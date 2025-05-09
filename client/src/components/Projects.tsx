@@ -43,8 +43,8 @@ const Projects: React.FC = () => {
       description: "T5 모델을 활용한 문서 자동 요약 시스템. 긴 문서를 핵심 내용만 담은 요약본으로 변환합니다.",
       image: "https://images.pixabay.com/photo/2017/10/17/16/10/books-2861751_1280.jpg",
       technologies: ["Python", "PyTorch", "FastAPI", "Vue.js"],
-      linkUrl: "#",
-      githubUrl: "#"
+      linkUrl: "/project/document-summarizer",
+      githubUrl: "https://github.com/tjsgh531"
     }
   ];
 
