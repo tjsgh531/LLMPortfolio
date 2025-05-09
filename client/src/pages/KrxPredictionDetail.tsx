@@ -203,7 +203,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">데이터셋:</span>
-                          <span className="text-gray-700 text-xs font-medium ml-1">AI Hub 금융 용어 데이터셋 (Raw)</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AI Hub 금융 용어 데이터셋</span>
                         </div>
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">학습 시간:</span>
@@ -301,7 +301,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">데이터셋:</span>
-                          <span className="text-gray-700 text-xs font-medium ml-1">KRX-Bench 데이터셋 (Reading Comprehension Format)</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">KRX-Bench 데이터셋</span>
                         </div>
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">학습 시간:</span>
