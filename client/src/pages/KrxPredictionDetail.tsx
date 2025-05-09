@@ -102,15 +102,23 @@ export default function KrxPredictionDetail() {
             <ul className="mb-8 space-y-2">
               <li className="text-gray-700 flex items-start">
                 <span className="mr-2 text-green-600">✅</span>
-                <span>모델이 금융 전문 용어를 이해하고 처리할 수 있도록 도메인 특화 학습이 필요했으며, 제한된 컴퓨팅 리소스(RTX3090 한 대)에서 효율적인 학습 전략을 고안해야 했습니다.</span>
+                <span>금융 전문 용어 이해를 위한 도메인 특화 학습 구현</span>
               </li>
               <li className="text-gray-700 flex items-start">
                 <span className="mr-2 text-green-600">✅</span>
-                <span>학습 과정에서 Catastrophic forgetting(재앙적 망각) 현상을 회피하면서 모델의 기존 지식을 유지해야 했습니다.</span>
+                <span>제한된 컴퓨팅 리소스(RTX3090 한 대)에서 효율적인 학습 전략 고안</span>
               </li>
               <li className="text-gray-700 flex items-start">
                 <span className="mr-2 text-green-600">✅</span>
-                <span>데이터 수집부터 처리, 학습까지 모델 개발의 전 과정을 직접 설계하고 구현하면서 5개 금융 카테고리에서 균형 잡힌 성능을 보이는 모델을 개발해야 했습니다.</span>
+                <span>Catastrophic forgetting(재앙적 망각) 현상 회피 및 기존 지식 유지</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>5개 금융 카테고리에서 균형 잡힌 성능을 보이는 모델 개발</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>데이터 수집, 처리, 학습의 전 과정 직접 설계 및 구현</span>
               </li>
             </ul>
             
