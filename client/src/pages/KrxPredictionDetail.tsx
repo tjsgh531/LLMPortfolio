@@ -410,7 +410,7 @@ export default function KrxPredictionDetail() {
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-primary-800">V4_m: 카테고리별 최적화 최종 모델</h4>
+                      <h4 className="text-lg font-semibold text-primary-800">V4_m: 주가 예측 데이터 특화 모델</h4>
                       <a 
                         href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v4_m" 
                         target="_blank" 
@@ -424,8 +424,8 @@ export default function KrxPredictionDetail() {
                       </a>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">기법: 카테고리별 학습</span>
-                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">베이스: krx-qwen2-7b-instruct-v3</span>
+                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">기법: MCQA + 주가예측</span>
+                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">베이스: KR-X-AI/krx-qwen2-7b-instruct-v2</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
@@ -474,14 +474,30 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">KRX-Bench의 5개 카테고리별로 특화된 데이터셋을 추가 구성하여 각 영역의 성능을 균형있게 향상시켰습니다. 이 접근법은 V2 모델의 Reading Comprehension 기반 Adapting LLM 방법론과 V3의 QLoRA 최적화 기법을 결합한 것입니다.</p>
+                      <p className="text-gray-700 text-sm">V2 모델에 MCQA 데이터셋과 주가 예측 데이터셋을 4:1 비율로 혼합하여 SFT 방식으로 학습했습니다. 주가 예측 데이터는 추세선을 통해 판단할 수 있도록 설계했으며, 변동성을 추가하여 실제 시장과 유사한 환경을 구현했습니다.</p>
+                    </div>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">학습 환경</h5>
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">데이터셋:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">MCQA + 주가 예측 데이터</span>
+                        </div>
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">학습 시간:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">27분 46초</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-gray-500 text-xs">하드웨어:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AMD 3960X RTX3090</span>
+                        </div>
+                      </div>
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">카테고리별 특화 학습</span>은 모델이 각 분야의 미묘한 차이를 더 잘 이해할 수 있게 해주었습니다. 특히 기존 모델이 상대적으로 약했던 재무회계와 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
+                      <span className="font-medium">주가 예측 특화 학습</span>의 핵심은 LLM의 Catastrophic forgetting 현상을 방지하는 데 있었습니다. 주가 예측 데이터만 학습 시 기존 지식 손실이 발생하는 것을 확인하고, MCQA와 혼합 학습하여 모든 카테고리에서 균형 있는 성능을 유지하면서 주가 예측 능력을 강화했습니다.
                     </p>
-                    
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Task-specific Fine-tuning of Large Language Models</a>" (Wei et al., 2022)</p>
                   </div>
                 </div>
               </div>
