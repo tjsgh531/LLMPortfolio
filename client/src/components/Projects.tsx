@@ -68,9 +68,8 @@ const Projects: React.FC = () => {
               <Card 
                 className="project-card overflow-hidden h-full flex flex-col cursor-pointer transition-all hover:shadow-lg"
                 onClick={() => {
-                  // linkUrl에서 마지막 경로 부분만 추출 (예: "/project/news-crawler"에서 "news-crawler")
-                  const projectKey = project.linkUrl.split('/').pop();
-                  setLocation(`/project/${projectKey}`);
+                  // 전체 링크 URL을 사용
+                  setLocation(project.linkUrl);
                 }}
               >
                 <div className="h-48 overflow-hidden">
