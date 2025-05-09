@@ -164,18 +164,21 @@ export default function KrxPredictionDetail() {
                       <p className="text-gray-700 text-sm">단순 대량의 금융 도메인 데이터를 Qwen2-7B-Instruct 모델에 DAPT(Domain-Adaptive Pre-Training) 적용</p>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-2 mb-3">
-                      <div className="bg-slate-50 p-2 rounded-md">
-                        <div className="text-xs font-medium text-primary-700 mb-1">데이터셋</div>
-                        <p className="text-gray-700 text-xs">AI Hub 금융 용어 데이터셋 (Raw 형태)</p>
-                      </div>
-                      <div className="bg-slate-50 p-2 rounded-md">
-                        <div className="text-xs font-medium text-primary-700 mb-1">학습 시간</div>
-                        <p className="text-gray-700 text-xs">4시간 48분 12초</p>
-                      </div>
-                      <div className="bg-slate-50 p-2 rounded-md col-span-2">
-                        <div className="text-xs font-medium text-primary-700 mb-1">하드웨어</div>
-                        <p className="text-gray-700 text-xs">AMD 3960X RTX3090</p>
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">학습 환경</h5>
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">데이터셋:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AI Hub 금융 용어 데이터셋 (Raw)</span>
+                        </div>
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">학습 시간:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">4시간 48분 12초</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-gray-500 text-xs">하드웨어:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AMD 3960X RTX3090</span>
+                        </div>
                       </div>
                     </div>
                     
