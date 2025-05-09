@@ -217,7 +217,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">V1 모델</span>은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
+                      V1 모델은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
                     </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="https://arxiv.org/abs/2004.10964" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
@@ -315,7 +315,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">V2 모델</span>은 금융 용어 학습을 위해 기획재정부 금융 용어집(941KB) 데이터셋을 활용하여 Reading Comprehension 전략이 잘 담긴 QA 합성데이터를 생성하고 Adapting LLM 기법으로 학습을 진행했습니다. 이를 통해 모델이 금융 용어에 대한 이해도가 크게 향상되었으며, QLoRA(Quantized Low-Rank Adaptation)를 활용해 적은 파라미터만으로도 효율적인 학습이 가능했습니다. 그 결과 전체 평균 <span className="text-green-600 font-medium">14%</span>의 성능 향상을 달성했으며, 특히 국내기업 카테고리에서 <span className="text-green-600 font-medium">20%</span>, 금융시장 카테고리에서 <span className="text-green-600 font-medium">35%</span>의 높은 성능 향상을 이루었습니다.
+                      V2 모델은 금융 용어 학습을 위해 기획재정부 금융 용어집(941KB) 데이터셋을 활용하여 Reading Comprehension 전략이 잘 담긴 QA 합성데이터를 생성하고 Adapting LLM 기법으로 학습을 진행했습니다. 이를 통해 모델이 금융 용어에 대한 이해도가 크게 향상되었으며, QLoRA(Quantized Low-Rank Adaptation)를 활용해 적은 파라미터만으로도 효율적인 학습이 가능했습니다. 그 결과 전체 평균 <span className="text-green-600">14%</span>의 성능 향상을 달성했으며, 특히 국내기업 카테고리에서 <span className="text-green-600">20%</span>, 금융시장 카테고리에서 <span className="text-green-600">35%</span>의 높은 성능 향상을 이루었습니다.
                     </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="https://arxiv.org/abs/2004.10964" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yu et al., 2022)</p>
@@ -413,7 +413,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 생성에 KRX-Bench 논문의 방법론을 적용했습니다. RAG를 활용해 의미적으로 유사한 질문들을 클러스터링하고, 각 클러스터 내에서 고품질 MCQA 문제를 합성했습니다. 데이터 품질 관리를 위한 3단계 검증 프로세스(문법 오류 체크, 정답 일관성 검토, 난이도 균형화)를 도입했습니다. 이렇게 구축된 데이터셋으로 V2 모델을 학습한 결과, 재무회계 카테고리에서 <span className="text-green-600 font-medium">8.2%</span>, 금융시장 영역에서 <span className="text-green-600 font-medium">7.5%</span> 성능이 향상되었습니다.
+                      MCQA(Multiple Choice Question Answering) 생성에 KRX-Bench 논문의 방법론을 적용했습니다. RAG를 활용해 의미적으로 유사한 질문들을 클러스터링하고, 각 클러스터 내에서 고품질 MCQA 문제를 합성했습니다. 데이터 품질 관리를 위한 3단계 검증 프로세스(문법 오류 체크, 정답 일관성 검토, 난이도 균형화)를 도입했습니다. 이렇게 구축된 데이터셋으로 V2 모델을 학습한 결과, 재무회계 카테고리에서 <span className="text-green-600">8.2%</span>, 금융시장 영역에서 <span className="text-green-600">7.5%</span> 성능이 향상되었습니다.
                     </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
@@ -511,7 +511,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">주가 예측 특화 학습</span>의 핵심은 LLM의 Catastrophic forgetting 현상을 방지하는 데 있었습니다. 주가 예측 데이터만 학습 시 기존 지식 손실이 발생하는 것을 확인하고, MCQA와 혼합 학습하여 모든 카테고리에서 균형 있는 성능을 유지하면서 주가 예측 능력을 강화했습니다.
+                      주가 예측 특화 학습의 핵심은 LLM의 Catastrophic forgetting 현상을 방지하는 데 있었습니다. 주가 예측 데이터만 학습 시 기존 지식 손실이 발생하는 것을 확인하고, MCQA와 혼합 학습하여 모든 카테고리에서 균형 있는 성능을 유지하면서 주가 예측 능력을 강화했습니다.
                     </p>
                   </div>
                 </div>
