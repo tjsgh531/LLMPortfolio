@@ -123,12 +123,16 @@ export default function KrxPredictionDetail() {
                       <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
                       <div className="bg-amber-50 p-2 rounded-md text-center mb-3">
                         <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                        <div className="text-sm font-medium text-amber-700">0.44 → 0.39 (-11%)</div>
+                        <div className="text-sm font-medium">
+                          <span>0.44 → 0.39</span> <span className="text-red-600">(-11%)</span>
+                        </div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                          <div className="text-sm font-medium text-amber-700">0.51 → 0.38 (-25%)</div>
+                          <div className="text-sm font-medium">
+                            <span>0.51 → 0.38</span> <span className="text-red-600">(-25%)</span>
+                          </div>
                         </div>
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">재무회계</div>
@@ -136,11 +140,15 @@ export default function KrxPredictionDetail() {
                         </div>
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                          <div className="text-sm font-medium text-amber-700">0.54 → 0.50 (-7%)</div>
+                          <div className="text-sm font-medium">
+                            <span>0.54 → 0.50</span> <span className="text-red-600">(-7%)</span>
+                          </div>
                         </div>
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                          <div className="text-sm font-medium text-amber-700">0.62 → 0.47 (-24%)</div>
+                          <div className="text-sm font-medium">
+                            <span>0.62 → 0.47</span> <span className="text-red-600">(-24%)</span>
+                          </div>
                         </div>
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
