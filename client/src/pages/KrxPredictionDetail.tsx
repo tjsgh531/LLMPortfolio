@@ -379,24 +379,20 @@ export default function KrxPredictionDetail() {
                       <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 방법론과 동일한 방식으로 MCQA 합성 데이터를 생성했습니다.</p>
                     </div>
                     
-                    <div className="mt-3 border-t border-gray-200 pt-3">
-                      <h5 className="text-sm font-medium text-primary-700 mb-2">모델 스펙</h5>
-                      <div className="grid grid-cols-2 gap-2 mb-2">
-                        <div className="flex flex-col">
-                          <span className="text-xs text-gray-500">베이스 모델</span>
-                          <span className="text-sm font-medium">KR-X-AI/krx-qwen2-7b-instruct-v2</span>
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">학습 환경</h5>
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">데이터셋:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">MCQA 합성 데이터셋</span>
                         </div>
-                        <div className="flex flex-col">
-                          <span className="text-xs text-gray-500">학습 방법</span>
-                          <span className="text-sm font-medium">SFT</span>
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">학습 시간:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">12분 32초</span>
                         </div>
-                        <div className="flex flex-col mt-2">
-                          <span className="text-xs text-gray-500">학습 시간</span>
-                          <span className="text-sm font-medium">12분 32초</span>
-                        </div>
-                        <div className="flex flex-col mt-2">
-                          <span className="text-xs text-gray-500">하드웨어</span>
-                          <span className="text-sm font-medium">AMD 3960X RTX3090</span>
+                        <div className="flex items-center">
+                          <span className="text-gray-500 text-xs">하드웨어:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AMD 3960X RTX3090</span>
                         </div>
                       </div>
                     </div>
