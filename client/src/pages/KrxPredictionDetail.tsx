@@ -391,7 +391,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
+                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. Hugging Face 데이터셋을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
