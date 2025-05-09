@@ -186,7 +186,7 @@ export default function KrxPredictionDetail() {
                         </div>
                         <div className="bg-amber-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                          <div className="text-sm font-medium text-amber-700">0.26 → 0.31 (+19%)</div>
+                          <div className="text-sm font-medium text-amber-700">0.26 → 0.31 <span className="text-green-600">(+19%)</span></div>
                         </div>
                       </div>
                     </div>
