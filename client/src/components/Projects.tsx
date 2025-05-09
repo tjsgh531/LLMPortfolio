@@ -65,7 +65,9 @@ const Projects: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="project-card overflow-hidden h-full flex flex-col rounded-lg border bg-card text-card-foreground shadow transition-all hover:shadow-lg">
+              <div 
+                className="project-card overflow-hidden h-full flex flex-col rounded-lg border bg-card text-card-foreground shadow transition-all hover:shadow-lg cursor-pointer"
+                onClick={() => window.location.href = project.linkUrl}>
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -90,6 +92,7 @@ const Projects: React.FC = () => {
                   <a 
                     href={project.linkUrl} 
                     className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
@@ -99,6 +102,7 @@ const Projects: React.FC = () => {
                     className="text-gray-600 hover:text-gray-800" 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <SiGithub className="h-5 w-5" />
                   </a>
