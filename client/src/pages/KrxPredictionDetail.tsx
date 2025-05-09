@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function KrxPredictionDetail() {
+  const [location, setLocation] = useLocation();
   const project = {
     id: 2,
     title: "KRX 금융 언어 모델 대회",
@@ -32,14 +35,18 @@ export default function KrxPredictionDetail() {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <Link href="/#projects" className="inline-flex items-center text-primary-600 hover:text-primary-800 mb-8">
+    <div className="container mx-auto px-4 py-12">
+      <Button 
+        variant="ghost" 
+        onClick={() => setLocation("/")}
+        className="mb-8 flex items-center text-primary-500 hover:text-primary-700"
+      >
         <ArrowLeft className="mr-2 h-4 w-4" />
         <span>돌아가기</span>
-      </Link>
+      </Button>
       
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="p-6 sm:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
