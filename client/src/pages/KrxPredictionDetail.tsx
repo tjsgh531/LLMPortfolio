@@ -326,67 +326,45 @@ export default function KrxPredictionDetail() {
                       </a>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
-                    </div>
-                    
-                    <div className="bg-slate-50 p-3 rounded-md mb-3">
-                      <h5 className="text-sm font-medium text-primary-700 mb-2">모델 스펙</h5>
-                      <div className="grid grid-cols-2 gap-2 mb-2">
-                        <div className="bg-slate-100 p-2 rounded-md">
-                          <div className="text-xs text-gray-500 mb-1">베이스 모델</div>
-                          <div className="text-sm font-medium">KR-X-AI/krx-qwen2-7b-instruct-v2</div>
-                        </div>
-                        <div className="bg-slate-100 p-2 rounded-md">
-                          <div className="text-xs text-gray-500 mb-1">학습 방법</div>
-                          <div className="text-sm font-medium">SFT</div>
-                        </div>
-                        <div className="bg-slate-100 p-2 rounded-md">
-                          <div className="text-xs text-gray-500 mb-1">학습 시간</div>
-                          <div className="text-sm font-medium">12분 32초</div>
-                        </div>
-                        <div className="bg-slate-100 p-2 rounded-md">
-                          <div className="text-xs text-gray-500 mb-1">하드웨어</div>
-                          <div className="text-sm font-medium">AMD 3960X RTX3090</div>
-                        </div>
-                      </div>
+                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
                       <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
-                      <div className="bg-green-50 p-2 rounded-md text-center mb-3">
+                      <div className="bg-blue-50 p-2 rounded-md text-center mb-3">
                         <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                        <div className="text-sm font-medium text-green-700">
+                        <div className="text-sm font-medium text-blue-700">
                           0.44 → 0.48 <span className="text-green-600">(+8%)</span>
                         </div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
-                        <div className="bg-green-50 p-2 rounded-md text-center">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                          <div className="text-sm font-medium text-green-700">
+                          <div className="text-sm font-medium text-blue-700">
                             0.51 → 0.55 <span className="text-green-600">(+8%)</span>
                           </div>
                         </div>
-                        <div className="bg-green-50 p-2 rounded-md text-center">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">재무회계</div>
-                          <div className="text-sm font-medium text-green-700">
+                          <div className="text-sm font-medium text-blue-700">
                             0.27 → 0.30 <span className="text-green-600">(+11%)</span>
                           </div>
                         </div>
-                        <div className="bg-green-50 p-2 rounded-md text-center">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                          <div className="text-sm font-medium text-green-700">
+                          <div className="text-sm font-medium text-blue-700">
                             0.54 → 0.58 <span className="text-green-600">(+7%)</span>
                           </div>
                         </div>
-                        <div className="bg-green-50 p-2 rounded-md text-center">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                          <div className="text-sm font-medium text-green-700">
+                          <div className="text-sm font-medium text-blue-700">
                             0.62 → 0.65 <span className="text-green-600">(+5%)</span>
                           </div>
                         </div>
-                        <div className="bg-green-50 p-2 rounded-md text-center">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                          <div className="text-sm font-medium text-green-700">
+                          <div className="text-sm font-medium text-blue-700">
                             0.26 → 0.29 <span className="text-green-600">(+10%)</span>
                           </div>
                         </div>
@@ -397,7 +375,29 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-900 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 방법론과 동일한 방식으로 MCQA 합성 데이터를 생성했습니다.</p>
+                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 방법론과 동일한 방식으로 MCQA 합성 데이터를 생성했습니다.</p>
+                    </div>
+                    
+                    <div className="mt-3 border-t border-gray-200 pt-3">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">모델 스펙</h5>
+                      <div className="grid grid-cols-2 gap-2 mb-2">
+                        <div className="flex flex-col">
+                          <span className="text-xs text-gray-500">베이스 모델</span>
+                          <span className="text-sm font-medium">KR-X-AI/krx-qwen2-7b-instruct-v2</span>
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-xs text-gray-500">학습 방법</span>
+                          <span className="text-sm font-medium">SFT</span>
+                        </div>
+                        <div className="flex flex-col mt-2">
+                          <span className="text-xs text-gray-500">학습 시간</span>
+                          <span className="text-sm font-medium">12분 32초</span>
+                        </div>
+                        <div className="flex flex-col mt-2">
+                          <span className="text-xs text-gray-500">하드웨어</span>
+                          <span className="text-sm font-medium">AMD 3960X RTX3090</span>
+                        </div>
+                      </div>
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
