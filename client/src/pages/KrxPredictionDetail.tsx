@@ -310,10 +310,10 @@ export default function KrxPredictionDetail() {
                 
                 {/* 모델 3: MCQA */}
                 <div className="relative">
-                  <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
-                  <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
+                  <div className="absolute -left-8 top-0 w-4 h-4 bg-emerald-500 rounded-full"></div>
+                  <div className="bg-gradient-to-r from-emerald-50 to-emerald-100 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-primary-800">V3: MCQA 최적화 모델</h4>
+                      <h4 className="text-lg font-semibold text-emerald-800">V3: MCQA 최적화 모델</h4>
                       <a 
                         href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v3" 
                         target="_blank" 
@@ -327,61 +327,61 @@ export default function KrxPredictionDetail() {
                       </a>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">BASE: V2</span>
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
+                      <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">BASE: V2</span>
+                      <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
-                      <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
-                      <div className="bg-blue-50 p-2 rounded-md text-center mb-3">
+                      <h5 className="text-sm font-medium text-emerald-700 mb-2">성능 지표 비교</h5>
+                      <div className="bg-emerald-50 p-2 rounded-md text-center mb-3">
                         <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                        <div className="text-sm font-medium text-blue-700">
+                        <div className="text-sm font-medium text-emerald-700">
                           0.44 → 0.48 <span className="text-green-600">(+8%)</span>
                         </div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
-                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                        <div className="bg-emerald-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                          <div className="text-sm font-medium text-blue-700">
+                          <div className="text-sm font-medium text-emerald-700">
                             0.51 → 0.55 <span className="text-green-600">(+8%)</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                        <div className="bg-emerald-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">재무회계</div>
-                          <div className="text-sm font-medium text-blue-700">
+                          <div className="text-sm font-medium text-emerald-700">
                             0.27 → 0.30 <span className="text-green-600">(+11%)</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                        <div className="bg-emerald-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                          <div className="text-sm font-medium text-blue-700">
+                          <div className="text-sm font-medium text-emerald-700">
                             0.54 → 0.58 <span className="text-green-600">(+7%)</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                        <div className="bg-emerald-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                          <div className="text-sm font-medium text-blue-700">
+                          <div className="text-sm font-medium text-emerald-700">
                             0.62 → 0.65 <span className="text-green-600">(+5%)</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                        <div className="bg-emerald-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                          <div className="text-sm font-medium text-blue-700">
+                          <div className="text-sm font-medium text-emerald-700">
                             0.26 → 0.29 <span className="text-green-600">(+10%)</span>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-emerald-300">
                       <div className="flex items-center mb-2">
-                        <span className="font-medium text-primary-700">학습 방법</span>
+                        <span className="font-medium text-emerald-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
+                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-emerald-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
-                      <h5 className="text-sm font-medium text-primary-700 mb-2">학습 환경</h5>
+                      <h5 className="text-sm font-medium text-emerald-700 mb-2">학습 환경</h5>
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">데이터셋:</span>
