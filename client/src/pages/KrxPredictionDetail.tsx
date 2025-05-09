@@ -207,7 +207,20 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V2: Adapting LLM 모델</h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-primary-800">V2: Adapting LLM 모델</h4>
+                      <a 
+                        href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v2" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded transition-colors"
+                      >
+                        <svg className="w-4 h-4 mr-1" viewBox="0 0 512 512" fill="currentColor">
+                          <path d="M96 191.02v-144c0-8.8 7.2-16 16-16h144c4.2 0 8.3 1.7 11.3 4.7l176 176c6.2 6.2 6.2 16.4 0 22.6l-144 144c-6.2 6.2-16.4 6.2-22.6 0l-176-176c-3-3-4.7-7.1-4.7-11.3zm32 0v112.7L265.4 166.6 128 29.2V191z"></path>
+                        </svg>
+                        HuggingFace 모델
+                      </a>
+                    </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: Adapting LLM</span>
                     </div>
@@ -267,7 +280,20 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V3: QLoRA 최적화 모델</h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-primary-800">V3: QLoRA 최적화 모델</h4>
+                      <a 
+                        href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v3" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded transition-colors"
+                      >
+                        <svg className="w-4 h-4 mr-1" viewBox="0 0 512 512" fill="currentColor">
+                          <path d="M96 191.02v-144c0-8.8 7.2-16 16-16h144c4.2 0 8.3 1.7 11.3 4.7l176 176c6.2 6.2 6.2 16.4 0 22.6l-144 144c-6.2 6.2-16.4 6.2-22.6 0l-176-176c-3-3-4.7-7.1-4.7-11.3zm32 0v112.7L265.4 166.6 128 29.2V191z"></path>
+                        </svg>
+                        HuggingFace 모델
+                      </a>
+                    </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">기법: QLoRA</span>
                     </div>
@@ -321,7 +347,20 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V4_m: 카테고리별 최적화 최종 모델</h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-primary-800">V4_m: 카테고리별 최적화 최종 모델</h4>
+                      <a 
+                        href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v4_m" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded transition-colors"
+                      >
+                        <svg className="w-4 h-4 mr-1" viewBox="0 0 512 512" fill="currentColor">
+                          <path d="M96 191.02v-144c0-8.8 7.2-16 16-16h144c4.2 0 8.3 1.7 11.3 4.7l176 176c6.2 6.2 6.2 16.4 0 22.6l-144 144c-6.2 6.2-16.4 6.2-22.6 0l-176-176c-3-3-4.7-7.1-4.7-11.3zm32 0v112.7L265.4 166.6 128 29.2V191z"></path>
+                        </svg>
+                        HuggingFace 모델
+                      </a>
+                    </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">기법: 카테고리별 학습</span>
                     </div>
