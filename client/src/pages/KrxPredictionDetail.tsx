@@ -376,7 +376,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 방법론과 동일한 방식으로 MCQA 합성 데이터를 생성했습니다.</p>
+                      <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
@@ -398,7 +398,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 방식은 모델이 여러 선택지 중에서 올바른 답을 고르는 능력을 향상시키는데 효과적입니다. 이 방식은 특히 금융 도메인의 벤치마크 평가에서 중요한 역할을 하며, 모델의 추론 능력을 체계적으로 평가할 수 있습니다.
+                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 생성에 KRX-Bench 논문에서 제안한 방식을 적용했습니다. RAG를 활용하여 비슷한 질문 데이터셋을 클러스터링한 후, 이를 기반으로 MCQA 합성 데이터를 생성했습니다. 특히 Quality Check 과정을 추가하여 데이터의 질을 크게 향상시켰으며, 이렇게 정제된 고품질 데이터셋을 V2 모델에 SFT 방식으로 학습시킨 결과 모든 영역에서 성능 향상을 이룰 수 있었습니다.
                     </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
