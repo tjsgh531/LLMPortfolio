@@ -505,7 +505,7 @@ export default function KrxPredictionDetail() {
               <div className="mt-8 bg-gradient-to-r from-primary-50 to-white p-4 rounded-lg border-l-4 border-primary-500">
                 <h4 className="font-semibold text-primary-800 mb-2">대회 성적</h4>
                 <p className="text-gray-700">
-                  위 모델 개발 과정을 통해 <span className="font-semibold">예선에서 약 100팀 중 3위</span>를 차지했으며, <span className="font-semibold">본선에서는 12위</span>를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.
+                  위 모델 개발 과정을 통해 <span className="font-semibold">예선에서 171개 모델 중 3위</span>를 차지했으며, <span className="font-semibold">본선에서는 12위</span>를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.
                 </p>
               </div>
             </div>
