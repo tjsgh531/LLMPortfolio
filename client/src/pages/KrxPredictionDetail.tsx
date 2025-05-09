@@ -195,11 +195,11 @@ export default function KrxPredictionDetail() {
                       </div>
                     </div>
                     
-                    <p className="text-xs text-gray-900 mt-2">
+                    <p className="text-sm text-gray-900 mt-2">
                       <span className="font-medium">V1 모델</span>은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
                     </p>
                     
-                    <p className="text-xs text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
                   </div>
                 </div>
                 
@@ -272,7 +272,7 @@ export default function KrxPredictionDetail() {
                       </p>
                     </div>
                     
-                    <p className="text-xs text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
                   </div>
                 </div>
                 
@@ -335,11 +335,11 @@ export default function KrxPredictionDetail() {
                       <p className="text-gray-700 text-sm">QLoRA(Quantized Low-Rank Adaptation)를 적용하여 제한된 컴퓨팅 환경에서도 효율적인 파라미터 최적화를 구현했습니다. 모델 매개변수의 크기를 줄이면서도 성능은 유지할 수 있는 양자화 기법을 활용했습니다.</p>
                     </div>
                     
-                    <p className="text-xs text-gray-900 mt-2">
+                    <p className="text-sm text-gray-900 mt-2">
                       <span className="font-medium">QLoRA</span>는 기존 LoRA 방식에 양자화 기법을 도입하여 메모리 사용량을 크게 줄이면서도 성능 손실을 최소화하는 방법입니다. 이를 통해 단일 GPU 환경에서도 대규모 모델을 효율적으로 학습할 수 있었습니다.
                     </p>
                     
-                    <p className="text-xs text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">QLoRA: Efficient Finetuning of Quantized LLMs</a>" (Dettmers et al., 2023)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">QLoRA: Efficient Finetuning of Quantized LLMs</a>" (Dettmers et al., 2023)</p>
                   </div>
                 </div>
                 
@@ -402,11 +402,11 @@ export default function KrxPredictionDetail() {
                       <p className="text-gray-700 text-sm">KRX-Bench의 5개 카테고리별로 특화된 데이터셋을 추가 구성하여 각 영역의 성능을 균형있게 향상시켰습니다. 이 접근법은 V2 모델의 Reading Comprehension 방법론과 V3의 QLoRA 최적화 기법을 결합한 것입니다.</p>
                     </div>
                     
-                    <p className="text-xs text-gray-900 mt-2">
+                    <p className="text-sm text-gray-900 mt-2">
                       <span className="font-medium">카테고리별 특화 학습</span>은 모델이 각 분야의 미묘한 차이를 더 잘 이해할 수 있게 해주었습니다. 특히 기존 모델이 상대적으로 약했던 재무회계와 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
                     </p>
                     
-                    <p className="text-xs text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Task-specific Fine-tuning of Large Language Models</a>" (Wei et al., 2022)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Task-specific Fine-tuning of Large Language Models</a>" (Wei et al., 2022)</p>
                   </div>
                 </div>
               </div>
