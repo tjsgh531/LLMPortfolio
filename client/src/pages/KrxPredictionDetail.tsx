@@ -112,12 +112,6 @@ export default function KrxPredictionDetail() {
                 <span className="mr-2 text-green-600">✅</span>
                 <span>데이터 수집부터 처리, 학습까지 모델 개발의 전 과정을 직접 설계하고 구현하면서 5개 금융 카테고리에서 균형 잡힌 성능을 보이는 모델을 개발해야 했습니다.</span>
               </li>
-              {project.challenges?.map((challenge, index) => (
-                <li key={index} className="text-gray-700 flex items-start">
-                  <span className="mr-2 text-green-600">✅</span>
-                  <span>{challenge}</span>
-                </li>
-              ))}
             </ul>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">모델 개발 과정</h2>
