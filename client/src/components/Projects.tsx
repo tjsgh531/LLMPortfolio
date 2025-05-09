@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
       title: "과학 질의 응답 챗봇 구현",
       description: "과학 지식에 특화된 질의응답 챗봇 시스템. 사용자의 과학 관련 질문에 정확하고 신뢰할 수 있는 답변을 제공합니다.",
       image: "/images/projects/document-summarizer.png",
-      technologies: ["Python", "OpenAI API", "FastAPI", "Vue.js"],
+      technologies: ["Python", "Elasticsearch", "Faiss", "GPT-4o", "FastAPI"],
       linkUrl: "/project/document-summarizer",
       githubUrl: "https://github.com/tjsgh531"
     }
