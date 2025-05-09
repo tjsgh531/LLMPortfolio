@@ -398,7 +398,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 생성에 KRX-Bench 논문에서 제안한 방식을 적용했습니다. RAG를 활용하여 비슷한 질문 데이터셋을 클러스터링한 후, 이를 기반으로 MCQA 합성 데이터를 생성했습니다. 특히 Quality Check 과정을 추가하여 데이터의 질을 크게 향상시켰으며, 이렇게 정제된 고품질 데이터셋을 V2 모델에 SFT 방식으로 학습시킨 결과 모든 영역에서 성능 향상을 이룰 수 있었습니다.
+                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 생성에 KRX-Bench 논문의 방법론을 적용했습니다. RAG를 활용해 의미적으로 유사한 질문들을 클러스터링하고, 각 클러스터 내에서 고품질 MCQA 문제를 합성했습니다. 특히 데이터 품질 관리를 위한 3단계 검증 프로세스(문법 오류 체크, 정답 일관성 검토, 난이도 균형화)를 도입했습니다. 이렇게 구축된 데이터셋으로 V2 모델을 학습한 결과, 재무회계 카테고리에서 8.2%, 금융시장 영역에서 7.5% 성능이 향상되었으며, 특히 복잡한 추론이 필요한 문제들에서 응답 정확도가 9.3% 개선되었습니다.
                     </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
