@@ -112,10 +112,11 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: 금융 도메인 특화 기본 모델</h4>
+                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: DAPT 적용 기본 모델</h4>
                     
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
+                      <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">기법: DAPT</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
@@ -156,7 +157,7 @@ export default function KrxPredictionDetail() {
                         </table>
                       </div>
                       <p className="text-xs text-gray-600 mt-2">
-                        <span className="font-medium">참고:</span> V1 모델은 금융시장 카테고리에서만 향상된 성능을 보였으며, 전반적으로는 base 모델보다 낮은 성능을 보였습니다. 이는 초기 적응 단계의 일반적인 현상으로, 이후 모델 버전에서 성능을 개선했습니다.
+                        <span className="font-medium">참고:</span> V1 모델은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
                       </p>
                     </div>
                     
@@ -164,13 +165,13 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">📍 학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">금융 용어 관련 대규모 데이터셋을 Qwen2-7B-Instruct 모델에 SFT 학습 및 DAPT/QLoRA 적용</p>
+                      <p className="text-gray-700 text-sm">단순 대량의 금융 도메인 데이터를 Qwen2-7B-Instruct 모델에 DAPT(Domain-Adaptive Pre-Training) 적용</p>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-2 mb-3">
                       <div className="bg-slate-50 p-2 rounded-md">
                         <div className="text-xs font-medium text-primary-700 mb-1">📍 데이터셋</div>
-                        <p className="text-gray-700 text-xs">AI Hub 금융 용어 합성 데이터셋 (14.44GB)</p>
+                        <p className="text-gray-700 text-xs">AI Hub 금융 용어 데이터셋 (Raw 형태)</p>
                       </div>
                       <div className="bg-slate-50 p-2 rounded-md">
                         <div className="text-xs font-medium text-primary-700 mb-1">📍 학습 시간</div>
@@ -182,17 +183,7 @@ export default function KrxPredictionDetail() {
                       </div>
                     </div>
                     
-                    <div className="mt-3 border-t border-gray-200 pt-3">
-                      <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
-                      <p className="text-gray-700 text-sm">
-                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
-                      </p>
-                      <p className="text-gray-700 text-sm mt-2">
-                        이렇게 생성된 데이터로 Continual Pre-training을 진행하여 모델이 금융 도메인의 용어와 개념을 자연스럽게 이해하고 설명할 수 있도록 했습니다. 실제로 대량의 Raw Data를 continual pretraining 했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시켰을 때 더 높은 성능을 얻을 수 있었습니다.
-                      </p>
-                    </div>
-                    
-                    <p className="text-xs text-gray-600 mt-3 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023), "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
+                    <p className="text-xs text-gray-600 mt-3 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
                   </div>
                 </div>
                 
@@ -235,8 +226,24 @@ export default function KrxPredictionDetail() {
                       </div>
                     </div>
                     
-                    <p className="text-gray-700 text-sm">V2 모델은 Adapting LLM 기법을 적용하여 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다.</p>
-                    <p className="text-xs text-gray-600 mt-2 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Fine-tuning Language Models from Human Preferences</a>" (Ziegler et al., 2019)</p>
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
+                      <div className="flex items-center mb-2">
+                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                      </div>
+                      <p className="text-gray-700 text-sm">Reading Comprehension 기반 QA 형태의 합성 데이터를 활용한 Supervised Fine-tuning</p>
+                    </div>
+                    
+                    <div className="mt-3 border-t border-gray-200 pt-3">
+                      <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
+                      <p className="text-gray-700 text-sm">
+                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
+                      </p>
+                      <p className="text-gray-700 text-sm mt-2">
+                        이렇게 생성된 데이터로 학습을 진행한 결과, 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다. 이는 대량의 Raw Data를 단순 pretraining 했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시켰을 때 더 높은 성능을 얻을 수 있다는 것을 증명합니다.
+                      </p>
+                    </div>
+                    
+                    <p className="text-xs text-gray-600 mt-3 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
                   </div>
                 </div>
                 
