@@ -90,7 +90,7 @@ const Projects: React.FC = () => {
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
                   <Link 
-                    href={project.linkUrl}
+                    to={project.linkUrl}
                     className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
                   >
                     <span>자세히 보기</span>
