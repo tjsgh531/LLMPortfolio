@@ -220,7 +220,7 @@ export default function KrxPredictionDetail() {
                       <span className="font-medium">V1 모델</span>은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
                     </p>
                     
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="https://arxiv.org/abs/2004.10964" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
                   </div>
                 </div>
                 
