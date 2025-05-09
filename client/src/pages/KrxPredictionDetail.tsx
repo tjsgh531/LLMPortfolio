@@ -307,12 +307,12 @@ export default function KrxPredictionDetail() {
                   </div>
                 </div>
                 
-                {/* 모델 3: QLoRA 적용 */}
+                {/* 모델 3: MCQA 합성 데이터 SFT 학습 */}
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-primary-800">V3: QLoRA 최적화 모델</h4>
+                      <h4 className="text-lg font-semibold text-primary-800">V3: MCQA 합성 데이터 SFT 모델</h4>
                       <a 
                         href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v3" 
                         target="_blank" 
@@ -326,7 +326,29 @@ export default function KrxPredictionDetail() {
                       </a>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">기법: QLoRA</span>
+                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
+                    </div>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">모델 스펙</h5>
+                      <div className="grid grid-cols-2 gap-2 mb-2">
+                        <div className="bg-slate-100 p-2 rounded-md">
+                          <div className="text-xs text-gray-500 mb-1">베이스 모델</div>
+                          <div className="text-sm font-medium">KR-X-AI/krx-qwen2-7b-instruct-v2</div>
+                        </div>
+                        <div className="bg-slate-100 p-2 rounded-md">
+                          <div className="text-xs text-gray-500 mb-1">학습 방법</div>
+                          <div className="text-sm font-medium">SFT</div>
+                        </div>
+                        <div className="bg-slate-100 p-2 rounded-md">
+                          <div className="text-xs text-gray-500 mb-1">학습 시간</div>
+                          <div className="text-sm font-medium">12분 32초</div>
+                        </div>
+                        <div className="bg-slate-100 p-2 rounded-md">
+                          <div className="text-xs text-gray-500 mb-1">하드웨어</div>
+                          <div className="text-sm font-medium">AMD 3960X RTX3090</div>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
@@ -375,14 +397,14 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">QLoRA(Quantized Low-Rank Adaptation)를 적용하여 제한된 컴퓨팅 환경에서도 효율적인 파라미터 최적화를 구현했습니다. 모델 매개변수의 크기를 줄이면서도 성능은 유지할 수 있는 양자화 기법을 활용했습니다.</p>
+                      <p className="text-gray-900 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-primary-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 방법론과 동일한 방식으로 MCQA 합성 데이터를 생성했습니다.</p>
                     </div>
                     
                     <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">QLoRA</span>는 기존 LoRA 방식에 양자화 기법을 도입하여 메모리 사용량을 크게 줄이면서도 성능 손실을 최소화하는 방법입니다. 이를 통해 단일 GPU 환경에서도 대규모 모델을 효율적으로 학습할 수 있었습니다.
+                      <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 방식은 모델이 여러 선택지 중에서 올바른 답을 고르는 능력을 향상시키는데 효과적입니다. 이 방식은 특히 금융 도메인의 벤치마크 평가에서 중요한 역할을 하며, 모델의 추론 능력을 체계적으로 평가할 수 있습니다.
                     </p>
                     
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">QLoRA: Efficient Finetuning of Quantized LLMs</a>" (Dettmers et al., 2023)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
                   </div>
                 </div>
                 
