@@ -159,22 +159,22 @@ export default function KrxPredictionDetail() {
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
                       <div className="flex items-center mb-2">
-                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                        <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
                       <p className="text-gray-700 text-sm">단순 대량의 금융 도메인 데이터를 Qwen2-7B-Instruct 모델에 DAPT(Domain-Adaptive Pre-Training) 적용</p>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-2 mb-3">
                       <div className="bg-slate-50 p-2 rounded-md">
-                        <div className="text-xs font-medium text-primary-700 mb-1">📍 데이터셋</div>
+                        <div className="text-xs font-medium text-primary-700 mb-1">데이터셋</div>
                         <p className="text-gray-700 text-xs">AI Hub 금융 용어 데이터셋 (Raw 형태)</p>
                       </div>
                       <div className="bg-slate-50 p-2 rounded-md">
-                        <div className="text-xs font-medium text-primary-700 mb-1">📍 학습 시간</div>
+                        <div className="text-xs font-medium text-primary-700 mb-1">학습 시간</div>
                         <p className="text-gray-700 text-xs">4시간 48분 12초</p>
                       </div>
                       <div className="bg-slate-50 p-2 rounded-md col-span-2">
-                        <div className="text-xs font-medium text-primary-700 mb-1">📍 하드웨어</div>
+                        <div className="text-xs font-medium text-primary-700 mb-1">하드웨어</div>
                         <p className="text-gray-700 text-xs">AMD 3960X RTX3090</p>
                       </div>
                     </div>
@@ -228,7 +228,7 @@ export default function KrxPredictionDetail() {
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
                       <div className="flex items-center mb-2">
-                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                        <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
                       <p className="text-gray-700 text-sm">Reading Comprehension 기반 QA 형태의 합성 데이터를 활용한 Supervised Fine-tuning</p>
                     </div>
@@ -288,7 +288,7 @@ export default function KrxPredictionDetail() {
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
                       <div className="flex items-center mb-2">
-                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                        <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
                       <p className="text-gray-700 text-sm">QLoRA(Quantized Low-Rank Adaptation)를 적용하여 제한된 컴퓨팅 환경에서도 효율적인 파라미터 최적화를 구현했습니다. 모델 매개변수의 크기를 줄이면서도 성능은 유지할 수 있는 양자화 기법을 활용했습니다.</p>
                     </div>
@@ -342,7 +342,7 @@ export default function KrxPredictionDetail() {
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
                       <div className="flex items-center mb-2">
-                        <span className="font-medium text-primary-700">📍 학습 방법</span>
+                        <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
                       <p className="text-gray-700 text-sm">KRX-Bench의 5개 카테고리별로 특화된 데이터셋을 추가 구성하여 각 영역의 성능을 균형있게 향상시켰습니다. 이 접근법은 V2 모델의 Reading Comprehension 방법론과 V3의 QLoRA 최적화 기법을 결합한 것입니다.</p>
                     </div>
