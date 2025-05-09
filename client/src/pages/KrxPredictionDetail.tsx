@@ -296,7 +296,10 @@ export default function KrxPredictionDetail() {
 
                     <div className="mt-3 border-t border-gray-200 pt-3">
                       <p className="text-gray-900 text-sm">
-                        <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했고, 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
+                        <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했습니다.
+                      </p>
+                      <p className="text-gray-900 text-sm mt-2">
+                        이 방식은 모든 카테고리에서 기준 모델 대비 성능 향상을 이끌어냈습니다. 특히 금융시장 분야에서 <span className="text-green-600 font-medium">35%</span>, 재무회계 분야에서 <span className="text-green-600 font-medium">26%</span>의 큰 성능 향상을 보였습니다. 단순히 대량의 도메인 텍스트를 학습하는 것보다 QA 형태로 변환하여 학습시키는 것이 특정 도메인에 대한 모델의 이해력을 크게 향상시킬 수 있음을 증명한 사례입니다.
                       </p>
                     </div>
                     
