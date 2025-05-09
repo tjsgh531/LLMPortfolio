@@ -222,97 +222,88 @@ export default function KrxPredictionDetail() {
                       </a>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
                       <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: Adapting LLM</span>
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100">
-                        <div className="flex items-center mb-2">
-                          <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
-                          <h5 className="text-sm font-medium text-primary-700">모델 스펙</h5>
-                        </div>
-                        <div className="space-y-2 text-sm">
-                          <div className="flex items-start">
-                            <span className="text-primary-800 font-medium inline-block w-24">Base 모델:</span>
-                            <span className="text-gray-700">Qwen/Qwen2-7B-Instruct</span>
-                          </div>
-                          <div className="flex items-start">
-                            <span className="text-primary-800 font-medium inline-block w-24">학습 방법:</span>
-                            <span className="text-gray-700">Adapting LLM, QLoRA</span>
-                          </div>
-                          <div className="flex items-start">
-                            <span className="text-primary-800 font-medium inline-block w-24">데이터셋:</span>
-                            <span className="text-gray-700">금융 용어 데이터셋</span>
-                          </div>
-                          <div className="flex items-start">
-                            <span className="text-primary-800 font-medium inline-block w-24">학습 시간:</span>
-                            <span className="text-gray-700">29min 16sec</span>
-                          </div>
-                          <div className="flex items-start">
-                            <span className="text-primary-800 font-medium inline-block w-24">하드웨어:</span>
-                            <span className="text-gray-700">AMD 3960X RTX3090</span>
-                          </div>
+                    <div className="bg-slate-50 p-3 rounded-md mb-3">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
+                      <div className="bg-blue-50 p-2 rounded-md text-center mb-3">
+                        <div className="text-xs text-gray-500 mb-1">전체 평균</div>
+                        <div className="text-sm font-medium text-blue-700">
+                          0.44 → 0.50 <span className="text-green-600">(+14%)</span>
                         </div>
                       </div>
-                      
-                      <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100">
-                        <div className="flex items-center mb-2">
-                          <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
-                          <h5 className="text-sm font-medium text-primary-700">성능 지표 비교</h5>
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">국내기업</div>
+                          <div className="text-sm font-medium text-blue-700">
+                            0.51 → 0.61 <span className="text-green-600">(+20%)</span>
+                          </div>
                         </div>
-                        <div className="bg-blue-50 p-2 rounded-md text-center mb-3">
-                          <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                          <div className="text-sm font-medium text-blue-700">0.44 → 0.50 <span className="text-green-600">(+14%)</span></div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">재무회계</div>
+                          <div className="text-sm font-medium text-blue-700">
+                            0.27 → 0.34 <span className="text-green-600">(+26%)</span>
+                          </div>
                         </div>
-                        <div className="grid grid-cols-3 gap-2 mb-2">
-                          <div className="bg-blue-50 p-2 rounded-md text-center">
-                            <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                            <div className="text-sm font-medium text-blue-700">0.51 → 0.61 <span className="text-green-600">(+20%)</span></div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">주가예측</div>
+                          <div className="text-sm font-medium text-blue-700">
+                            0.54 → 0.55 <span className="text-green-600">(+2%)</span>
                           </div>
-                          <div className="bg-blue-50 p-2 rounded-md text-center">
-                            <div className="text-xs text-gray-500 mb-1">재무회계</div>
-                            <div className="text-sm font-medium text-blue-700">0.27 → 0.34 <span className="text-green-600">(+26%)</span></div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
+                          <div className="text-sm font-medium text-blue-700">
+                            0.62 → 0.66 <span className="text-green-600">(+6%)</span>
                           </div>
-                          <div className="bg-blue-50 p-2 rounded-md text-center">
-                            <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                            <div className="text-sm font-medium text-blue-700">0.54 → 0.55 <span className="text-green-600">(+2%)</span></div>
-                          </div>
-                          <div className="bg-blue-50 p-2 rounded-md text-center">
-                            <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                            <div className="text-sm font-medium text-blue-700">0.62 → 0.66 <span className="text-green-600">(+6%)</span></div>
-                          </div>
-                          <div className="bg-blue-50 p-2 rounded-md text-center">
-                            <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                            <div className="text-sm font-medium text-blue-700">0.26 → 0.35 <span className="text-green-600">(+35%)</span></div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융시장</div>
+                          <div className="text-sm font-medium text-blue-700">
+                            0.26 → 0.35 <span className="text-green-600">(+35%)</span>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100 mb-4">
-                      <div className="flex items-center mb-3">
-                        <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
-                        <h5 className="text-sm font-medium text-primary-700">데이터셋 생성 및 학습 방법</h5>
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
+                      <div className="flex items-center mb-2">
+                        <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      
-                      <div className="mb-3">
-                        <h6 className="font-medium text-sm text-primary-800 mb-2">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성</h6>
-                        <p className="text-gray-900 text-sm">
-                          기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
-                        </p>
-                      </div>
-                      
-                      <div className="mb-3">
-                        <h6 className="font-medium text-sm text-primary-800 mb-2">Adapting LLM 적용 효과</h6>
-                        <p className="text-gray-900 text-sm">
-                          이렇게 생성된 데이터로 Adapting LLM을 진행한 결과, 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다. 이는 대량의 Raw Data를 단순 도메인 적응했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식의 Adapting LLM을 적용했을 때 더 높은 성능을 얻을 수 있다는 것을 증명합니다.
-                        </p>
-                      </div>
-                      
-                      <div className="text-xs text-gray-600 mt-2 italic border-t border-gray-100 pt-2">
-                        참고 논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)
+                      <p className="text-gray-700 text-sm">Reading Comprehension 기반 QA 형태의 합성 데이터를 활용한 Adapting LLM</p>
+                    </div>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">학습 환경</h5>
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">데이터셋:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">금융 용어 데이터셋</span>
+                        </div>
+                        <div className="flex items-center mr-3">
+                          <span className="text-gray-500 text-xs">학습 시간:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">29min 16sec</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-gray-500 text-xs">하드웨어:</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">AMD 3960X RTX3090</span>
+                        </div>
                       </div>
                     </div>
+                    
+                    <div className="mt-3 border-t border-gray-200 pt-3">
+                      <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
+                      <p className="text-gray-700 text-sm">
+                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
+                      </p>
+                      <p className="text-gray-700 text-sm mt-2">
+                        이렇게 생성된 데이터로 Adapting LLM을 진행한 결과, 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다. 이는 대량의 Raw Data를 단순 도메인 적응했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식의 Adapting LLM을 적용했을 때 더 높은 성능을 얻을 수 있다는 것을 증명합니다.
+                      </p>
+                    </div>
+                    
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
                   </div>
                 </div>
                 
@@ -342,28 +333,40 @@ export default function KrxPredictionDetail() {
                       <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
                       <div className="bg-green-50 p-2 rounded-md text-center mb-3">
                         <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                        <div className="text-sm font-medium text-green-700">0.44 → 0.48 (+8%)</div>
+                        <div className="text-sm font-medium text-green-700">
+                          0.44 → 0.48 <span className="text-green-600">(+8%)</span>
+                        </div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
                         <div className="bg-green-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                          <div className="text-sm font-medium text-green-700">0.51 → 0.55 (+8%)</div>
+                          <div className="text-sm font-medium text-green-700">
+                            0.51 → 0.55 <span className="text-green-600">(+8%)</span>
+                          </div>
                         </div>
                         <div className="bg-green-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">재무회계</div>
-                          <div className="text-sm font-medium text-green-700">0.27 → 0.30 (+11%)</div>
+                          <div className="text-sm font-medium text-green-700">
+                            0.27 → 0.30 <span className="text-green-600">(+11%)</span>
+                          </div>
                         </div>
                         <div className="bg-green-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                          <div className="text-sm font-medium text-green-700">0.54 → 0.58 (+7%)</div>
+                          <div className="text-sm font-medium text-green-700">
+                            0.54 → 0.58 <span className="text-green-600">(+7%)</span>
+                          </div>
                         </div>
                         <div className="bg-green-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                          <div className="text-sm font-medium text-green-700">0.62 → 0.65 (+5%)</div>
+                          <div className="text-sm font-medium text-green-700">
+                            0.62 → 0.65 <span className="text-green-600">(+5%)</span>
+                          </div>
                         </div>
                         <div className="bg-green-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                          <div className="text-sm font-medium text-green-700">0.26 → 0.29 (+10%)</div>
+                          <div className="text-sm font-medium text-green-700">
+                            0.26 → 0.29 <span className="text-green-600">(+10%)</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -409,28 +412,40 @@ export default function KrxPredictionDetail() {
                       <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
                       <div className="bg-purple-50 p-2 rounded-md text-center mb-3">
                         <div className="text-xs text-gray-500 mb-1">전체 평균</div>
-                        <div className="text-sm font-medium text-purple-700">0.44 → 0.48 (+10%)</div>
+                        <div className="text-sm font-medium text-purple-700">
+                          0.44 → 0.48 <span className="text-green-600">(+10%)</span>
+                        </div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
                         <div className="bg-purple-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">국내기업</div>
-                          <div className="text-sm font-medium text-purple-700">0.51 → 0.56 (+9%)</div>
+                          <div className="text-sm font-medium text-purple-700">
+                            0.51 → 0.56 <span className="text-green-600">(+9%)</span>
+                          </div>
                         </div>
                         <div className="bg-purple-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">재무회계</div>
-                          <div className="text-sm font-medium text-purple-700">0.27 → 0.30 (+12%)</div>
+                          <div className="text-sm font-medium text-purple-700">
+                            0.27 → 0.30 <span className="text-green-600">(+12%)</span>
+                          </div>
                         </div>
                         <div className="bg-purple-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융시장</div>
-                          <div className="text-sm font-medium text-purple-700">0.26 → 0.30 (+14%)</div>
+                          <div className="text-sm font-medium text-purple-700">
+                            0.26 → 0.30 <span className="text-green-600">(+14%)</span>
+                          </div>
                         </div>
                         <div className="bg-purple-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
-                          <div className="text-sm font-medium text-purple-700">0.54 → 0.59 (+9%)</div>
+                          <div className="text-sm font-medium text-purple-700">
+                            0.54 → 0.59 <span className="text-green-600">(+9%)</span>
+                          </div>
                         </div>
                         <div className="bg-purple-50 p-2 rounded-md text-center">
                           <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
-                          <div className="text-sm font-medium text-purple-700">0.62 → 0.67 (+8%)</div>
+                          <div className="text-sm font-medium text-purple-700">
+                            0.62 → 0.67 <span className="text-green-600">(+8%)</span>
+                          </div>
                         </div>
                       </div>
                     </div>
