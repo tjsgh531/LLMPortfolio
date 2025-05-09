@@ -380,7 +380,7 @@ export default function KrxPredictionDetail() {
                       <p className="text-gray-700 text-sm">V2 모델에 다지선다형(MCQA) 합성 데이터셋을 SFT 방식으로 학습하였습니다. <a href="https://huggingface.co/datasets/Cartinoe5930/raw_text_synthetic_dataset_50k" className="text-emerald-600 hover:underline">Hugging Face 데이터셋</a>을 활용하여 KRX-Bench 논문에서 제시한 RAG 기반 방법론으로 MCQA 합성 데이터를 생성했습니다. 비슷한 질문 데이터셋을 클러스터링한 후 Quality Check 과정을 통해 데이터의 질을 크게 향상시켰습니다.</p>
                     </div>
                     
-                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-emerald-200">
+                    <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
                       <h5 className="text-sm font-medium text-emerald-700 mb-2">학습 환경</h5>
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center mr-3">
@@ -402,7 +402,7 @@ export default function KrxPredictionDetail() {
                       <span className="font-medium">MCQA(Multiple Choice Question Answering)</span> 생성에 KRX-Bench 논문의 방법론을 적용했습니다. RAG를 활용해 의미적으로 유사한 질문들을 클러스터링하고, 각 클러스터 내에서 고품질 MCQA 문제를 합성했습니다. 데이터 품질 관리를 위한 3단계 검증 프로세스(문법 오류 체크, 정답 일관성 검토, 난이도 균형화)를 도입했습니다. 이렇게 구축된 데이터셋으로 V2 모델을 학습한 결과, 재무회계 카테고리에서 <span className="text-green-600 font-medium">8.2%</span>, 금융시장 영역에서 <span className="text-green-600 font-medium">7.5%</span> 성능이 향상되었습니다.
                     </p>
                     
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-emerald-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">KRX-Bench: Automating Financial Benchmark Creation via Large Language Models</a>" (2023)</p>
                   </div>
                 </div>
                 
