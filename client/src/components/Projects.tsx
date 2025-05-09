@@ -65,9 +65,7 @@ const Projects: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card 
-                className="project-card overflow-hidden h-full flex flex-col transition-all hover:shadow-lg"
-              >
+              <div className="project-card overflow-hidden h-full flex flex-col rounded-lg border bg-card text-card-foreground shadow transition-all hover:shadow-lg">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -75,10 +73,10 @@ const Projects: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardHeader className="pb-2">
+                <div className="flex flex-col space-y-1.5 p-6 pb-2">
                   <h3 className="font-heading font-semibold text-xl text-primary-900">{project.title}</h3>
-                </CardHeader>
-                <CardContent className="flex-grow">
+                </div>
+                <div className="p-6 pt-0 flex-grow">
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
@@ -87,26 +85,25 @@ const Projects: React.FC = () => {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-                <CardFooter className="flex justify-between items-center">
-                  <Link 
-                    to={project.linkUrl}
+                </div>
+                <div className="flex items-center p-6 pt-0 justify-between">
+                  <a 
+                    href={project.linkUrl} 
                     className="text-primary-500 hover:text-primary-700 font-medium flex items-center"
                   >
                     <span>자세히 보기</span>
                     <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  </a>
                   <a 
                     href={project.githubUrl} 
                     className="text-gray-600 hover:text-gray-800" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()} // 이벤트 버블링 방지
                   >
                     <SiGithub className="h-5 w-5" />
                   </a>
-                </CardFooter>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
