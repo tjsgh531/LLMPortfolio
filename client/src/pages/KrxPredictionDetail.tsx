@@ -293,15 +293,10 @@ export default function KrxPredictionDetail() {
                       </div>
                     </div>
                     
-                    <div className="mt-3 border-t border-gray-200 pt-3">
-                      <h5 className="font-medium text-sm text-primary-800 mb-2">데이터셋 생성 과정</h5>
-                      <p className="text-gray-700 text-sm">
-                        <span className="font-medium">읽기 이해(Reading Comprehension) 기반 합성 데이터 생성:</span> 기획재정부 금융 용어집(941KB)에서 전문 용어와 설명이 담긴 Raw Text를 수집한 후, GPT-4o를 활용하여 다양한 형태의 질의응답(QA) 데이터로 변환했습니다. 이 과정에서 하나의 금융 개념에 대해 여러 각도에서 질문하는 방식으로 약 85,000개의 풍부한 합성 데이터셋을 구축했습니다.
-                      </p>
-                      <p className="text-gray-700 text-sm mt-2">
-                        이렇게 생성된 데이터로 Adapting LLM을 진행한 결과, 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다. 이는 대량의 Raw Data를 단순 도메인 적응했을 때보다 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식의 Adapting LLM을 적용했을 때 더 높은 성능을 얻을 수 있다는 것을 증명합니다.
-                      </p>
-                    </div>
+
+                    <p className="text-sm text-gray-900 mt-2">
+                      <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했고, 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
+                    </p>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
                   </div>
