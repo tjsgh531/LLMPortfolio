@@ -511,12 +511,14 @@ export default function KrxPredictionDetail() {
             </div>
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">기술 스택</h2>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {project.technologies.map((tech) => (
-                <span key={tech} className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">
-                  {tech}
-                </span>
-              ))}
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
             
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
