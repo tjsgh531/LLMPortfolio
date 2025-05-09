@@ -294,9 +294,11 @@ export default function KrxPredictionDetail() {
                     </div>
                     
 
-                    <p className="text-sm text-gray-900 mt-2">
-                      <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했고, 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
-                    </p>
+                    <div className="mt-3 border-t border-gray-200 pt-3">
+                      <p className="text-gray-900 text-sm">
+                        <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했고, 금융시장 분야에서 가장 큰 성능 향상을 보였습니다.
+                      </p>
+                    </div>
                     
                     <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
                   </div>
