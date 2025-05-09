@@ -104,7 +104,7 @@ export default function KrxPredictionDetail() {
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">모델 개발 과정</h2>
             <div className="mb-8">
               <p className="text-gray-700 mb-4">
-                우리 팀은 KRX-Bench 평가 기준의 총 6개 카테고리(전체 평균, 국가기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 균형 잡힌 고성능을 보이는 모델을 개발하기 위해 단계적인 모델 고도화를 진행했습니다. Qwen2-7B-Instruct 기반 모델을 시작점으로, V1부터 V4_m까지 총 4단계의 발전 과정을 거치며 각 카테고리별 성능을 지속적으로 향상시켰습니다.
+                우리 팀은 KRX-Bench 평가 기준의 총 5개 카테고리(국내기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 균형 잡힌 고성능을 보이는 모델을 개발하기 위해 단계적인 모델 고도화를 진행했습니다. 각 평가에서는 5개 카테고리의 평균 점수인 '전체 평균'도 함께 측정됩니다. Qwen2-7B-Instruct 기반 모델을 시작점으로, V1부터 V4_m까지 총 4단계의 발전 과정을 거치며 각 카테고리별 성능을 지속적으로 향상시켰습니다.
               </p>
               
               <div className="relative my-8 space-y-8">
@@ -267,6 +267,14 @@ export default function KrxPredictionDetail() {
                           <div className="text-xs text-gray-500 mb-1">주가예측</div>
                           <div className="text-sm font-medium text-green-700">0.54 → 0.58 (+7%)</div>
                         </div>
+                        <div className="bg-green-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
+                          <div className="text-sm font-medium text-green-700">0.62 → 0.65 (+5%)</div>
+                        </div>
+                        <div className="bg-green-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융시장</div>
+                          <div className="text-sm font-medium text-green-700">0.26 → 0.29 (+10%)</div>
+                        </div>
                       </div>
                     </div>
                     
@@ -328,7 +336,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">📍 학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">KRX-Bench의 6개 카테고리별로 특화된 데이터셋을 추가 구성하여 각 영역의 성능을 균형있게 향상시켰습니다. 이 접근법은 V2 모델의 Reading Comprehension 방법론과 V3의 QLoRA 최적화 기법을 결합한 것입니다.</p>
+                      <p className="text-gray-700 text-sm">KRX-Bench의 5개 카테고리별로 특화된 데이터셋을 추가 구성하여 각 영역의 성능을 균형있게 향상시켰습니다. 이 접근법은 V2 모델의 Reading Comprehension 방법론과 V3의 QLoRA 최적화 기법을 결합한 것입니다.</p>
                     </div>
                     
                     <p className="text-xs text-gray-600 mt-2">
