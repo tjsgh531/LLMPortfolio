@@ -115,8 +115,49 @@ export default function KrxPredictionDetail() {
                     <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: 금융 도메인 특화 기본 모델</h4>
                     
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="bg-primary-200 text-primary-800 px-2 py-1 rounded-full text-xs">성능 지표: 기준점 설정</span>
                       <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
+                    </div>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
+                      <div className="overflow-auto">
+                        <table className="text-xs w-full border-collapse">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th className="border border-gray-300 p-1 text-left">모델</th>
+                              <th className="border border-gray-300 p-1 text-center">전체 평균</th>
+                              <th className="border border-gray-300 p-1 text-center">국내기업</th>
+                              <th className="border border-gray-300 p-1 text-center">재무회계</th>
+                              <th className="border border-gray-300 p-1 text-center">주가예측</th>
+                              <th className="border border-gray-300 p-1 text-center">금융에이전트</th>
+                              <th className="border border-gray-300 p-1 text-center">금융시장</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="border border-gray-300 p-1 font-medium">base_model</td>
+                              <td className="border border-gray-300 p-1 text-center">0.44</td>
+                              <td className="border border-gray-300 p-1 text-center">0.51</td>
+                              <td className="border border-gray-300 p-1 text-center">0.27</td>
+                              <td className="border border-gray-300 p-1 text-center">0.54</td>
+                              <td className="border border-gray-300 p-1 text-center">0.62</td>
+                              <td className="border border-gray-300 p-1 text-center">0.26</td>
+                            </tr>
+                            <tr className="bg-amber-50">
+                              <td className="border border-gray-300 p-1 font-medium">v1</td>
+                              <td className="border border-gray-300 p-1 text-center">0.39</td>
+                              <td className="border border-gray-300 p-1 text-center">0.38</td>
+                              <td className="border border-gray-300 p-1 text-center">0.27</td>
+                              <td className="border border-gray-300 p-1 text-center">0.50</td>
+                              <td className="border border-gray-300 p-1 text-center">0.47</td>
+                              <td className="border border-gray-300 p-1 text-center">0.31</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-xs text-gray-600 mt-2">
+                        <span className="font-medium">참고:</span> V1 모델은 금융시장 카테고리에서만 향상된 성능을 보였으며, 전반적으로는 base 모델보다 낮은 성능을 보였습니다. 이는 초기 적응 단계의 일반적인 현상으로, 이후 모델 버전에서 성능을 개선했습니다.
+                      </p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
@@ -159,12 +200,42 @@ export default function KrxPredictionDetail() {
                 <div className="relative">
                   <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V2: SFT 적용 모델</h4>
+                    <h4 className="text-lg font-semibold text-primary-800 mb-2">V2: Adapting LLM 모델</h4>
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-primary-200 text-primary-800 px-2 py-1 rounded-full text-xs">성능 향상: +15%</span>
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
+                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">기법: Adapting LLM</span>
                     </div>
-                    <p className="text-gray-700 text-sm">금융 전문가 답변 데이터셋을 활용한 SFT(Supervised Fine-Tuning)를 적용하여 모델의 금융 지식 응답 능력을 향상시켰습니다.</p>
+                    
+                    <div className="bg-slate-50 p-3 rounded-md mb-3">
+                      <h5 className="text-sm font-medium text-primary-700 mb-2">성능 향상</h5>
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">전체 평균</div>
+                          <div className="text-sm font-medium text-blue-700">0.50 (+14%)</div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">국내기업</div>
+                          <div className="text-sm font-medium text-blue-700">0.61 (+20%)</div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">재무회계</div>
+                          <div className="text-sm font-medium text-blue-700">0.34 (+26%)</div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">주가예측</div>
+                          <div className="text-sm font-medium text-blue-700">0.55 (+2%)</div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
+                          <div className="text-sm font-medium text-blue-700">0.66 (+6%)</div>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융시장</div>
+                          <div className="text-sm font-medium text-blue-700">0.35 (+35%)</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-700 text-sm">V2 모델은 Adapting LLM 기법을 적용하여 모든 카테고리에서 기준 모델 대비 성능이 향상되었습니다. 특히 금융시장 카테고리에서 35%, 재무회계 분야에서 26%의 놀라운 성능 향상을 보였습니다.</p>
                     <p className="text-xs text-gray-600 mt-2 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Fine-tuning Language Models from Human Preferences</a>" (Ziegler et al., 2019)</p>
                   </div>
                 </div>
