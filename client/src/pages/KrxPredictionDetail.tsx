@@ -100,6 +100,26 @@ export default function KrxPredictionDetail() {
             
             <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">기술적 도전과제</h2>
             <ul className="mb-8 space-y-2">
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>모델이 금융 전문 용어를 이해하고 처리할 수 있도록 도메인 특화 학습이 필요했습니다.</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>학습 과정에서 Catastrophic forgetting(재앙적 망각) 현상을 회피하면서 모델의 기존 지식을 유지해야 했습니다.</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>제한된 컴퓨팅 리소스(RTX3090 한 대)에서 효율적인 학습 전략을 고안해야 했습니다.</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>데이터 수집부터 처리, 학습까지 모델 학습의 전 과정을 직접 설계하고 구현해야 했습니다.</span>
+              </li>
+              <li className="text-gray-700 flex items-start">
+                <span className="mr-2 text-green-600">✅</span>
+                <span>다양한 금융 도메인(국내기업, 재무회계, 주가예측, 금융에이전트, 금융시장)에서 균형 잡힌 성능을 보이는 모델을 개발해야 했습니다.</span>
+              </li>
               {project.challenges?.map((challenge, index) => (
                 <li key={index} className="text-gray-700 flex items-start">
                   <span className="mr-2 text-green-600">✅</span>
