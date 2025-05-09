@@ -114,7 +114,7 @@ export default function KrxPredictionDetail() {
                   <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
                     <h4 className="text-lg font-semibold text-primary-800 mb-2">V1: DAPT 적용 기본 모델</h4>
                     
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
                       <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">기법: DAPT</span>
                     </div>
@@ -156,9 +156,6 @@ export default function KrxPredictionDetail() {
                           </tbody>
                         </table>
                       </div>
-                      <p className="text-xs text-gray-600 mt-2">
-                        <span className="font-medium">참고:</span> V1 모델은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
-                      </p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-primary-300">
@@ -182,6 +179,10 @@ export default function KrxPredictionDetail() {
                         <p className="text-gray-700 text-xs">AMD 3960X RTX3090</p>
                       </div>
                     </div>
+                    
+                    <p className="text-xs text-gray-600 mt-2">
+                      <span className="font-medium">참고:</span> V1 모델은 단순 DAPT(Domain-Adaptive Pre-Training) 접근법을 사용했으며, 금융시장 카테고리에서만 약간의 성능 향상을 보였습니다. 전반적으로는 base 모델보다 낮은 성능을 보여, 단순 대량의 데이터를 DAPT 하는 방식은 성능 향상에 오히려 부정적임을 확인했습니다.
+                    </p>
                     
                     <p className="text-xs text-gray-600 mt-3 italic">참고 논문: "<a href="#" className="text-primary-600 hover:underline">Don't Stop Pretraining: Adapt Language Models to Domains and Tasks</a>" (Gururangan et al., 2020)</p>
                   </div>
