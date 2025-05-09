@@ -279,7 +279,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">Reading Comprehension 기반 QA 형태의 합성 데이터를 활용한 Adapting LLM</p>
+                      <p className="text-gray-700 text-sm">QLoRA 적용하여 적응형 학습 방식으로 KRX-Bench 데이터셋에 최적화했으며, Reading Comprehension 전략을 사용하여 모델이 문서 정보를 바탕으로 질문에 답하는 방식을 학습</p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
@@ -287,11 +287,11 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">데이터셋:</span>
-                          <span className="text-gray-700 text-xs font-medium ml-1">금융 용어 데이터셋</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">KRX-Bench 데이터셋 (Reading Comprehension Format)</span>
                         </div>
                         <div className="flex items-center mr-3">
                           <span className="text-gray-500 text-xs">학습 시간:</span>
-                          <span className="text-gray-700 text-xs font-medium ml-1">29min 16sec</span>
+                          <span className="text-gray-700 text-xs font-medium ml-1">1시간 37분 45초</span>
                         </div>
                         <div className="flex items-center">
                           <span className="text-gray-500 text-xs">하드웨어:</span>
@@ -300,38 +300,30 @@ export default function KrxPredictionDetail() {
                       </div>
                     </div>
                     
-
-                    <div className="mt-3 border-t border-gray-200 pt-3">
-                      <p className="text-gray-900 text-sm">
-                        <span className="font-medium">Adapting LLM</span>은 QA형태로 변형해서 읽기 이해(Reading Comprehension)를 향상시키는 방식을 적용한 모델입니다. 기획재정부 금융 용어집에서 약 85,000개의 QA 데이터셋을 구축하여 학습했습니다.
-                      </p>
-                      <p className="text-gray-900 text-sm mt-2">
-                        이 방식은 모든 카테고리에서 기준 모델 대비 성능 향상을 이끌어냈습니다. 특히 금융시장 분야에서 <span className="text-green-600 font-medium">35%</span>, 재무회계 분야에서 <span className="text-green-600 font-medium">26%</span>의 큰 성능 향상을 보였습니다. 단순히 대량의 도메인 텍스트를 학습하는 것보다 QA 형태로 변환하여 학습시키는 것이 특정 도메인에 대한 모델의 이해력을 크게 향상시킬 수 있음을 증명한 사례입니다.
-                      </p>
-                    </div>
+                    <p className="text-sm text-gray-900 mt-2">
+                      <span className="font-medium">V2 모델</span>은 문제-해결 접근법을 취하여 모든 카테고리에서 성능 개선을 보였습니다. QLoRA(Quantized Low-Rank Adaptation)를 활용해 적은 파라미터만으로도 효율적인 학습이 가능했으며, 특히 국내기업과 금융시장 카테고리에서 높은 성능 향상을 이루었습니다.
+                    </p>
                     
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yuxian et al., 2023)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Language Models for Zero-shot Learning by Meta-tuning on Dataset and Prompt Collections</a>" (Wei et al., 2021)</p>
                   </div>
                 </div>
                 
-                {/* 모델 3: MCQA 합성 데이터 SFT 학습 */}
+                {/* 모델 3: MCQA */}
                 <div className="relative">
-                  <div className="absolute -left-8 top-0 w-4 h-4 bg-primary-500 rounded-full"></div>
-                  <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-primary-800">V3: MCQA 합성 데이터 SFT 모델</h4>
-                      <a 
-                        href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v3" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded transition-colors"
-                      >
-                        <svg className="w-4 h-4 mr-1" viewBox="0 0 512 512" fill="currentColor">
-                          <path d="M96 191.02v-144c0-8.8 7.2-16 16-16h144c4.2 0 8.3 1.7 11.3 4.7l176 176c6.2 6.2 6.2 16.4 0 22.6l-144 144c-6.2 6.2-16.4 6.2-22.6 0l-176-176c-3-3-4.7-7.1-4.7-11.3zm32 0v112.7L265.4 166.6 128 29.2V191z"></path>
-                        </svg>
-                        HuggingFace 모델
-                      </a>
-                    </div>
+                  <div className="absolute -left-8 top-0 w-4 h-4 bg-emerald-500 rounded-full"></div>
+                  <div className="bg-gradient-to-r from-emerald-50 to-white p-4 rounded-lg shadow-sm">
+                    <h4 className="text-lg font-semibold text-emerald-800 mb-2">V3: MCQA 최적화 모델</h4>
+                    <a 
+                      href="https://huggingface.co/KR-X-AI/krx-qwen2-7b-instruct-v3" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded transition-colors"
+                    >
+                      <svg className="w-4 h-4 mr-1" viewBox="0 0 512 512" fill="currentColor">
+                        <path d="M96 191.02v-144c0-8.8 7.2-16 16-16h144c4.2 0 8.3 1.7 11.3 4.7l176 176c6.2 6.2 6.2 16.4 0 22.6l-144 144c-6.2 6.2-16.4 6.2-22.6 0l-176-176c-3-3-4.7-7.1-4.7-11.3zm32 0v112.7L265.4 166.6 128 29.2V191z"></path>
+                      </svg>
+                      HuggingFace 모델
+                    </a>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">BASE: V2</span>
                       <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">기법: SFT</span>
@@ -507,41 +499,46 @@ export default function KrxPredictionDetail() {
                     </p>
                   </div>
                 </div>
+                
+                <div className="mt-8 bg-gradient-to-r from-primary-50 to-white p-4 rounded-lg border-l-4 border-primary-500">
+                  <h4 className="font-semibold text-primary-800 mb-2">대회 성적</h4>
+                  <p className="text-gray-700">
+                    위 모델 개발 과정을 통해 <span className="font-semibold">예선에서 171개 모델 중 3위</span>를 차지했으며, <span className="font-semibold">본선에서는 12위</span>를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.
+                  </p>
+                </div>
               </div>
-              
-              <div className="mt-8 bg-gradient-to-r from-primary-50 to-white p-4 rounded-lg border-l-4 border-primary-500">
-                <h4 className="font-semibold text-primary-800 mb-2">대회 성적</h4>
-                <p className="text-gray-700">
-                  위 모델 개발 과정을 통해 <span className="font-semibold">예선에서 171개 모델 중 3위</span>를 차지했으며, <span className="font-semibold">본선에서는 12위</span>를 기록했습니다. 이는 제한된 컴퓨팅 자원에서도 효율적인 학습 방법론이 얼마나 중요한지 보여주는 성과입니다.
-                </p>
-              </div>
+            </div>
+          </motion.div>
+        </div>
+        
+        <div className="lg:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white rounded-lg shadow-md p-6 sticky top-24"
+          >
+            <h3 className="font-heading text-xl font-semibold text-primary-800 mb-4">사용 기술</h3>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {project.technologies.map((tech) => (
+                <Badge key={tech} variant="outline" className="bg-primary-100 text-primary-700 hover:bg-primary-200">
+                  {tech}
+                </Badge>
+              ))}
             </div>
             
-            <h2 className="font-heading text-2xl font-semibold text-primary-800 mb-4">기술 스택</h2>
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-              <h3 className="font-heading text-xl font-semibold text-primary-800 mb-4">프로젝트 링크</h3>
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-md transition-colors w-full justify-center mb-2"
-              >
-                <svg className="mr-2 h-5 w-5" viewBox="0 0 496 512" fill="currentColor">
-                  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
-                </svg>
-                GitHub 저장소 방문하기
-              </a>
-            </div>
+            <h3 className="font-heading text-xl font-semibold text-primary-800 mb-4">프로젝트 링크</h3>
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-md transition-colors w-full justify-center mb-2"
+            >
+              <svg className="mr-2 h-5 w-5" viewBox="0 0 496 512" fill="currentColor">
+                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+              </svg>
+              GitHub 저장소 방문하기
+            </a>
           </motion.div>
         </div>
       </div>
