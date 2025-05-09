@@ -39,10 +39,10 @@ const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "자동 문서 요약기",
-      description: "T5 모델을 활용한 문서 자동 요약 시스템. 긴 문서를 핵심 내용만 담은 요약본으로 변환합니다.",
+      title: "과학 질의 응답 챗봇 구현",
+      description: "과학 지식에 특화된 질의응답 챗봇 시스템. 사용자의 과학 관련 질문에 정확하고 신뢰할 수 있는 답변을 제공합니다.",
       image: "/images/projects/document-summarizer.png",
-      technologies: ["Python", "PyTorch", "FastAPI", "Vue.js"],
+      technologies: ["Python", "OpenAI API", "FastAPI", "Vue.js"],
       linkUrl: "/project/document-summarizer",
       githubUrl: "https://github.com/tjsgh531"
     }
