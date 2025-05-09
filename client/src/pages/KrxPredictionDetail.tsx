@@ -318,7 +318,7 @@ export default function KrxPredictionDetail() {
                       <span className="font-medium">V2 모델</span>은 금융 용어 학습을 위해 기획재정부 금융 용어집(941KB) 데이터셋을 활용하여 Reading Comprehension 전략이 잘 담긴 QA 합성데이터를 생성하고 Adapting LLM 기법으로 학습을 진행했습니다. 이를 통해 모델이 금융 용어에 대한 이해도가 크게 향상되었으며, QLoRA(Quantized Low-Rank Adaptation)를 활용해 적은 파라미터만으로도 효율적인 학습이 가능했습니다. 그 결과 전체 평균 <span className="text-green-600 font-medium">14%</span>의 성능 향상을 달성했으며, 특히 국내기업 카테고리에서 <span className="text-green-600 font-medium">20%</span>, 금융시장 카테고리에서 <span className="text-green-600 font-medium">35%</span>의 높은 성능 향상을 이루었습니다.
                     </p>
                     
-                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="#" className="text-primary-600 hover:underline">Adapting Language Models for Zero-shot Learning by Meta-tuning on Dataset and Prompt Collections</a>" (Wei et al., 2021)</p>
+                    <p className="text-sm text-gray-700 mt-3 italic">논문: "<a href="https://arxiv.org/abs/2004.10964" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Adapting Large Language Models to Domains via Reading Comprehension</a>" (Yu et al., 2022)</p>
                   </div>
                 </div>
                 
