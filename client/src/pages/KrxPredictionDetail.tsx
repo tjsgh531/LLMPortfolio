@@ -128,8 +128,8 @@ export default function KrxPredictionDetail() {
                     </div>
                     
                     <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
-                      <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">기법: DAPT</span>
+                      <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs">BASE: Qwen2-7B-Instruct</span>
+                      <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs">기법: DAPT</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
@@ -429,6 +429,7 @@ export default function KrxPredictionDetail() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">기법: 카테고리별 학습</span>
+                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">베이스: krx-qwen2-7b-instruct-v3</span>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
