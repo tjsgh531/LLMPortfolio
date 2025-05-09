@@ -293,7 +293,7 @@ export default function KrxPredictionDetail() {
                       <div className="flex items-center mb-2">
                         <span className="font-medium text-primary-700">학습 방법</span>
                       </div>
-                      <p className="text-gray-700 text-sm">QLoRA 적용하여 적응형 학습 방식으로 KRX-Bench 데이터셋에 최적화했으며, Reading Comprehension 전략을 사용하여 모델이 문서 정보를 바탕으로 질문에 답하는 방식을 학습</p>
+                      <p className="text-gray-700 text-sm">QLoRA 적용하여 Adapting LLM 방식으로 학습을 진행했으며, Reading Comprehension 전략이 잘 담긴 QA 데이터셋을 활용해 모델이 문서 정보를 바탕으로 질문에 답하는 방식을 학습</p>
                     </div>
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3 border-l-2 border-slate-200">
