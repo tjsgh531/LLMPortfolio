@@ -121,40 +121,35 @@ export default function KrxPredictionDetail() {
                     
                     <div className="bg-slate-50 p-3 rounded-md mb-3">
                       <h5 className="text-sm font-medium text-primary-700 mb-2">성능 지표 비교</h5>
-                      <div className="overflow-auto">
-                        <table className="text-xs w-full border-collapse">
-                          <thead>
-                            <tr className="bg-gray-100">
-                              <th className="border border-gray-300 p-1 text-left">모델</th>
-                              <th className="border border-gray-300 p-1 text-center">전체 평균</th>
-                              <th className="border border-gray-300 p-1 text-center">국내기업</th>
-                              <th className="border border-gray-300 p-1 text-center">재무회계</th>
-                              <th className="border border-gray-300 p-1 text-center">주가예측</th>
-                              <th className="border border-gray-300 p-1 text-center">금융에이전트</th>
-                              <th className="border border-gray-300 p-1 text-center">금융시장</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td className="border border-gray-300 p-1 font-medium">base_model</td>
-                              <td className="border border-gray-300 p-1 text-center">0.44</td>
-                              <td className="border border-gray-300 p-1 text-center">0.51</td>
-                              <td className="border border-gray-300 p-1 text-center">0.27</td>
-                              <td className="border border-gray-300 p-1 text-center">0.54</td>
-                              <td className="border border-gray-300 p-1 text-center">0.62</td>
-                              <td className="border border-gray-300 p-1 text-center">0.26</td>
-                            </tr>
-                            <tr className="bg-amber-50">
-                              <td className="border border-gray-300 p-1 font-medium">v1</td>
-                              <td className="border border-gray-300 p-1 text-center">0.39</td>
-                              <td className="border border-gray-300 p-1 text-center">0.38</td>
-                              <td className="border border-gray-300 p-1 text-center">0.27</td>
-                              <td className="border border-gray-300 p-1 text-center">0.50</td>
-                              <td className="border border-gray-300 p-1 text-center">0.47</td>
-                              <td className="border border-gray-300 p-1 text-center">0.31</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                      <div className="bg-amber-50 p-2 rounded-md text-center mb-3">
+                        <div className="text-xs text-gray-500 mb-1">전체 평균 성능 변화</div>
+                        <div className="text-sm font-medium text-amber-700">0.39 (-11%)</div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        <div className="bg-amber-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">국내기업</div>
+                          <div className="text-sm font-medium text-amber-700">0.38 (-25%)</div>
+                        </div>
+                        <div className="bg-amber-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">재무회계</div>
+                          <div className="text-sm font-medium text-amber-700">0.27 (±0%)</div>
+                        </div>
+                        <div className="bg-amber-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">주가예측</div>
+                          <div className="text-sm font-medium text-amber-700">0.50 (-7%)</div>
+                        </div>
+                        <div className="bg-amber-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융에이전트</div>
+                          <div className="text-sm font-medium text-amber-700">0.47 (-24%)</div>
+                        </div>
+                        <div className="bg-amber-50 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">금융시장</div>
+                          <div className="text-sm font-medium text-amber-700">0.31 (+19%)</div>
+                        </div>
+                        <div className="bg-slate-100 p-2 rounded-md text-center">
+                          <div className="text-xs text-gray-500 mb-1">Base 모델 평균</div>
+                          <div className="text-sm font-medium text-slate-700">0.44</div>
+                        </div>
                       </div>
                     </div>
                     
