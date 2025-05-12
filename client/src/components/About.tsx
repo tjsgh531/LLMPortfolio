@@ -1,27 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Rocket, 
   Lightbulb, 
-  Users 
+  Users, 
+  ShieldCheck
 } from "lucide-react";
 
 const About: React.FC = () => {
   const strengths = [
     {
-      icon: <Rocket size={24} />,
-      title: "빠른 학습 능력",
-      description: "새로운 기술과 프레임워크를 빠르게 습득하고 적용합니다."
+      icon: <Users size={24} />,
+      title: "협업 역량",
+      description: "16개의 팀 프로젝트 참여하여 5개의 대회에서 수상한 경험이 있습니다."
+    },
+    {
+      icon: <ShieldCheck size={24} />,
+      title: "리더십",
+      description: "대학교 4년중 3년을 동아리 회장직을 수행하고 16개 팀프로젝트 중 9개를 팀장으로 참여하였습니다."
     },
     {
       icon: <Lightbulb size={24} />,
-      title: "문제 해결 중심",
-      description: "복잡한 문제를 분석하고 효율적인 해결책을 찾습니다."
-    },
-    {
-      icon: <Users size={24} />,
-      title: "협업 역량",
-      description: "다양한 팀원들과 효과적으로 소통하고 협력합니다."
+      title: "지식 공유",
+      description: "수학 학원 강사, 천문대 강사, 인공지능 멘토, IoT 메이커톤 멘토등 다양한 분야에서 멘토 경험이 있습니다."
     }
   ];
 
@@ -62,11 +62,10 @@ const About: React.FC = () => {
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
               제 관심사는 단순히 모델을 구현하는 것을 넘어 AI가 실제 사용자의 일상에 어떻게 더 가까이 다가갈 수 있는지에 있습니다. 
-              Transformer 아키텍처와 LLM 기반 시스템의 내부 작동 원리를 이해하고, 이를 응용하여 사용자 중심의 AI 애플리케이션을 개발하는 것이 목표입니다.
+              특히, RAG, LangChain, LangGraph, MCP 등의 기술을 적용하여 현실에서 마주하고 있는 문제를 인공지능으로 해결하려는 노력을 하고 있습니다.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              비록 신입이지만, 빠른 학습 능력과 문제 해결 방식을 통해 AI 생태계에 기여하고자 합니다. 
-              특히 RAG를 통한 정보 검색 강화, 모델의 효율적인 튜닝, 자율적으로 작동하는 AI 에이전트 개발에 관심을 두고 있습니다.
+              비록 신입이지만, 모든 팀에 녹아들 수 있는 협업 능력과 풍부한 경험에서 오는 리더십과 멘토링 능력을 통해 AI 기술을 빠르게 배우고 적용하면서도 팀원들과 소통할 수 있는 개발자 입니다.
             </p>
           </motion.div>
           

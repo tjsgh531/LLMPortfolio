@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <span className="text-primary-900 font-heading font-bold text-xl">LLM 개발자</span>
+            <span className="text-primary-900 font-heading font-bold text-xl">Sunho's Portfolio</span>
           </div>
           
           {/* Desktop Navigation */}

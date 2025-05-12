@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Router as WouterRouter, Switch, Route } from "wouter";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ProjectDetail from "@/pages/ProjectDetail";
@@ -19,7 +19,11 @@ function Router() {
 }
 
 function App() {
-  return <Router />;
+  return (
+    <WouterRouter base="/LLMPortfolio">
+      <Router />
+    </WouterRouter>
+  );
 }
 
 export default App;

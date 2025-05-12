@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Feather } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -17,6 +17,7 @@ interface ProjectData {
   image: string;
   technologies: string[];
   githubUrl: string;
+  blogUrl: string;
 }
 
 // 프로젝트 데이터 - 실제 프로젝트에 맞게 업데이트
@@ -41,11 +42,16 @@ const projectsData: Record<string, ProjectData> = {
     ],
     image: "/images/projects/ai-news-crawler.png",
     technologies: ["Python", "OpenAI API", "Selenium", "BeautifulSoup", "PostgreSQL"],
-    githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator"
+    githubUrl: "https://github.com/tjsgh531/AI_news_automatic_blog_generator",
+    blogUrl: "https://developerahjosea.tistory.com/category/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%B4%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94%20AI%EB%89%B4%EC%8A%A4"
   }
 };
 
 const ProjectDetail: React.FC = () => {
+  const base = import.meta.env.BASE_URL || "/";
+  const joinUrl = (base: string, path: string) =>
+    `${base.replace(/\/$/, "")}/${path.replace(/^\/+/, "")}`;
+
   const [location, setLocation] = useLocation();
   
   // URL에서 프로젝트 ID 추출
@@ -87,7 +93,7 @@ const ProjectDetail: React.FC = () => {
             
             <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
               <img
-                src={project.image}
+                src={joinUrl(base, project.image)}
                 alt={`${project.title} 스크린샷`}
                 className="w-full h-auto object-cover"
               />
@@ -160,7 +166,7 @@ const ProjectDetail: React.FC = () => {
                 <div className="md:w-2/5">
                   <div className="max-w-xs mx-auto w-full">
                     <img 
-                      src="data:image/png;base64,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"
+                      src={joinUrl(base, '/images/projects/architecture.png')}
                       alt="AI 뉴스 크롤러 시스템 아키텍처" 
                       className="w-full h-auto"
                     />
@@ -415,6 +421,15 @@ const ProjectDetail: React.FC = () => {
             >
               <SiGithub className="mr-2 h-5 w-5" />
               GitHub 저장소 방문하기
+            </a>
+            <a 
+              href={project.blogUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md transition-colors w-full justify-center mb-2"
+            >
+              <Feather className="mr-2 h-5 w-5" />
+              AI가 생성한 블로그 방문하기
             </a>
           </motion.div>
         </div>

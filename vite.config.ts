@@ -25,8 +25,10 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+
+  // ✅ 여기만 수정
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
 });

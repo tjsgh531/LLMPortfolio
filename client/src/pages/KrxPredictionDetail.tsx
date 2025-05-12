@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export default function KrxPredictionDetail() {
+  const base = import.meta.env.BASE_URL || "/";
+  const joinUrl = (base: string, path: string) =>
+    `${base.replace(/\/$/, "")}/${path.replace(/^\/+/, "")}`;
+
   const [location, setLocation] = useLocation();
   const project = {
     id: 2,
@@ -57,7 +61,7 @@ export default function KrxPredictionDetail() {
             
             <div className="mb-8">
               <img 
-                src={project.image} 
+                src={joinUrl(base, project.image)} 
                 alt={`${project.title} 결과 분석 그래프`}
                 className="w-full h-auto rounded-lg"
               />

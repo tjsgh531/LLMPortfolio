@@ -16,27 +16,35 @@ const Education: React.FC = () => {
   const educations: EducationType[] = [
     {
       id: 1,
-      title: "컴퓨터 공학 학사",
-      institution: "서울대학교",
-      period: "2019 - 2023",
-      description: "컴퓨터 과학 및 인공지능 분야에 중점을 둔 학사 과정을 이수했습니다. 데이터 구조, 알고리즘, 머신러닝, 자연어 처리 등의 과목을 수강했습니다.",
-      tags: ["자연어 처리", "머신러닝", "소프트웨어 엔지니어링"]
+      title: "항공우주 및 소프트웨어 공학과 졸업",
+      institution: "경상 국립 대학교",
+      period: "2018 - 2024",
+      description: "컴퓨터 과학 및 역학 분야에 중점을 둔 학사 과정을 이수했습니다. 다양한 컴퓨터 언어(C, Java, Python), 자료구조 및 알고리즘, 데이터 베이스, 컴퓨터 네트워크 등의 과목을 수강했습니다.",
+      tags: ["컴퓨터 과학", "운영체제커널", "데이터베이스", "자료구조"]
     },
     {
       id: 2,
-      title: "AI 개발자 부트캠프",
-      institution: "네이버 부스트캠프",
-      period: "2023",
-      description: "집중적인 AI 개발자 양성 프로그램을 통해 실무 중심의 AI 애플리케이션 개발 경험을 쌓았습니다. LLM을 활용한 실제 프로젝트를 팀 단위로 진행했습니다.",
-      tags: ["LLM 활용", "팀 프로젝트", "실무 경험"]
+      title: "데이터 사이언스 학과 졸업(복수 전공)",
+      institution: "USG 공유대학",
+      period: "2022 - 2024",
+      description: "데이터 수집과 분석 및 통계학에 중점을 둔 학사과정을 이수했습니다. 빅데이터 이해, 데이터 마이닝, 회귀 분석 등의 과목을 수강했습니다.",
+      tags: ["데이터 수집&분석", "회귀분석", "데이터 마이닝"]
     },
     {
       id: 3,
-      title: "Coursera 자연어 처리 전문화 과정",
-      institution: "DeepLearning.AI",
-      period: "2022",
-      description: "Andrew Ng 교수의 자연어 처리 전문화 과정을 이수하며 NLP의 기초부터 최신 Transformer 기반 모델까지 학습했습니다.",
-      tags: ["NLP", "Transformer", "온라인 학습"]
+      title: "NLP 학부 연구생",
+      institution: "Software Evolution and Architecture Lab",
+      period: "2023 - 2024",
+      description: "NLP 학부 연구생으로 참여하여 NLP 모델과 활용 분야를 연구하였습니다. 특히, Sentence Embedding과 Faiss를 활용하여 Github Issue 중복을 찾아낸 시스템을 개발하고 해당 시스템 기반으로 논문을 저술 하였습니다.",
+      tags: ["NLP", "Transformer", "Duplicate Bug Report Detection by Using Sentence Embedding and Faiss"]
+    },
+    {
+      id: 4,
+      title: "FastCampus Upstage AI Lab 3기",
+      institution: "FastCampus & Upstage",
+      period: "2024",
+      description: "FastCampus와 Upstage에서 주최한 AI 부트캠프에 참여하여 인공지능 전 분야의 핵심 기술들을 익히고 각 분야별 경진대회를 참여함으로써 실전 능력을 길렀습니다. 특히 NLP분야에서는 RAG를 활용한 ChatBot을 구현함으로써 실제 산업에서 요구하는 기술들을 익힐 수 있는 기회가 되었습니다.",
+      tags: ["AI 부트캠프", "ML", "CV", "NLP"]
     }
   ];
 

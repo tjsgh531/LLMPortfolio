@@ -7,7 +7,11 @@ import {
   BarChart, 
   Database,
   Terminal,
-  Cloud
+  Cloud,
+  Settings,
+  LayoutDashboard,
+  FlaskConical,
+  Search
 } from "lucide-react";
 import { 
   SiPython, 
@@ -17,7 +21,7 @@ import {
   SiReact, 
   SiGit, 
   SiDocker, 
-  SiHuggingface 
+  SiHuggingface,
 } from "react-icons/si";
 
 type SkillCategory = {
@@ -34,9 +38,8 @@ const Skills: React.FC = () => {
       title: "AI & 머신러닝",
       skills: [
         { name: "자연어 처리 (NLP)", icon: <Brain size={24} /> },
-        { name: "LLM 파인튜닝", icon: <Bot size={24} /> },
-        { name: "Transformers", icon: <Cog size={24} /> },
-        { name: "데이터 분석", icon: <BarChart size={24} /> }
+        { name: "LLM Post Training", icon: <Bot size={24} /> },
+        { name: "데이터 수집&분석", icon: <BarChart size={24} /> }
       ]
     },
     {
@@ -44,7 +47,6 @@ const Skills: React.FC = () => {
       skills: [
         { name: "Python", icon: <SiPython size={24} /> },
         { name: "JavaScript", icon: <SiJavascript size={24} /> },
-        { name: "TypeScript", icon: <SiTypescript size={24} /> },
         { name: "SQL", icon: <Database size={24} /> }
       ]
     },
@@ -52,18 +54,19 @@ const Skills: React.FC = () => {
       title: "프레임워크 & 라이브러리",
       skills: [
         { name: "PyTorch", icon: <SiPytorch size={24} /> },
-        { name: "React", icon: <SiReact size={24} /> },
-        { name: "Flask/FastAPI", icon: <Terminal size={24} /> },
-        { name: "Hugging Face", icon: <SiHuggingface size={24} /> }
+        { name: "Hugging Face", icon: <SiHuggingface size={24} /> },
+        { name: "Unsloth", icon: <Settings size={24} /> },
+        { name: "Streamlit", icon: <LayoutDashboard size={24} /> },
+        { name: "Selenium", icon: <Search size={24} /> },
+        { name: "WandB", icon: <FlaskConical size={24} /> },
       ]
     },
     {
       title: "개발 도구 & 환경",
       skills: [
         { name: "Git", icon: <SiGit size={24} /> },
-        { name: "Docker", icon: <SiDocker size={24} /> },
-        { name: "Linux/Unix", icon: <Terminal size={24} /> },
-        { name: "AWS/GCP", icon: <Cloud size={24} /> }
+        { name: "Linux", icon: <Terminal size={24} /> },
+        { name: "AWS", icon: <Cloud size={24} /> }
       ]
     }
   ];
