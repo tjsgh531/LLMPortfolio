@@ -58,13 +58,15 @@ import { Pool, neonConfig } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import ws from "ws";
 neonConfig.webSocketConstructor = ws;
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?"
-  );
+var pool = null;
+var db = null;
+if (process.env.NODE_ENV !== "development") {
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL must be set. Did you forget to provision a database?");
+  }
+  pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  db = drizzle({ client: pool, schema: schema_exports });
 }
-var pool = new Pool({ connectionString: process.env.DATABASE_URL });
-var db = drizzle({ client: pool, schema: schema_exports });
 
 // server/storage.ts
 import { eq, desc } from "drizzle-orm";
@@ -263,6 +265,15 @@ app.use((req, res, next) => {
   next();
 });
 (async () => {
+  const isDev = process.env.NODE_ENV === "development";
+  if (isDev) {
+    console.log("\u{1F6A7} Development mode: skipping database setup.");
+    process.env.DATABASE_URL = process.env.DATABASE_URL || "mock://no-db";
+  } else {
+    if (!process.env.DATABASE_URL) {
+      throw new Error("DATABASE_URL must be set.");
+    }
+  }
   const server = await registerRoutes(app);
   app.use((err, _req, res, _next) => {
     const status = err.status || err.statusCode || 500;
@@ -270,17 +281,13 @@ app.use((req, res, next) => {
     res.status(status).json({ message });
     throw err;
   });
-  if (app.get("env") === "development") {
+  if (isDev) {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
   const port = 5e3;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true
-  }, () => {
-    log(`serving on port ${port}`);
+  server.listen(port, "localhost", () => {
+    log(`\u2705 serving on http://localhost:${port}`);
   });
 })();
